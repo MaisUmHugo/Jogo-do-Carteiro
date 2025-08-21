@@ -44,8 +44,14 @@ TagManager:
   - name: Linhas
     uniqueID: 1065233613
     locked: 0
+  - name: Inimigos
+    uniqueID: 2524124549
+    locked: 0
   - name: Player
     uniqueID: 2635539573
+    locked: 0
+  - name: Mira
+    uniqueID: 377043309
     locked: 0
   m_RenderingLayers:
   - Default
