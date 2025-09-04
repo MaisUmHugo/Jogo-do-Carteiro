@@ -4,7 +4,7 @@ using UnityEngine.Windows;
 
 public class Mov : MonoBehaviour
 {
-    public LinhasController.Linhas linhaAtual = LinhasController.Linhas.L2; // começa no meio
+    public LanesController.Linhas linhaAtual = LanesController.Linhas.L2; // começa no meio
     private int indiceLinha;
 
     private INPUTS inputs;
@@ -90,14 +90,14 @@ public class Mov : MonoBehaviour
         if (novaLinha != indiceLinha)
         {
             indiceLinha = novaLinha;
-            linhaAtual = (LinhasController.Linhas)indiceLinha;
+            linhaAtual = (LanesController.Linhas)indiceLinha;
             AtualizarPosicao();
         }
     }
 
     private void AtualizarPosicao()
     {
-        Vector3 destino = LinhasController.instance.Posicao(linhaAtual);
+        Vector3 destino = LanesController.instance.Posicao(linhaAtual);
 
         if (isVerticalScrolling) // horizontal
         {

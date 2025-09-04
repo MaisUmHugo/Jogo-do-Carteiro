@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class LinhasController : MonoBehaviour
+public class LanesController : MonoBehaviour
 {
     public enum Linhas
     {
         L1, L2, L3, L4
     }
 
-    [Header("Linhas")]
+    [Header("Lanes")]
     public Transform[] linhas; // array de linhas no inspector
 
-    public static LinhasController instance { get; private set; }
+    public static LanesController instance { get; private set; }
 
     private void Awake()
     {
