@@ -100,7 +100,8 @@ GameObject:
   - component: {fileID: 2888126383662265466}
   - component: {fileID: 4748734222457754006}
   - component: {fileID: 3650597393286077402}
-  m_Layer: 8
+  - component: {fileID: 1868196326477802708}
+  m_Layer: 9
   m_Name: Carteiro
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -246,7 +247,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linhaAtual: 1
-  isVerticalScrolling: 1
+  isVerticalScrolling: 0
   podeMover: 1
 --- !u!114 &3650597393286077402
 MonoBehaviour:
@@ -261,8 +262,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabCaixa: {fileID: 6596183935556652839, guid: 31cc4adeada673c43b62d5c281b2a61b, type: 3}
-  pontoDisparo: {fileID: 8804935888859585432}
+  pontoLancamento: {fileID: 8804935888859585432}
   velocidadeCaixa: 30
+  delayLancamento: 0.5
+--- !u!114 &1868196326477802708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2258029726913759884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e904d6c9f2344454b81603e7cab16bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vidasIniciais: 3
+  vidasAtuais: 0
 --- !u!1 &8747392143363527779
 GameObject:
   m_ObjectHideFlags: 0

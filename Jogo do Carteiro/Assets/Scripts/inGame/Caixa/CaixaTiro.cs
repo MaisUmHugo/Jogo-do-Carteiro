@@ -5,16 +5,21 @@ public class CaixaTiro : MonoBehaviour
 {
     [Header("Configuração do Tiro")]
     public GameObject prefabCaixa; // Prefab da caixa
-    public Transform pontoDisparo; // De onde a caixa sai (pode ser a posição do jogador)
+    public Transform pontoLancamento; // De onde a caixa sai (pode ser a posição do jogador)
     public float velocidadeCaixa;
+    public float delayLancamento;
 
     private INPUTS inputs;
     private Camera cam;
+    private Mira mira;
+    private float tempoUltimoLancamento;
 
     private void Awake()
     {
         inputs = new INPUTS();
         cam = Camera.main;
+        mira = FindFirstObjectByType<Mira>();
+        if (pontoLancamento == null) pontoLancamento = transform;
     }
 
     private void OnEnable()
@@ -31,17 +36,20 @@ public class CaixaTiro : MonoBehaviour
 
     private void Atirar(InputAction.CallbackContext ctx)
     {
+        //Cooldown
+        if (Time.time < tempoUltimoLancamento + delayLancamento) return;
+
         // Garante que temos prefab e mira na cena
         if (prefabCaixa == null) return;
 
         // Pega posição da mira
-        Vector3 posMira = Object.FindFirstObjectByType<Mira>().transform.position;
+        Vector3 posMira = mira.transform.position;
 
         // Direção da caixa (da origem até a mira)
-        Vector3 direcao = (posMira - pontoDisparo.position).normalized;
+        Vector3 direcao = (posMira - pontoLancamento.position).normalized;
 
         // Instancia a caixa
-        GameObject novaCaixa = Instantiate(prefabCaixa, pontoDisparo.position, Quaternion.identity);
+        GameObject novaCaixa = Instantiate(prefabCaixa, pontoLancamento.position, Quaternion.identity);
 
         // Adiciona movimento
         Rigidbody2D rb = novaCaixa.GetComponent<Rigidbody2D>();
@@ -49,5 +57,7 @@ public class CaixaTiro : MonoBehaviour
         {
             rb.linearVelocity = direcao * velocidadeCaixa;
         }
+        //armazena o tempo do último lançamento
+        tempoUltimoLancamento = Time.time;
     }
 }
