@@ -46,24 +46,24 @@ public class Zumbi : Entregavel
     {
         if (jogador == null || atacando) return;
 
-        // --- Movimento horizontal (X) ---
+        
         // Zumbi anda na direção do player apenas no eixo X
         Vector3 direcao = (jogador.transform.position - transform.position).normalized;
         transform.position += new Vector3(direcao.x, 0, 0) * velocidade * Time.deltaTime;
 
-        // --- Movimento vertical (Y) ---
+        
         // Faz o zumbi perseguir a lane do jogador
         Vector3 posAlvoLane = LanesController.instance.Posicao(jogador.linhaAtual);
 
         float novoY = Mathf.MoveTowards(
             transform.position.y,
             posAlvoLane.y,
-            velocidade * Time.deltaTime // pode usar outra velocidade só para trocar lane
+            velocidadeTrocaLane * Time.deltaTime 
         );
 
         transform.position = new Vector3(transform.position.x, novoY, transform.position.z);
 
-        // --- Verifica se chegou na distância de ataque ---
+        // Verifica se chegou na distância de ataque
         if (Vector3.Distance(transform.position, jogador.transform.position) <= distanciaAtaque)
         {
             StartCoroutine(Ataque());

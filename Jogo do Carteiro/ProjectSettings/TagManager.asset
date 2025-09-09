@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - Zumbi
+  - Bebado
+  - PCasa
+  - PSeJoga
+  - MaoZumbi
+  - MAssustado
+  - Poste
   layers:
   - Default
   - TransparentFX
