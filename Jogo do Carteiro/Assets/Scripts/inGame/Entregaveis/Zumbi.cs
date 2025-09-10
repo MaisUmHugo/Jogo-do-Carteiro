@@ -3,10 +3,10 @@
 public class Zumbi : Entregavel
 {
     [Header("Configuração do Zumbi")]
-    public float velocidade; 
-    public float velocidadeTrocaLane; 
-    public float distanciaAtaque; 
-    public float tempoAtivoEntrega; 
+    public float velocidade;
+    public float velocidadeTrocaLane;
+    public float distanciaAtaque;
+    public float tempoAtivoEntrega;
 
     private Transform alvo; // referência ao jogador (pegamos pela tag)
     private bool atacando = false; // flag para controlar se já está atacando
@@ -46,19 +46,19 @@ public class Zumbi : Entregavel
     {
         if (jogador == null || atacando) return;
 
-        
+
         // Zumbi anda na direção do player apenas no eixo X
         Vector3 direcao = (jogador.transform.position - transform.position).normalized;
         transform.position += new Vector3(direcao.x, 0, 0) * velocidade * Time.deltaTime;
 
-        
+
         // Faz o zumbi perseguir a lane do jogador
         Vector3 posAlvoLane = LanesController.instance.Posicao(jogador.linhaAtual);
 
         float novoY = Mathf.MoveTowards(
             transform.position.y,
             posAlvoLane.y,
-            velocidadeTrocaLane * Time.deltaTime 
+            velocidadeTrocaLane * Time.deltaTime
         );
 
         transform.position = new Vector3(transform.position.x, novoY, transform.position.z);
@@ -86,6 +86,14 @@ public class Zumbi : Entregavel
             FalharEntrega();
             sr.color = corNormal;
             Destroy(gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (atacando && ativoParaEntrega && collision.CompareTag("Caixa"))
+        {
+            ReceberEntrega();
         }
     }
 

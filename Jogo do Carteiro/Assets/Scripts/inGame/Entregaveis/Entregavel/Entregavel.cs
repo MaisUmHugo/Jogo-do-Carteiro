@@ -25,4 +25,10 @@ public abstract class Entregavel : MonoBehaviour
 
         Debug.Log($"{gameObject.name} NÃO recebeu a entrega!");
     }
+
+    public virtual void PerderCombo()
+    {
+        // Reset Combo
+        ComboManager.instance.ResetarCombo();
+    }
 }

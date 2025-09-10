@@ -10,15 +10,19 @@ public class Caixa : MonoBehaviour
         Destroy(gameObject, tempoMaximo);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent<Entregavel>(out var entregavel))
+        // não interage com o player
+        if (collision.CompareTag("Player"))
+            return;
+
+        if (collision.TryGetComponent<Entregavel>(out var entregavel))
         {
             entregavel.ReceberEntrega();
         }
         else
         {
-            Debug.Log("Caixa perdida...");
+            Debug.Log(" Caixa perdida...");
             ComboManager.instance.ResetarCombo();
         }
 

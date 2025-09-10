@@ -1,17 +1,17 @@
-using System.Collections;
+ï»¿using System.Collections;
 using UnityEngine;
 
 public class Bebado : Entregavel
 {
-    [Header("Configuração do Bêbado")]
+    [Header("ConfiguraÃ§Ã£o do BÃªbado")]
     public float velocidade;
     public float trocaLaneIntervalo;
     public float velocidadeTrocaLane;
-    
 
     [Header("Entrega")]
     public float tempoAtivoEntrega = 3.5f;
     public float intervaloPiscar = 0.15f;
+    public float distanciaEntrega = 25f; // distancia minima pra pode entrega
 
     private Mov jogador;
     private float tempoUltimaTroca;
@@ -20,7 +20,9 @@ public class Bebado : Entregavel
 
     private Coroutine piscarRoutine;
     public Color corNormal = Color.white;
-    public Color corPiscar = Color.red;   
+    public Color corPiscar = Color.red;
+
+    private bool parado = false; // quando recebe entrega para de mexe
 
     private void Start()
     {
@@ -30,7 +32,7 @@ public class Bebado : Entregavel
 
         sr = GetComponent<SpriteRenderer>();
 
-        // começa em uma lane aleatória
+        // comeÃ§a em uma lane aleatÃ³ria
         int laneIndex = Random.Range(0, 4);
         minhaLane = (LanesController.Linhas)laneIndex;
         Vector3 pos = transform.position;
@@ -42,18 +44,18 @@ public class Bebado : Entregavel
 
     private void Update()
     {
-        if (jogador == null) return;
+        if (jogador == null || parado) return;
 
         transform.position += Vector3.left * velocidade * Time.deltaTime;
 
-        // fica alternando entre as lanes
+        // troca de lane aleatÃ³ria
         if (Time.time >= tempoUltimaTroca + trocaLaneIntervalo)
         {
             TrocarLaneAleatoria();
             tempoUltimaTroca = Time.time;
         }
 
-        // move até a nova lane
+        // move atÃ© a nova lane
         float novoY = Mathf.MoveTowards(
             transform.position.y,
             LanesController.instance.PosicaoY(minhaLane),
@@ -61,17 +63,19 @@ public class Bebado : Entregavel
         );
         transform.position = new Vector3(transform.position.x, novoY, transform.position.z);
 
-        // verifica se pode abrir janela de entrega
+        // ativa para receber a entrega
         if (!ativoParaEntrega && PodeReceberEntrega())
         {
-            AtivarEntrega();
+            ativoParaEntrega = true;
+            piscarRoutine = StartCoroutine(PiscarEnquantoAtivo());
         }
 
-        // se saiu da tela perde o combo e falha
+
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
         if (viewPos.x < -0.1f)
         {
-            FalharEntrega();
+            Debug.Log("Saiu da tela, perde o combo");
+            PerderCombo();
             Destroy(gameObject);
         }
     }
@@ -81,43 +85,25 @@ public class Bebado : Entregavel
         int novaLane;
         do
         {
-            novaLane = Random.Range(0, 4); // pega qualquer lane
-        } while (novaLane == (int)minhaLane); // garante que não repita a mesma
+            novaLane = Random.Range(0, 4);
+        } while (novaLane == (int)minhaLane);
 
         minhaLane = (LanesController.Linhas)novaLane;
     }
-    private IEnumerator JanelaEntrega()
-    {
-        ativoParaEntrega = true;
-        float tempo = 0f;
-
-        while (tempo < tempoAtivoEntrega)
-        {
-            sr.color = sr.color == corNormal ? corPiscar : corNormal;
-            yield return new WaitForSeconds(intervaloPiscar);
-            tempo += intervaloPiscar;
-
-            if (!ativoParaEntrega) // caso seja interrompido no meio
-            {
-                sr.color = corNormal;
-                yield break;
-            }
-        }
-
-        ativoParaEntrega = false;
-        sr.color = corNormal;
-        piscarRoutine = null;
-    }
-
 
     private bool PodeReceberEntrega()
     {
-        
-        bool mesmaLane = Mathf.Abs(jogador.transform.position.y - transform.position.y) < 0.1f;
-       
-        bool atras = jogador.transform.position.x < transform.position.x;
+        // precisa estar em outra lane
+        bool outraLane = jogador.linhaAtual != minhaLane;
 
-        return mesmaLane && atras;
+        // precisa ta perto o suficiente
+        float distancia = Vector3.Distance(transform.position, jogador.transform.position);
+        bool perto = distancia <= distanciaEntrega;
+
+        if (outraLane && perto)
+            Debug.Log($"âœ… Pode receber entrega! DistÃ¢ncia: {distancia}");
+
+        return outraLane && perto;
     }
 
 
@@ -128,39 +114,62 @@ public class Bebado : Entregavel
         if (PodeReceberEntrega())
         {
             ativoParaEntrega = false;
-            sr.color = corNormal;
+            parado = true; // para de andar
 
             if (piscarRoutine != null)
             {
                 StopCoroutine(piscarRoutine);
-                piscarRoutine = null;
+                sr.color = corNormal;
             }
 
             base.ReceberEntrega();
-            Debug.Log("Parabéns! Entregou.");
-            Destroy(gameObject);
+            Debug.Log("Pabens, se entregou fih");
+            
         }
         else
         {
-            Debug.Log("ENTREGA DE LADO JUMENTO! ...entrega de lado, frente não dá.");
+            Debug.Log("Tem que ser de lado JUMENTO!");
         }
+    }
+
+    private IEnumerator PiscarEnquantoAtivo()
+    {
+        int quantidadePiscos = 5; // muda aqui se quiser mais ou menos piscadas
+        for (int i = 0; i < quantidadePiscos; i++)
+        {
+            sr.color = corPiscar;
+            yield return new WaitForSeconds(intervaloPiscar);
+            sr.color = corNormal;
+            yield return new WaitForSeconds(intervaloPiscar);
+        }
+
+        sr.color = corNormal; // garante cor normal no final
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            // dano direto se colidir com o jogador
             FalharEntrega();
             Destroy(gameObject);
         }
-    }
+        else if (collision.CompareTag("Caixa") && ativoParaEntrega)
+        {
+            // calcula a direÃ§Ã£o relativa da colisÃ£o
+            Vector3 dir = collision.transform.position - transform.position;
 
-    public void AtivarEntrega()
-    {
-        if (piscarRoutine != null)
-            StopCoroutine(piscarRoutine);
-
-        piscarRoutine = StartCoroutine(JanelaEntrega());
+            // sÃ³ aceita se veio dos lados (E ou D)
+            if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+            {
+                ReceberEntrega();
+                Destroy(collision.gameObject); // destrÃ³i a caixa depois da entrega
+            }
+            else
+            {
+                Debug.Log("JOGA NO LADO JUMENTO!");
+                ComboManager.instance.ResetarCombo();
+                Destroy(collision.gameObject);
+            }
+        }
     }
 }
