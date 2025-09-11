@@ -21,6 +21,13 @@ public class Bebado : Entregavel
     private Coroutine piscarRoutine;
     public Color corNormal = Color.white;
     public Color corPiscar = Color.red;
+    //private bool jaPiscou = false;
+
+    // Travar o y do bebado quando recebe a entrega,
+    // para dar a sensação que ele parou quando recebe a entrega
+    private float yTravado;
+
+
 
     private bool parado = false; // quando recebe entrega para de mexe
 
@@ -44,35 +51,38 @@ public class Bebado : Entregavel
 
     private void Update()
     {
-        if (jogador == null || parado) return;
+        if (jogador == null) return;
 
-        // movimento e troca de lane
-        transform.position += Vector3.left * velocidade * Time.deltaTime;
-        if (Time.time >= tempoUltimaTroca + trocaLaneIntervalo)
+        if (!parado)
         {
-            TrocarLaneAleatoria();
-            tempoUltimaTroca = Time.time;
-        }
-        float novoY = Mathf.MoveTowards(
-            transform.position.y,
-            LanesController.instance.PosicaoY(minhaLane),
-            velocidadeTrocaLane * Time.deltaTime
-        );
-        transform.position = new Vector3(transform.position.x, novoY, transform.position.z);
+            // movimento normal (anda no X e troca de lane)
+            transform.position += Vector3.left * velocidade * Time.deltaTime;
 
-        // Aqui atualiza sempre a condição
-        if (!ativoParaEntrega)
-        {
-            if (PodeReceberEntrega())
+            if (Time.time >= tempoUltimaTroca + trocaLaneIntervalo)
             {
-                ativoParaEntrega = true;
-                piscarRoutine = StartCoroutine(PiscarEnquantoAtivo());
+                TrocarLaneAleatoria();
+                tempoUltimaTroca = Time.time;
             }
-        }
-        else
-        {
-            // se por acaso sair da condição, desativa
-            if (!PodeReceberEntrega())
+
+            float novoY = Mathf.MoveTowards(
+                transform.position.y,
+                LanesController.instance.PosicaoY(minhaLane),
+                velocidadeTrocaLane * Time.deltaTime
+            );
+
+            transform.position = new Vector3(transform.position.x, novoY, transform.position.z);
+
+            // verifica se pode receber entrega (só pisca uma vez)
+            if (!ativoParaEntrega)
+            {
+                if (PodeReceberEntrega())
+                {
+                    ativoParaEntrega = true;
+                    //jaPiscou = true;
+                    piscarRoutine = StartCoroutine(PiscarEnquantoAtivo());
+                }
+            }
+            else if (ativoParaEntrega && !PodeReceberEntrega())
             {
                 ativoParaEntrega = false;
 
@@ -85,13 +95,30 @@ public class Bebado : Entregavel
                 sr.color = corNormal;
             }
         }
+        else
+        {
+            // quando parado, só anda no eixo X, Y fica travado
+            transform.position = new Vector3(
+                transform.position.x + Vector3.left.x * velocidade * Time.deltaTime,
+                yTravado,
+                transform.position.z
+            );
+        }
 
         // saiu da tela
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
         if (viewPos.x < -0.1f)
         {
-            Debug.Log("Saiu da tela, perdeu o combo, sobrou nada para o betinha");
-            PerderCombo();
+            if (!parado) // saiu sem receber -> falha
+            {
+                Debug.Log("Saiu da tela sem entrega, sobrou nada para o beta");
+                PerderCombo();
+            }
+            else
+            {
+                Debug.Log("Saiu da tela após entrega, farmou aura");
+            }
+
             Destroy(gameObject);
         }
     }
@@ -132,6 +159,7 @@ public class Bebado : Entregavel
         {
             ativoParaEntrega = false;
             parado = true; // para de andar
+            yTravado = transform.position.y;
 
             if (piscarRoutine != null)
             {
@@ -144,7 +172,7 @@ public class Bebado : Entregavel
 
             // Agora ele vai sumir depois de um tempo
             
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
         else
         {

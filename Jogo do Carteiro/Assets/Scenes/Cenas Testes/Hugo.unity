@@ -1702,7 +1702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2166660927828198906, guid: fd2ed285d5f2eb647bb92e60686f81cb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6686041849626434730, guid: fd2ed285d5f2eb647bb92e60686f81cb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1743,6 +1743,10 @@ PrefabInstance:
     - target: {fileID: 6686041849626434730, guid: fd2ed285d5f2eb647bb92e60686f81cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7334191631347518513, guid: fd2ed285d5f2eb647bb92e60686f81cb, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1817,6 +1821,10 @@ PrefabInstance:
     - target: {fileID: 2871746574439256737, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
       propertyPath: m_Name
       value: Bebado
+      objectReference: {fileID: 0}
+    - target: {fileID: 2871746574439256737, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3582242115707068488, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
       propertyPath: m_Mass
