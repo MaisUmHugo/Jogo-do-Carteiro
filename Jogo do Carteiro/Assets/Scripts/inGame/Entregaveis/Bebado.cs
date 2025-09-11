@@ -11,7 +11,7 @@ public class Bebado : Entregavel
     [Header("Entrega")]
     public float tempoAtivoEntrega = 3.5f;
     public float intervaloPiscar = 0.15f;
-    public float distanciaEntrega = 25f; // distancia minima pra pode entrega
+    public float distanciaEntrega = 50f; // distancia minima pra pode entrega
 
     private Mov jogador;
     private float tempoUltimaTroca;
@@ -143,7 +143,8 @@ public class Bebado : Entregavel
             Debug.Log("Pabéns, se entregou fih");
 
             // Agora ele vai sumir depois de um tempo
-            Destroy(gameObject, tempoAtivoEntrega);
+            
+            Destroy(gameObject);
         }
         else
         {
