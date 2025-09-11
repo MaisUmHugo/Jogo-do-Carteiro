@@ -46,16 +46,13 @@ public class Bebado : Entregavel
     {
         if (jogador == null || parado) return;
 
+        // movimento e troca de lane
         transform.position += Vector3.left * velocidade * Time.deltaTime;
-
-        // troca de lane aleatória
         if (Time.time >= tempoUltimaTroca + trocaLaneIntervalo)
         {
             TrocarLaneAleatoria();
             tempoUltimaTroca = Time.time;
         }
-
-        // move até a nova lane
         float novoY = Mathf.MoveTowards(
             transform.position.y,
             LanesController.instance.PosicaoY(minhaLane),
@@ -63,22 +60,42 @@ public class Bebado : Entregavel
         );
         transform.position = new Vector3(transform.position.x, novoY, transform.position.z);
 
-        // ativa para receber a entrega
-        if (!ativoParaEntrega && PodeReceberEntrega())
+        // Aqui atualiza sempre a condição
+        if (!ativoParaEntrega)
         {
-            ativoParaEntrega = true;
-            piscarRoutine = StartCoroutine(PiscarEnquantoAtivo());
+            if (PodeReceberEntrega())
+            {
+                ativoParaEntrega = true;
+                piscarRoutine = StartCoroutine(PiscarEnquantoAtivo());
+            }
+        }
+        else
+        {
+            // se por acaso sair da condição, desativa
+            if (!PodeReceberEntrega())
+            {
+                ativoParaEntrega = false;
+
+                if (piscarRoutine != null)
+                {
+                    StopCoroutine(piscarRoutine);
+                    piscarRoutine = null;
+                }
+
+                sr.color = corNormal;
+            }
         }
 
-
+        // saiu da tela
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
         if (viewPos.x < -0.1f)
         {
-            Debug.Log("Saiu da tela, perde o combo");
+            Debug.Log("Saiu da tela, perdeu o combo, sobrou nada para o betinha");
             PerderCombo();
             Destroy(gameObject);
         }
     }
+
 
     private void TrocarLaneAleatoria()
     {
@@ -101,7 +118,7 @@ public class Bebado : Entregavel
         bool perto = distancia <= distanciaEntrega;
 
         if (outraLane && perto)
-            Debug.Log($"✅ Pode receber entrega! Distância: {distancia}");
+            Debug.Log($"Pode receber entrega! Distância: {distancia}");
 
         return outraLane && perto;
     }
@@ -123,14 +140,17 @@ public class Bebado : Entregavel
             }
 
             base.ReceberEntrega();
-            Debug.Log("Pabens, se entregou fih");
-            
+            Debug.Log("Pabéns, se entregou fih");
+
+            // Agora ele vai sumir depois de um tempo
+            Destroy(gameObject, tempoAtivoEntrega);
         }
         else
         {
             Debug.Log("Tem que ser de lado JUMENTO!");
         }
     }
+
 
     private IEnumerator PiscarEnquantoAtivo()
     {
