@@ -11,6 +11,7 @@ TagManager:
   - MaoZumbi
   - MAssustado
   - Poste
+  - Caixa
   layers:
   - Default
   - TransparentFX
