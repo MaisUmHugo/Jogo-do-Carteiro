@@ -1700,10 +1700,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zumbi
       objectReference: {fileID: 0}
-    - target: {fileID: 2166660927828198906, guid: fd2ed285d5f2eb647bb92e60686f81cb, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6686041849626434730, guid: fd2ed285d5f2eb647bb92e60686f81cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.2
@@ -1743,10 +1739,6 @@ PrefabInstance:
     - target: {fileID: 6686041849626434730, guid: fd2ed285d5f2eb647bb92e60686f81cb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7334191631347518513, guid: fd2ed285d5f2eb647bb92e60686f81cb, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
