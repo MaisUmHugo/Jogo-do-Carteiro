@@ -144,8 +144,8 @@ public class Bebado : Entregavel
         float distancia = Vector3.Distance(transform.position, jogador.transform.position);
         bool perto = distancia <= distanciaEntrega;
 
-        if (outraLane && perto)
-            Debug.Log($"Pode receber entrega! Distância: {distancia}");
+        /*if (outraLane && perto)
+            Debug.Log($"Pode receber entrega! Distância: {distancia}"); */
 
         return outraLane && perto;
     }
@@ -157,6 +157,7 @@ public class Bebado : Entregavel
 
         if (PodeReceberEntrega())
         {
+            base.ReceberEntrega();
             ativoParaEntrega = false;
             parado = true; // para de andar
             yTravado = transform.position.y;
@@ -166,8 +167,7 @@ public class Bebado : Entregavel
                 StopCoroutine(piscarRoutine);
                 sr.color = corNormal;
             }
-
-            base.ReceberEntrega();
+            
             Debug.Log("Pabéns, se entregou fih");
 
             // Agora ele vai sumir depois de um tempo
@@ -202,22 +202,20 @@ public class Bebado : Entregavel
             FalharEntrega();
             Destroy(gameObject);
         }
-        else if (collision.CompareTag("Caixa") && ativoParaEntrega)
+        else if (collision.CompareTag("Caixa"))
         {
-            // calcula a direção relativa da colisão
             Vector3 dir = collision.transform.position - transform.position;
 
-            // só aceita se veio dos lados (E ou D)
             if (Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
             {
                 ReceberEntrega();
-                Destroy(collision.gameObject); // destrói a caixa depois da entrega
             }
             else
             {
+                // lado errado → cancela entrega
                 Debug.Log("JOGA NO LADO JUMENTO!");
                 ComboManager.instance.ResetarCombo();
-                Destroy(collision.gameObject);
+                Destroy(collision.gameObject); // cancela antes da Caixa entregar
             }
         }
     }

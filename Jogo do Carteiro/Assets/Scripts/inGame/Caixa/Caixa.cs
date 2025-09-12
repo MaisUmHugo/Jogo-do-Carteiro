@@ -10,21 +10,11 @@ public class Caixa : MonoBehaviour
     {
         Destroy(gameObject, tempoMaximo);
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer(layerEntregavel))
         {
-            if (collision.TryGetComponent<Entregavel>(out var entregavel))
-            {
-                entregavel.ReceberEntrega();
-            }
-            else
-            {
-                Debug.Log(" Caixa perdida...");
-                ComboManager.instance.ResetarCombo();
-            }
-
+            // só some a caixa, quem recebeu decide se ganha ponto
             Destroy(gameObject);
         }
     }

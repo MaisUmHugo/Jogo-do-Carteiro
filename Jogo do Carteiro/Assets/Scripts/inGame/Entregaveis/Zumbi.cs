@@ -10,6 +10,8 @@ public class Zumbi : Entregavel
 
     private Transform alvo; // referência ao jogador (pegamos pela tag)
     private bool atacando = false; // flag para controlar se já está atacando
+    private bool parado = false;
+    private float yTravado;
 
     // Sprite renderer para fazer o efeito de piscar
     private SpriteRenderer sr;
@@ -46,29 +48,58 @@ public class Zumbi : Entregavel
     {
         if (jogador == null || atacando) return;
 
-
-        // Zumbi anda na direção do player apenas no eixo X
-        Vector3 direcao = (jogador.transform.position - transform.position).normalized;
-        transform.position += new Vector3(direcao.x, 0, 0) * velocidade * Time.deltaTime;
-
-
-        // Faz o zumbi perseguir a lane do jogador
-        Vector3 posAlvoLane = LanesController.instance.Posicao(jogador.linhaAtual);
-
-        float novoY = Mathf.MoveTowards(
-            transform.position.y,
-            posAlvoLane.y,
-            velocidadeTrocaLane * Time.deltaTime
-        );
-
-        transform.position = new Vector3(transform.position.x, novoY, transform.position.z);
-
-        // Verifica se chegou na distância de ataque
-        if (Vector3.Distance(transform.position, jogador.transform.position) <= distanciaAtaque)
+        if (!parado)
         {
-            StartCoroutine(Ataque());
+            if (atacando) return;
+
+            // Zumbi anda na direção do player apenas no eixo X
+            Vector3 direcao = (jogador.transform.position - transform.position).normalized;
+            transform.position += new Vector3(direcao.x, 0, 0) * velocidade * Time.deltaTime;
+
+
+            // Faz o zumbi perseguir a lane do jogador
+            Vector3 posAlvoLane = LanesController.instance.Posicao(jogador.linhaAtual);
+
+            float novoY = Mathf.MoveTowards(
+                transform.position.y,
+                posAlvoLane.y,
+                velocidadeTrocaLane * Time.deltaTime
+            );
+
+            transform.position = new Vector3(transform.position.x, novoY, transform.position.z);
+
+            // Verifica se chegou na distância de ataque
+            if (Vector3.Distance(transform.position, jogador.transform.position) <= distanciaAtaque)
+            {
+                StartCoroutine(Ataque());
+            }
         }
-    }
+        else
+        {
+            // depois da entrega, anda só no X
+            transform.position = new Vector3(
+                transform.position.x + Vector3.left.x * velocidade * Time.deltaTime,
+                yTravado,
+                transform.position.z);
+        }
+
+        // saiu da tela
+        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
+        if (viewPos.x < -0.1f)
+        {
+            if (!parado)
+            {
+                Debug.Log("Zumbi saiu sem receber entrega, F");
+                PerderCombo();
+            }
+            else
+            {
+                Debug.Log("Zumbi saiu após entrega e sumiu da existencia, brabo dms");
+            }
+
+            Destroy(gameObject);
+        }
+}
 
     private System.Collections.IEnumerator Ataque()
     {
@@ -99,9 +130,17 @@ public class Zumbi : Entregavel
 
     public override void ReceberEntrega()
     {
+        if (!ativoParaEntrega) return;
+
+        ativoParaEntrega = false;
+        atacando = false;
+        parado = true; // agora ele vai andar só no X
+        yTravado = transform.position.y;
+
         sr.color = corNormal;
+
         base.ReceberEntrega();
-        // Lógica de reação específica do zumbi pode ser colocada aqui (animação, som, etc.)
-        Destroy(gameObject);
+
+        Debug.Log("Zumbi recebeu a entrega, joinha muito loko em txt");
     }
 }

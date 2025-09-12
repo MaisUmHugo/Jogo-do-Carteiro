@@ -120,7 +120,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   ativoParaEntrega: 1
   velocidade: 5
   velocidadeTrocaLane: 5
-  distanciaAtaque: 5
+  distanciaAtaque: 10
   tempoAtivoEntrega: 1.75
-  corNormal: {r: 1, g: 1, b: 1, a: 1}
+  corNormal: {r: 0.17254902, g: 0.35686275, b: 0.08235294, a: 1}
   corAtivo: {r: 1, g: 0, b: 0, a: 1}
