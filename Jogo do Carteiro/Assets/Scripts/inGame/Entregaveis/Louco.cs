@@ -16,6 +16,7 @@ public class Louco : Entregavel
     private float yTravado;
 
     private bool entregaJaAtivada = false; // evita ativar 2x
+    private bool entregaRecebida = false;
 
     private void Start()
     {
@@ -27,7 +28,7 @@ public class Louco : Entregavel
         float yTopo = LanesController.instance.PosicaoY(LanesController.Linhas.L1);
         float yFundo = LanesController.instance.PosicaoY(LanesController.Linhas.L4);
 
-        float offset = 2f; // quanto além da lane ele vai parar (fora da rua)
+        float offset = 4f; // quanto além da lane ele vai parar (fora da rua)
 
         // Define destino acima ou abaixo das lanes
         yDestino = vindoDeBaixo ? (yTopo + offset) : (yFundo - offset);
@@ -45,33 +46,36 @@ public class Louco : Entregavel
                 velocidadeVertical * Time.deltaTime
             );
 
-            // ---- Ativação da entrega ----
+            // ---- Ativação da entrega (ignora a primeira lane extrema) ----
             float yL2 = LanesController.instance.PosicaoY(LanesController.Linhas.L2);
             float yL3 = LanesController.instance.PosicaoY(LanesController.Linhas.L3);
 
-            // Se ainda não ativou, checa se passou em L2 ou L3
-            if (!entregaJaAtivada &&
-                (Mathf.Abs(transform.position.y - yL2) < 0.1f ||
-                 Mathf.Abs(transform.position.y - yL3) < 0.1f))
+            if (!entregaJaAtivada)
             {
-                entregaJaAtivada = true; // garante que ativa só uma vez
-                StartCoroutine(JanelaEntrega());
+                // só ativa se passar em L2 ou L3
+                if (Mathf.Abs(transform.position.y - yL2) < 0.1f ||
+                    Mathf.Abs(transform.position.y - yL3) < 0.1f)
+                {
+                    entregaJaAtivada = true;
+                    StartCoroutine(JanelaEntrega());
+                }
             }
 
-            // ---- Chegou no outro lado ----
-            if (Mathf.Abs(transform.position.y - yDestino) < 0.05f)
+            // ---- Chegou no outro lado (após cruzar TODAS lanes) ----
+            if ((yDestino > 0 && transform.position.y >= yDestino - 0.05f) ||
+                (yDestino < 0 && transform.position.y <= yDestino + 0.05f))
             {
                 atravessando = false;
                 terminouTravessia = true;
 
-                if (ativoParaEntrega)
+                if (!entregaRecebida)
                 {
-                    FalharEntrega();
-                    Debug.Log("❌ Louco caiu de cara no chão!");
+                    PerderCombo();
+                    Debug.Log("Louco caiu de cara no chão!");
                 }
                 else
                 {
-                    Debug.Log("✅ Louco terminou feliz no outro lado!");
+                    Debug.Log("Louco terminou feliz no outro lado!");
                 }
 
                 yTravado = transform.position.y; // trava Y só aqui
@@ -91,6 +95,7 @@ public class Louco : Entregavel
             if (viewPos.x < -0.1f) Destroy(gameObject);
         }
     }
+
 
     private IEnumerator JanelaEntrega()
     {
@@ -113,6 +118,7 @@ public class Louco : Entregavel
         if (!ativoParaEntrega) return;
 
         ativoParaEntrega = false;
+        entregaRecebida = true;
         sr.color = Color.white;
 
         base.ReceberEntrega();
