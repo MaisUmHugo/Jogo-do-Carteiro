@@ -137,7 +137,17 @@ public class Zumbi : Entregavel
         parado = true; // agora ele vai andar só no X
         yTravado = transform.position.y;
 
+        Color cor = sr.color;
         sr.color = corNormal;
+        cor.a = 0.5f; // meio transparente
+        sr.color = cor;
+
+        // 🔹 Ignorar colisão
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+        {
+            col.enabled = false; // desliga colisão
+        }
 
         base.ReceberEntrega();
 

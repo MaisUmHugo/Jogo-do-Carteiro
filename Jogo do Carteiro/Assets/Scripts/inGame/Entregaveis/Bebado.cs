@@ -167,7 +167,17 @@ public class Bebado : Entregavel
                 StopCoroutine(piscarRoutine);
                 sr.color = corNormal;
             }
-            
+
+            Color cor = sr.color;
+            cor.a = 0.5f; // meio transparente
+            sr.color = cor;
+
+            Collider2D col = GetComponent<Collider2D>();
+            if (col != null)
+            {
+                col.enabled = false; // desliga colisão
+            }
+
             Debug.Log("Pabéns, se entregou fih");
 
             // Agora ele vai sumir depois de um tempo
