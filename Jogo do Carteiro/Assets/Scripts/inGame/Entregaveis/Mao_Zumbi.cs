@@ -8,14 +8,13 @@ public class Mao_Zumbi : Entregavel
     public float intervaloPiscar;
     public float distanciaEntrega;
 
-    private Transform alvo; // referência ao jogador (pegamos pela tag)
-
     // Sprite renderer para fazer o efeito de piscar
     private SpriteRenderer sr;
     public Color corNormal = Color.white; // cor padrão
     public Color corAtivo = Color.red;    // cor quando está ativo para receber entrega
     private bool coroutineIniciada = false;
     private Mov jogador;
+    private bool recebeu, podereceber;
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -26,7 +25,6 @@ public class Mao_Zumbi : Entregavel
         if (playerObj != null)
         {
             jogador = playerObj.GetComponent<Mov>();
-            Debug.Log("Jogador encontrado");
         }
         else
         {
@@ -38,8 +36,14 @@ public class Mao_Zumbi : Entregavel
     }
     private void Update()
     {
+        if (recebeu)
+        {
+            transform.position += Vector3.left * velocidade * Time.deltaTime;
+            return;
+        }
         Vector3 direcao = (jogador.transform.position - transform.position).normalized;
         transform.position += new Vector3(direcao.x, 0, 0) * velocidade * Time.deltaTime;
+
         if (!coroutineIniciada && Vector3.Distance(transform.position, jogador.transform.position) <= distanciaEntrega)
         {
             coroutineIniciada = true;
@@ -48,7 +52,7 @@ public class Mao_Zumbi : Entregavel
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Caixa"))
+        if (collision.CompareTag("Caixa") && podereceber)
         {
             ReceberEntrega();
         }
@@ -57,10 +61,19 @@ public class Mao_Zumbi : Entregavel
     {
         sr.color = corNormal;
         base.ReceberEntrega();
-        Destroy(gameObject);
+        Color cor = sr.color;
+        cor.a = 0.5f; // meio transparente
+        sr.color = cor;
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null)
+        {
+            col.enabled = false; // desliga colisão
+        }
+        recebeu = true;
     }
     private System.Collections.IEnumerator ProntoparaEntrega()
     {
+        podereceber = true;
         ativoParaEntrega = true;
         sr.color = corAtivo; // piscar (feedback visual)
         Debug.Log("Mão proxima, entregue agora!");
@@ -68,12 +81,11 @@ public class Mao_Zumbi : Entregavel
         // espera a janela de tempo para aceitar a entrega
         yield return new WaitForSeconds(tempoAtivoEntrega);
 
-        if (ativoParaEntrega)
+        if (ativoParaEntrega && !recebeu)
         {
             // não recebeu a entrega → falha
             FalharEntrega();
             sr.color = corNormal;
-            Destroy(gameObject);
         }
     }
 }
