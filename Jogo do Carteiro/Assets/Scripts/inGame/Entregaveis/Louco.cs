@@ -4,8 +4,9 @@ using UnityEngine;
 public class Louco : Entregavel
 {
     [Header("Configuração do Louco")]
-    public float velocidadeVertical = 5f;
-    public float velocidadeHorizontal = 3f;
+    public float velocidadeVertical = 5f;   // velocidade no eixo Y
+    public float velocidadeFrente = 2f;     // velocidade no eixo X (frente = esquerda)
+    public float velocidadeSaida = 3f;      // velocidade depois que atravessou
     public float tempoAtivoEntrega = 1.2f;
     public float intervaloPiscar = 0.15f;
 
@@ -15,7 +16,7 @@ public class Louco : Entregavel
     private float yDestino;
     private float yTravado;
 
-    private bool entregaJaAtivada = false; // evita ativar 2x
+    private bool entregaJaAtivada = false;
     private bool entregaRecebida = false;
 
     private void Start()
@@ -28,31 +29,32 @@ public class Louco : Entregavel
         float yTopo = LanesController.instance.PosicaoY(LanesController.Linhas.L1);
         float yFundo = LanesController.instance.PosicaoY(LanesController.Linhas.L4);
 
-        float offset = 4f; // quanto além da lane ele vai parar (fora da rua)
+        float offset = 4f; // para sair da "rua"
 
-        // Define destino acima ou abaixo das lanes
         yDestino = vindoDeBaixo ? (yTopo + offset) : (yFundo - offset);
     }
-
 
     private void Update()
     {
         if (atravessando)
         {
-            // Move no eixo Y até o outro lado
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                new Vector3(transform.position.x, yDestino, transform.position.z),
+            // --- Movimento diagonal (X negativo + Y até destino) ---
+            transform.position += new Vector3(-velocidadeFrente * Time.deltaTime, 0f, 0f);
+
+            float novoY = Mathf.MoveTowards(
+                transform.position.y,
+                yDestino,
                 velocidadeVertical * Time.deltaTime
             );
 
-            // ---- Ativação da entrega (ignora a primeira lane extrema) ----
+            transform.position = new Vector3(transform.position.x, novoY, transform.position.z);
+
+            // ---- Ativação da entrega (ignora L1 e L4) ----
             float yL2 = LanesController.instance.PosicaoY(LanesController.Linhas.L2);
             float yL3 = LanesController.instance.PosicaoY(LanesController.Linhas.L3);
 
             if (!entregaJaAtivada)
             {
-                // só ativa se passar em L2 ou L3
                 if (Mathf.Abs(transform.position.y - yL2) < 0.1f ||
                     Mathf.Abs(transform.position.y - yL3) < 0.1f)
                 {
@@ -61,7 +63,7 @@ public class Louco : Entregavel
                 }
             }
 
-            // ---- Chegou no outro lado (após cruzar TODAS lanes) ----
+            // ---- Chegou no outro lado (passou todas as lanes) ----
             if ((yDestino > 0 && transform.position.y >= yDestino - 0.05f) ||
                 (yDestino < 0 && transform.position.y <= yDestino + 0.05f))
             {
@@ -71,31 +73,30 @@ public class Louco : Entregavel
                 if (!entregaRecebida)
                 {
                     PerderCombo();
-                    Debug.Log("Louco caiu de cara no chão!");
+                    Debug.Log("Louco caiu sem receber entrega, fazueli");
                 }
                 else
                 {
-                    Debug.Log("Louco terminou feliz no outro lado!");
+                    Debug.Log("Louco terminou, yeah");
                 }
 
-                yTravado = transform.position.y; // trava Y só aqui
+                yTravado = transform.position.y; // trava Y
             }
         }
         else if (terminouTravessia)
         {
-            // Depois da travessia, anda no X até sair da tela
+            // Depois da travessia, anda reto em X (esquerda) até sair da tela
             transform.position = new Vector3(
-                transform.position.x + Vector3.left.x * velocidadeHorizontal * Time.deltaTime,
+                transform.position.x - velocidadeSaida * Time.deltaTime,
                 yTravado,
                 transform.position.z
             );
 
-            // Quando sair da câmera → destruir
+            // Destrói quando sumir da tela
             Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
             if (viewPos.x < -0.1f) Destroy(gameObject);
         }
     }
-
 
     private IEnumerator JanelaEntrega()
     {
@@ -122,6 +123,6 @@ public class Louco : Entregavel
         sr.color = Color.white;
 
         base.ReceberEntrega();
-        Debug.Log("📦 Louco recebeu a entrega!");
+        Debug.Log("Louco recebeu a entrega, kilegal");
     }
 }
