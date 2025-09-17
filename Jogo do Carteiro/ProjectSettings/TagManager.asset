@@ -55,6 +55,9 @@ TagManager:
   - name: Inimigos
     uniqueID: 2524124549
     locked: 0
+  - name: Caixa
+    uniqueID: 954177937
+    locked: 0
   - name: Player
     uniqueID: 2635539573
     locked: 0
