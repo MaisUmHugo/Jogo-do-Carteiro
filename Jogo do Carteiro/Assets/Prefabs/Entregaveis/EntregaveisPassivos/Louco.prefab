@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 889223506377607226}
   m_Layer: 7
   m_Name: Louco
-  m_TagString: PSeJoga
+  m_TagString: Louco
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1659427723
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -177,6 +177,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ativoParaEntrega: 1
   velocidadeVertical: 6
-  velocidadeHorizontal: 4
+  velocidadeFrente: 2
+  velocidadeSaida: 3
   tempoAtivoEntrega: 1
   intervaloPiscar: 0.15

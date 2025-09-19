@@ -1,0 +1,123 @@
+using UnityEngine;
+using System.Collections.Generic;
+
+public class SpawnerManager : MonoBehaviour
+{
+    public static SpawnerManager instance;
+
+    public enum TipoSpawn
+    {
+        EmLane,
+        Livre,
+        Fixo
+    }
+
+    [System.Serializable]
+    public class ConfiguracaoSpawn
+    {
+        public string nome;
+        public GameObject prefab;
+        public string tagAssociada;
+        public TipoSpawn tipoSpawn = TipoSpawn.EmLane;
+        public Transform[] pontosFixos; // usado se tipo = Fixo
+    }
+
+    [Header("Configurações de Spawn")]
+    public List<ConfiguracaoSpawn> configuracoes = new List<ConfiguracaoSpawn>();
+    public float posicaoX;
+
+    [Header("Controle Dinâmico")]
+    public float intervaloSpawn;
+    public float multiplicadorVelocidade;
+    public bool spawnAtivo = true;
+
+    private Dictionary<string, ConfiguracaoSpawn> dicionarioConfig = new Dictionary<string, ConfiguracaoSpawn>();
+    private float proximoSpawn;
+
+    void Awake()
+    {
+        if (instance == null) instance = this;
+        else Destroy(gameObject);
+
+        foreach (var c in configuracoes)
+        {
+            if (!dicionarioConfig.ContainsKey(c.tagAssociada))
+                dicionarioConfig.Add(c.tagAssociada, c);
+        }
+    }
+
+    void Update()
+    {
+        if (!spawnAtivo) return;
+
+        if (Time.time >= proximoSpawn)
+        {
+            int idx = Random.Range(0, configuracoes.Count);
+            SpawnPorTag(configuracoes[idx].tagAssociada);
+
+            proximoSpawn = Time.time + intervaloSpawn;
+        }
+    }
+
+    public GameObject SpawnPorTag(string tag)
+    {
+        if (!dicionarioConfig.ContainsKey(tag))
+        {
+            Debug.LogWarning($"[SpawnerManager] Nenhum prefab configurado para tag: {tag}");
+            return null;
+        }
+
+        ConfiguracaoSpawn config = dicionarioConfig[tag];
+        Vector3 posicaoSpawn = Vector3.zero;
+
+        switch (config.tipoSpawn)
+        {
+            case TipoSpawn.EmLane:
+                int idx = Random.Range(0, LanesController.instance.linhas.Length);
+                float y = LanesController.instance.PosicaoY((LanesController.Linhas)idx);
+                posicaoSpawn = new Vector3(posicaoX, y, 0f);
+                break;
+
+            case TipoSpawn.Livre:
+                posicaoSpawn = new Vector3(
+                    posicaoX,
+                    Random.Range(-3f, 3f), // pode ajustar o range pro Louco
+                    0f
+                );
+                break;
+
+            case TipoSpawn.Fixo:
+                if (config.pontosFixos != null && config.pontosFixos.Length > 0)
+                {
+                    int idxFixo = Random.Range(0, config.pontosFixos.Length);
+                    posicaoSpawn = config.pontosFixos[idxFixo].position;
+                }
+                else
+                {
+                    Debug.LogWarning($"Nenhum ponto fixo configurado para {tag}");
+                    return null;
+                }
+                break;
+        }
+
+        GameObject go = Instantiate(config.prefab, posicaoSpawn, Quaternion.identity);
+        go.tag = tag;
+        AjustarVelocidade(go);
+
+        return go;
+    }
+
+    private void AjustarVelocidade(GameObject inimigo)
+    {
+        var componentes = inimigo.GetComponents<MonoBehaviour>();
+        foreach (var c in componentes)
+        {
+            var campo = c.GetType().GetField("velocidade");
+            if (campo != null && campo.FieldType == typeof(float))
+            {
+                float vOriginal = (float)campo.GetValue(c);
+                campo.SetValue(c, vOriginal * multiplicadorVelocidade);
+            }
+        }
+    }
+}
