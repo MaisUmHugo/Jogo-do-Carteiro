@@ -176,9 +176,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ativoParaEntrega: 1
-  velocidade: 5
-  velocidadeTrocaLane: 5
-  distanciaAtaque: 10
-  tempoAtivoEntrega: 1.75
+  velocidadeCaminhada: 4
+  velocidadeCorrida: 8
+  velocidadeTrocaLane: 8
+  distanciaCorrida: 60
+  distanciaColisao: 6
   corNormal: {r: 0.17254902, g: 0.35686275, b: 0.08235294, a: 1}
   corAtivo: {r: 1, g: 0, b: 0, a: 1}

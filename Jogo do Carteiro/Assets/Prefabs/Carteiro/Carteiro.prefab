@@ -169,7 +169,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1659427723
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.41702646, g: 0.026432898, b: 0.509434, a: 1}
@@ -231,6 +231,50 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 8f9077b1-ff9b-4119-b738-2e1e4fd29c6a
     m_ActionName: 'Gameplay/Shoot[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 28c5ba59-2006-4a44-9ffd-581e77db5f54
+    m_ActionName: 'Gameplay/Pause[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a8709370-2a4b-4a99-8c60-db84bfe0b7fd
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f37dd929-0869-4e16-b0b5-de0451d467c6
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 53f6d7fe-1ef9-4ef3-8908-340d31d85ec8
+    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 14c1ec5a-a714-4439-950a-9dabf56168a0
+    m_ActionName: 'UI/MiddleClick[/Mouse/middleButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 723ca26b-555f-4cc5-8f41-fd2f021be5bc
+    m_ActionName: 'UI/ScrollWheel[/Mouse/scroll]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0ffcc432-379a-43fe-a2ea-9ab80fa05afd
+    m_ActionName: 'UI/Click[/Mouse/leftButton,/Pen/tip]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b00731b6-f8ac-4a4d-854a-8fe589cf5f0f
+    m_ActionName: 'UI/Point[/Mouse/position,/Pen/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3d1a99d9-1cac-4ab2-957a-d9253ba26572
+    m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c277f8df-bb53-435c-ba61-9ef8fe0354c4
+    m_ActionName: 'UI/Confirm[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3ffaf373-6500-49ff-a97f-151ee616e38a
+    m_ActionName: 'UI/Cancel[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -265,7 +309,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabCaixa: {fileID: 6596183935556652839, guid: 31cc4adeada673c43b62d5c281b2a61b, type: 3}
   pontoLancamento: {fileID: 8804935888859585432}
-  velocidadeCaixa: 30
+  velocidadeCaixa: 50
   delayLancamento: 0.5
 --- !u!114 &1868196326477802708
 MonoBehaviour:

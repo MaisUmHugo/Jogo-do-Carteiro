@@ -3,22 +3,22 @@
 public class Zumbi : Entregavel
 {
     [Header("Configuração do Zumbi")]
-    public float velocidade;
+    public float velocidadeCaminhada;
+    public float velocidadeCorrida;
     public float velocidadeTrocaLane;
-    public float distanciaAtaque;
-    public float tempoAtivoEntrega;
+    public float distanciaCorrida;   // quando começa a correr
+    public float distanciaColisao;   // quando escorrega e cai no player
 
-    private Transform alvo; // referência ao jogador (pegamos pela tag)
-    private bool atacando = false; // flag para controlar se já está atacando
-    private bool parado = false;
+    private bool correndo = false;
+    private bool caiu = false;
+    private bool recebeuEntrega = false;
     private float yTravado;
 
-    // Sprite renderer para fazer o efeito de piscar
     private SpriteRenderer sr;
-    public Color corNormal = Color.white; // cor padrão
-    public Color corAtivo = Color.red;    // cor quando está ativo para receber entrega
-
     private Mov jogador;
+
+    public Color corNormal = Color.white;
+    public Color corAtivo = Color.red;
 
     private void Awake()
     {
@@ -27,18 +27,11 @@ public class Zumbi : Entregavel
 
     private void Start()
     {
-        // procura o objeto que tem a tag "Player"
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
-        {
             jogador = playerObj.GetComponent<Mov>();
-        }
-        else
-        {
-            Debug.LogWarning("Player não encontrado! Verifique se o objeto do jogador tem a tag 'Player'.");
-        }
 
-        // trava o zumbi em uma lane inicial aleatória
+        // começa em uma lane aleatória
         Vector3 pos = transform.position;
         pos.y = LanesController.instance.PosicaoY((LanesController.Linhas)Random.Range(0, 4));
         transform.position = pos;
@@ -46,83 +39,98 @@ public class Zumbi : Entregavel
 
     private void Update()
     {
-        if (jogador == null || atacando) return;
+        if (jogador == null) return;
 
-        if (!parado)
+        if (caiu)
         {
-            if (atacando) return;
+            // Estado 3: caído → só desliza até sair da tela
+            MoverParaEsquerda(velocidadeCaminhada);
+        }
+        else if (recebeuEntrega)
+        {
+            // Estado 4: recebeu entrega → vai embora
+            MoverParaEsquerda(velocidadeCaminhada);
+        }
+        else if (!correndo)
+        {
+            // Estado 1: caminhando
+            transform.position += Vector3.left * velocidadeCaminhada * Time.deltaTime;
 
-            // Zumbi anda na direção do player apenas no eixo X
-            Vector3 direcao = (jogador.transform.position - transform.position).normalized;
-            transform.position += new Vector3(direcao.x, 0, 0) * velocidade * Time.deltaTime;
-
-
-            // Faz o zumbi perseguir a lane do jogador
-            Vector3 posAlvoLane = LanesController.instance.Posicao(jogador.linhaAtual);
-
-            float novoY = Mathf.MoveTowards(
-                transform.position.y,
-                posAlvoLane.y,
-                velocidadeTrocaLane * Time.deltaTime
-            );
-
-            transform.position = new Vector3(transform.position.x, novoY, transform.position.z);
-
-            // Verifica se chegou na distância de ataque
-            if (Vector3.Distance(transform.position, jogador.transform.position) <= distanciaAtaque)
+            // Se chegou perto o suficiente → começa corrida
+            if (Vector3.Distance(transform.position, jogador.transform.position) <= distanciaCorrida)
             {
-                StartCoroutine(Ataque());
+                IniciarCorrida();
             }
         }
         else
         {
-            // depois da entrega, anda só no X
+            // Estado 2: correndo atrás do player
+            float yAlvo = LanesController.instance.PosicaoY(jogador.linhaAtual);
+
+            float novoY = Mathf.MoveTowards(
+                transform.position.y,
+                yAlvo,
+                velocidadeTrocaLane * Time.deltaTime
+            );
+
             transform.position = new Vector3(
-                transform.position.x + Vector3.left.x * velocidade * Time.deltaTime,
-                yTravado,
+                transform.position.x - velocidadeCorrida * Time.deltaTime,
+                novoY,
                 transform.position.z);
+
+
+            // Se chegou colado no player → escorrega/cai e causa dano
+            if (Vector3.Distance(transform.position, jogador.transform.position) <= distanciaColisao)
+            {
+                CairECausarDano();
+            }
         }
 
         // saiu da tela
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
         if (viewPos.x < -0.1f)
         {
-            if (!parado)
-            {
-                Debug.Log("Zumbi saiu sem receber entrega, F");
-                PerderCombo();
-            }
-            else
-            {
-                Debug.Log("Zumbi saiu após entrega e sumiu da existencia, brabo dms");
-            }
-
-            Destroy(gameObject);
-        }
-}
-
-    private System.Collections.IEnumerator Ataque()
-    {
-        atacando = true;
-        ativoParaEntrega = true;
-        sr.color = corAtivo; // piscar (feedback visual)
-        Debug.Log("Zumbi atacando, entregue agora!");
-
-        // espera a janela de tempo para aceitar a entrega
-        yield return new WaitForSeconds(tempoAtivoEntrega);
-
-        if (ativoParaEntrega)
-        {
-            // não recebeu a entrega → falha
-            FalharEntrega();
-            sr.color = corNormal;
             Destroy(gameObject);
         }
     }
 
+    private void MoverParaEsquerda(float velocidade)
+    {
+        transform.position = new Vector3(
+            transform.position.x + Vector3.left.x * velocidade * Time.deltaTime,
+            yTravado,
+            transform.position.z);
+    }
+
+    private void IniciarCorrida()
+    {
+        correndo = true;
+        ativoParaEntrega = true;
+        sr.color = corAtivo; // feedback visual
+        Debug.Log("Zumbi começou a correr! Pode entregar agora.");
+    }
+
+    private void CairECausarDano()
+    {
+        if (caiu) return;
+
+        caiu = true;
+        correndo = false;
+        ativoParaEntrega = false; // encerra janela de entrega
+        yTravado = transform.position.y;
+
+        sr.color = new Color(corNormal.r, corNormal.g, corNormal.b, 0.5f);
+
+        Collider2D col = GetComponent<Collider2D>();
+        if (col != null) col.enabled = false;
+
+        FalharEntrega(); // causa dano no player
+        Debug.Log("❌ Zumbi escorregou e bateu no player!");
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (atacando && ativoParaEntrega && collision.CompareTag("Caixa"))
+        if (correndo && ativoParaEntrega && collision.CompareTag("Caixa"))
         {
             ReceberEntrega();
         }
@@ -132,25 +140,17 @@ public class Zumbi : Entregavel
     {
         if (!ativoParaEntrega) return;
 
-        ativoParaEntrega = false;
-        atacando = false;
-        parado = true; // agora ele vai andar só no X
+        ativoParaEntrega = false; // encerra janela de entrega
+        correndo = false;
+        recebeuEntrega = true;
         yTravado = transform.position.y;
 
-        Color cor = sr.color;
-        sr.color = corNormal;
-        cor.a = 0.5f; // meio transparente
-        sr.color = cor;
+        sr.color = new Color(corNormal.r, corNormal.g, corNormal.b, 0.5f);
 
-        // 🔹 Ignorar colisão
         Collider2D col = GetComponent<Collider2D>();
-        if (col != null)
-        {
-            col.enabled = false; // desliga colisão
-        }
+        if (col != null) col.enabled = false;
 
         base.ReceberEntrega();
-
-        Debug.Log("Zumbi recebeu a entrega, joinha muito loko em txt");
+        Debug.Log("✅ Zumbi recebeu a entrega e desistiu do player.");
     }
 }

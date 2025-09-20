@@ -24,7 +24,7 @@ public class SpawnerManager : MonoBehaviour
 
     [Header("Configurações de Spawn")]
     public List<ConfiguracaoSpawn> configuracoes = new List<ConfiguracaoSpawn>();
-    public float posicaoX;
+    private float posicaoForaCameraX; // agora só a variável
 
     [Header("Controle Dinâmico")]
     public float intervaloSpawn;
@@ -38,6 +38,8 @@ public class SpawnerManager : MonoBehaviour
     {
         if (instance == null) instance = this;
         else Destroy(gameObject);
+
+        posicaoForaCameraX = Camera.main.ViewportToWorldPoint(new Vector3(1.2f, 0, 0)).x;
 
         foreach (var c in configuracoes)
         {
@@ -75,16 +77,15 @@ public class SpawnerManager : MonoBehaviour
             case TipoSpawn.EmLane:
                 int idx = Random.Range(0, LanesController.instance.linhas.Length);
                 float y = LanesController.instance.PosicaoY((LanesController.Linhas)idx);
-                posicaoSpawn = new Vector3(posicaoX, y, 0f);
+                posicaoSpawn = new Vector3(posicaoForaCameraX, y, 0f);
                 break;
 
             case TipoSpawn.Livre:
                 posicaoSpawn = new Vector3(
-                    posicaoX,
-                    Random.Range(-3f, 3f), // pode ajustar o range pro Louco
-                    0f
-                );
-                break;
+                    posicaoForaCameraX,
+                    Random.Range(-3f, 3f),
+                    0f);  
+                    break;
 
             case TipoSpawn.Fixo:
                 if (config.pontosFixos != null && config.pontosFixos.Length > 0)
@@ -101,7 +102,6 @@ public class SpawnerManager : MonoBehaviour
         }
 
         GameObject go = Instantiate(config.prefab, posicaoSpawn, Quaternion.identity);
-        go.tag = tag;
         AjustarVelocidade(go);
 
         return go;

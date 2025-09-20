@@ -7,11 +7,11 @@ TagManager:
   - Zumbi
   - Bebado
   - PCasa
-  - PSeJoga
   - MaoZumbi
   - MAssustado
   - Poste
   - Caixa
+  - Louco
   layers:
   - Default
   - TransparentFX

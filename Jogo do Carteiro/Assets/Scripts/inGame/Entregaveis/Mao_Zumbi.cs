@@ -49,6 +49,23 @@ public class Mao_Zumbi : Entregavel
             coroutineIniciada = true;
             StartCoroutine(ProntoparaEntrega());
         }
+        // saiu da tela
+        Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
+        if (viewPos.x < -0.1f)
+        {
+            if (!recebeu) // saiu sem receber -> falha
+            {
+                PerderCombo();
+                Debug.Log($"{gameObject.name} saiu da tela sem entrega!");
+            }
+            else
+            {
+                Debug.Log($"{gameObject.name} saiu da tela após entrega.");
+            }
+
+            Destroy(gameObject);
+        }
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
