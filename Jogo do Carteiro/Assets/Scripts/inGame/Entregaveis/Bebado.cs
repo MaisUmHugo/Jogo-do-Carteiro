@@ -27,6 +27,7 @@ public class Bebado : Entregavel
     // para dar a sensação que ele parou quando recebe a entrega
     private float yTravado;
 
+    private Animator anim;
 
 
     private bool parado = false; // quando recebe entrega para de mexe
@@ -38,6 +39,8 @@ public class Bebado : Entregavel
             jogador = playerObj.GetComponent<Mov>();
 
         sr = GetComponent<SpriteRenderer>();
+        //sr = GetComponentInChildren<SpriteRenderer>();
+        anim = GetComponentInChildren<Animator>();
 
         // começa em uma lane aleatória
         int laneIndex = Random.Range(0, 4);
@@ -160,14 +163,14 @@ public class Bebado : Entregavel
             base.ReceberEntrega();
             ativoParaEntrega = false;
             parado = true; // para de andar
-            yTravado = transform.position.y;
+            yTravado = transform.position.y; 
 
             if (piscarRoutine != null)
             {
                 StopCoroutine(piscarRoutine);
                 sr.color = corNormal;
             }
-
+            anim.SetTrigger("ReceberEntrega");
             Color cor = sr.color;
             cor.a = 0.5f; // meio transparente
             sr.color = cor;
@@ -224,7 +227,7 @@ public class Bebado : Entregavel
             {
                 // lado errado → cancela entrega
                 Debug.Log("JOGA NO LADO JUMENTO!");
-                ComboManager.instance.ResetarCombo();
+                //ComboManager.instance.ResetarCombo();
                 Destroy(collision.gameObject); // cancela antes da Caixa entregar
             }
         }

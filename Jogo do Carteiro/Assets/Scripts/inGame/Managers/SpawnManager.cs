@@ -1,5 +1,6 @@
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class SpawnerManager : MonoBehaviour
 {
@@ -34,6 +35,9 @@ public class SpawnerManager : MonoBehaviour
     private Dictionary<string, ConfiguracaoSpawn> dicionarioConfig = new Dictionary<string, ConfiguracaoSpawn>();
     private float proximoSpawn;
 
+    private float intervaloPadrao;
+    private float velocidadePadrao;
+
     void Awake()
     {
         if (instance == null) instance = this;
@@ -46,6 +50,8 @@ public class SpawnerManager : MonoBehaviour
             if (!dicionarioConfig.ContainsKey(c.tagAssociada))
                 dicionarioConfig.Add(c.tagAssociada, c);
         }
+        intervaloPadrao = intervaloSpawn;
+        velocidadePadrao = multiplicadorVelocidade;
     }
 
     void Update()
@@ -59,6 +65,19 @@ public class SpawnerManager : MonoBehaviour
 
             proximoSpawn = Time.time + intervaloSpawn;
         }
+    }
+
+    public void AtivarSpawn() => spawnAtivo = true;
+    public void DesativarSpawn() => spawnAtivo = false;
+
+    public void DefinirIntervalo(float intervalo) => intervaloSpawn = intervalo;
+    public void DefinirVelocidade(float mult) => multiplicadorVelocidade = mult;
+
+    public void ResetarConfig()
+    {
+        intervaloSpawn = intervaloPadrao;
+        multiplicadorVelocidade = velocidadePadrao;
+        spawnAtivo = true;
     }
 
     public GameObject SpawnPorTag(string tag)
@@ -105,6 +124,15 @@ public class SpawnerManager : MonoBehaviour
         AjustarVelocidade(go);
 
         return go;
+    }
+
+    public IEnumerator SpawnMultiplo(string tag, int quantidade, float intervalo)
+    {
+        for (int i = 0; i < quantidade; i++)
+        {
+            SpawnPorTag(tag);
+            yield return new WaitForSeconds(intervalo);
+        }
     }
 
     private void AjustarVelocidade(GameObject inimigo)

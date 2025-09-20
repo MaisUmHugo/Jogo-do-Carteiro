@@ -20,9 +20,12 @@ public class Zumbi : Entregavel
     public Color corNormal = Color.white;
     public Color corAtivo = Color.red;
 
+    private Animator anim;
+
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
+        anim = GetComponentInChildren<Animator>();
     }
 
     private void Start()
@@ -43,12 +46,12 @@ public class Zumbi : Entregavel
 
         if (caiu)
         {
-            // Estado 3: caído → só desliza até sair da tela
+            // Estado 3: caído - só desliza até sair da tela
             MoverParaEsquerda(velocidadeCaminhada);
         }
         else if (recebeuEntrega)
         {
-            // Estado 4: recebeu entrega → vai embora
+            // Estado 4: recebeu entrega - vai embora
             MoverParaEsquerda(velocidadeCaminhada);
         }
         else if (!correndo)
@@ -56,7 +59,7 @@ public class Zumbi : Entregavel
             // Estado 1: caminhando
             transform.position += Vector3.left * velocidadeCaminhada * Time.deltaTime;
 
-            // Se chegou perto o suficiente → começa corrida
+            // Se chegou perto o suficiente - começa corrida
             if (Vector3.Distance(transform.position, jogador.transform.position) <= distanciaCorrida)
             {
                 IniciarCorrida();
@@ -79,7 +82,7 @@ public class Zumbi : Entregavel
                 transform.position.z);
 
 
-            // Se chegou colado no player → escorrega/cai e causa dano
+            // Se chegou colado no player - escorrega/cai e causa dano
             if (Vector3.Distance(transform.position, jogador.transform.position) <= distanciaColisao)
             {
                 CairECausarDano();
@@ -106,6 +109,7 @@ public class Zumbi : Entregavel
     {
         correndo = true;
         ativoParaEntrega = true;
+        anim.SetBool("Correndo", true);
         sr.color = corAtivo; // feedback visual
         Debug.Log("Zumbi começou a correr! Pode entregar agora.");
     }
@@ -118,6 +122,7 @@ public class Zumbi : Entregavel
         correndo = false;
         ativoParaEntrega = false; // encerra janela de entrega
         yTravado = transform.position.y;
+        anim.SetBool("Caiu", true);
 
         sr.color = new Color(corNormal.r, corNormal.g, corNormal.b, 0.5f);
 
@@ -125,7 +130,7 @@ public class Zumbi : Entregavel
         if (col != null) col.enabled = false;
 
         FalharEntrega(); // causa dano no player
-        Debug.Log("❌ Zumbi escorregou e bateu no player!");
+        Debug.Log("Zumbi escorregou e bateu no player!");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -140,17 +145,19 @@ public class Zumbi : Entregavel
     {
         if (!ativoParaEntrega) return;
 
-        ativoParaEntrega = false; // encerra janela de entrega
+        base.ReceberEntrega(); 
+
+        ativoParaEntrega = false;
         correndo = false;
         recebeuEntrega = true;
         yTravado = transform.position.y;
+        anim.SetBool("RecebeuEntrega", true);
 
         sr.color = new Color(corNormal.r, corNormal.g, corNormal.b, 0.5f);
 
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false;
 
-        base.ReceberEntrega();
-        Debug.Log("✅ Zumbi recebeu a entrega e desistiu do player.");
+        Debug.Log("Zumbi recebeu a entrega e desistiu do player.");
     }
 }
