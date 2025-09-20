@@ -98,6 +98,10 @@ public class Pessoa_janela : Entregavel
         Color cor = sr.color;
         cor.a = 0.5f; // meio transparente
         sr.color = cor;
+
+        if (anim != null)
+            anim.SetTrigger("RecebeuEntrega");
+
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)
         {
@@ -107,9 +111,15 @@ public class Pessoa_janela : Entregavel
     }
     private System.Collections.IEnumerator ProntoparaEntrega()
     {
+        if (anim != null)
+            anim.SetTrigger("AbrirJanela");
+       
+        yield return new WaitForSeconds(2.5f);
+        
         podereceber = true;
         ativoParaEntrega = true;
         sr.color = corAtivo; // piscar (feedback visual)
+        
         Debug.Log("Janela proxima, entregue agora!");
 
         // espera a janela de tempo para aceitar a entrega
@@ -121,6 +131,8 @@ public class Pessoa_janela : Entregavel
             PerderCombo();
             sr.color = corNormal;
             podereceber = false;
+            if (anim != null)
+                anim.SetTrigger("FalhouEntrega");
         }
     }
 }

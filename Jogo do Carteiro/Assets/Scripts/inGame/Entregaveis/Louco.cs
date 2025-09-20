@@ -19,19 +19,27 @@ public class Louco : Entregavel
     private bool entregaJaAtivada = false;
     private bool entregaRecebida = false;
 
+    private bool pulou = false;
+    private float yL1;
+    private float yL4;
+
+    private Animator anim;
+
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
+        //sr = GetComponentInChildren<SpriteRenderer>();
+        anim = GetComponentInChildren<Animator>();
 
         // Decide direção: sobe ou desce
         bool vindoDeBaixo = Random.value > 0.5f;
 
-        float yTopo = LanesController.instance.PosicaoY(LanesController.Linhas.L1);
-        float yFundo = LanesController.instance.PosicaoY(LanesController.Linhas.L4);
+        yL1 = LanesController.instance.PosicaoY(LanesController.Linhas.L1);
+        yL4 = LanesController.instance.PosicaoY(LanesController.Linhas.L4);
 
         float offset = 4f; // para sair da "rua"
 
-        yDestino = vindoDeBaixo ? (yTopo + offset) : (yFundo - offset);
+        yDestino = vindoDeBaixo ? (yL1 + offset) : (yL4 - offset);
     }
 
     private void Update()
@@ -48,6 +56,15 @@ public class Louco : Entregavel
             );
 
             transform.position = new Vector3(transform.position.x, novoY, transform.position.z);
+
+            if (!pulou &&
+           (Mathf.Abs(transform.position.y - yL1) < 0.3f ||
+            Mathf.Abs(transform.position.y - yL4) < 0.3f))
+            {
+                pulou = true;
+                if (anim != null)
+                    anim.SetTrigger("Pulando");
+            }
 
             // ---- Ativação da entrega (ignora L1 e L4) ----
             float yL2 = LanesController.instance.PosicaoY(LanesController.Linhas.L2);
@@ -72,6 +89,8 @@ public class Louco : Entregavel
 
                 if (!entregaRecebida)
                 {
+                    if (anim != null)
+                        anim.SetTrigger("FalhouEntrega");
                     PerderCombo();
                     Debug.Log("Louco caiu sem receber entrega, fazueli");
                 }
@@ -121,6 +140,8 @@ public class Louco : Entregavel
         ativoParaEntrega = false;
         entregaRecebida = true;
         sr.color = Color.white;
+        if (anim != null)
+            anim.SetTrigger("RecebeuEntrega");
 
         base.ReceberEntrega();
         Debug.Log("Louco recebeu a entrega, kilegal");

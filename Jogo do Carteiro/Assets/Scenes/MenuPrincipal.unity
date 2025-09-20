@@ -343,6 +343,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 17009654577733512, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463594191307461489, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
+      propertyPath: m_fontSize
+      value: 42.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 1463594191307461489, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 42.74
+      objectReference: {fileID: 0}
     - target: {fileID: 2792283733562743002, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
       propertyPath: m_Name
       value: MenuController
@@ -385,6 +397,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3047321364028152794, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180135059424895180, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4548576057591860626, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
+      propertyPath: m_Name
+      value: '-'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6569255453973771824, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

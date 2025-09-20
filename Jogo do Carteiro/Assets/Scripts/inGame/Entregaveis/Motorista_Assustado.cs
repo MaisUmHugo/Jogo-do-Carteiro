@@ -122,6 +122,7 @@ public class Motorista_Assustado : Entregavel
         if (ativoParaEntrega && !recebeu)
         {
             // não recebeu a entrega → falha
+            anim.SetTrigger("FalhouEntrega");
             PerderCombo();
             sr.color = corNormal;
         }
