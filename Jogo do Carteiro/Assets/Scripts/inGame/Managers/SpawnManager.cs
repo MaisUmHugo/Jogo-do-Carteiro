@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,11 +23,11 @@ public class SpawnerManager : MonoBehaviour
         public Transform[] pontosFixos; // usado se tipo = Fixo
     }
 
-    [Header("ConfiguraÁıes de Spawn")]
+    [Header("Configura√ß√µes de Spawn")]
     public List<ConfiguracaoSpawn> configuracoes = new List<ConfiguracaoSpawn>();
-    private float posicaoForaCameraX; // agora sÛ a vari·vel
+    private float posicaoForaCameraX; // agora s√≥ a vari√°vel
 
-    [Header("Controle Din‚mico")]
+    [Header("Controle Din√¢mico")]
     public float intervaloSpawn;
     public float multiplicadorVelocidade;
     public bool spawnAtivo = true;
@@ -38,7 +38,7 @@ public class SpawnerManager : MonoBehaviour
     private float intervaloPadrao;
     private float velocidadePadrao;
 
-    private List<string> tagsPermitidas = new List<string>();
+    public List<string> tagsPermitidas = new List<string>();
 
     void Awake()
     {
@@ -69,14 +69,21 @@ public class SpawnerManager : MonoBehaviour
                 if (PodeSpawnar(config.tagAssociada))
                     candidatos.Add(config);
             }
+
             if (candidatos.Count > 0)
             {
-                int idx = Random.Range(0, configuracoes.Count);
+                int idx = Random.Range(0, candidatos.Count); // ‚úÖ Corrigido aqui
                 SpawnPorTag(candidatos[idx].tagAssociada);
             }
+            else
+            {
+                Debug.LogWarning("[SpawnerManager] Nenhum inimigo eleg√≠vel para spawn nesta horda!");
+            }
+
             proximoSpawn = Time.time + intervaloSpawn;
         }
     }
+
 
     public void AtivarSpawn() => spawnAtivo = true;
     public void DesativarSpawn() => spawnAtivo = false;

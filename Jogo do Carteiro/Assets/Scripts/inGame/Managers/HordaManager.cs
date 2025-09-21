@@ -1,18 +1,35 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class HordaManager : SpawnerManager
+public class HordaManager : MonoBehaviour
 {
+    [Header("Referência ao Spawner")]
+    public SpawnerManager spawnerManager;
+
     private int NumeroHorda, N_Entregas;
     [Header("Controle Hordas")]
     public int E_Necessarias;
-    public TextMeshProUGUI TextoHorda; 
-    
+    public TextMeshProUGUI TextoHorda;
+    public float aumentovelocidade;
+    public float ReduzirIntervalo;
+
     private bool HordaMudou, Objetivo;
-    public new static HordaManager instance;
+    public static HordaManager instance;
+    [System.Serializable]
+    public class TagsPorHorda
+    {
+        public int horda;
+        public List<string> tagsPermitidas;
+    }
+
+    [Header("Configuração de Inimigos por Horda")]
+    public List<TagsPorHorda> tagsPorHorda = new List<TagsPorHorda>();
+
     private void Start()
     {
         NumeroHorda = 1;
+        AtualizarInimigosPermitidos();
     }
     private void Awake()
     {
@@ -23,11 +40,16 @@ public class HordaManager : SpawnerManager
         verificarhorda();
         TextoHorda.text = "Horda: " + NumeroHorda;
     }
-    private void MudarVelocidade()
+    private void Mudarcondicao()
     {
         if (HordaMudou)
         {
-            multiplicadorVelocidade = multiplicadorVelocidade + 0.05f;
+            // velocidade dos inimigos da horda
+            float novoMultiplicador = spawnerManager.multiplicadorVelocidade + aumentovelocidade;
+            spawnerManager.DefinirVelocidade(novoMultiplicador);
+            // intervalo de spawn deles
+            float novoIntervalo = spawnerManager.intervaloSpawn - ReduzirIntervalo;
+            spawnerManager.DefinirIntervalo(novoIntervalo);
             HordaMudou = false;
         }
     }
@@ -48,11 +70,31 @@ public class HordaManager : SpawnerManager
         HordaMudou = true;
         Objetivo = false;
         N_Entregas = 0;
-        MudarVelocidade();
+        Mudarcondicao();
+        AtualizarInimigosPermitidos();
     }
     public void AumentarEntrega()
     {
         N_Entregas++;
         Debug.Log(N_Entregas);
+    }
+    private void AtualizarInimigosPermitidos()
+    {
+        foreach (var config in tagsPorHorda)
+        {
+            if (config.horda == NumeroHorda)
+            {
+                spawnerManager.DefinirTagsPermitidas(config.tagsPermitidas);
+                Debug.Log($"[HordaManager] Tags permitidas na horda {NumeroHorda}: {string.Join(", ", config.tagsPermitidas)}");
+                return;
+            }
+        }
+
+        spawnerManager.DefinirTagsPermitidas(new List<string>());
+    }
+    public void DefinirTagsPermitidas(List<string> tags)
+    {
+        spawnerManager.tagsPermitidas = tags;
+        Debug.Log($"[SpawnerManager] Tags permitidas atualizadas: {string.Join(", ", tags)}");
     }
 }
