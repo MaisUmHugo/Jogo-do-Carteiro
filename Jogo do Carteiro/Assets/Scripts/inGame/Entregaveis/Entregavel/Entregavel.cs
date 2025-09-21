@@ -12,6 +12,7 @@ public abstract class Entregavel : MonoBehaviour
         // Pontuação e combo
         ScoreManager.instance.AdicionarPontos(100);
         ComboManager.instance.AumentarCombo();
+        if (HordaManager.instance != null)
         HordaManager.instance.AumentarEntrega();
 
         Debug.Log($"{gameObject.name} recebeu a entrega!");
