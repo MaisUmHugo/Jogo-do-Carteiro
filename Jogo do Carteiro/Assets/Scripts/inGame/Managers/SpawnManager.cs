@@ -38,6 +38,8 @@ public class SpawnerManager : MonoBehaviour
     private float intervaloPadrao;
     private float velocidadePadrao;
 
+    private List<string> tagsPermitidas = new List<string>();
+
     void Awake()
     {
         if (instance == null) instance = this;
@@ -60,9 +62,18 @@ public class SpawnerManager : MonoBehaviour
 
         if (Time.time >= proximoSpawn)
         {
-            int idx = Random.Range(0, configuracoes.Count);
-            SpawnPorTag(configuracoes[idx].tagAssociada);
+            List<ConfiguracaoSpawn> candidatos = new List<ConfiguracaoSpawn>();
 
+            foreach (var config in configuracoes)
+            {
+                if (PodeSpawnar(config.tagAssociada))
+                    candidatos.Add(config);
+            }
+            if (candidatos.Count > 0)
+            {
+                int idx = Random.Range(0, configuracoes.Count);
+                SpawnPorTag(candidatos[idx].tagAssociada);
+            }
             proximoSpawn = Time.time + intervaloSpawn;
         }
     }
@@ -78,13 +89,29 @@ public class SpawnerManager : MonoBehaviour
         intervaloSpawn = intervaloPadrao;
         multiplicadorVelocidade = velocidadePadrao;
         spawnAtivo = true;
+        tagsPermitidas.Clear();
     }
 
+    public void DefinirTagsPermitidas(List<string> tags)
+    {
+        tagsPermitidas = tags;
+    }
+
+    public bool PodeSpawnar(string tag)
+    {
+        return tagsPermitidas.Count == 0 || tagsPermitidas.Contains(tag);
+    }
     public GameObject SpawnPorTag(string tag)
     {
         if (!dicionarioConfig.ContainsKey(tag))
         {
             Debug.LogWarning($"[SpawnerManager] Nenhum prefab configurado para tag: {tag}");
+            return null;
+        }
+
+        if (!PodeSpawnar(tag))
+        {
+            Debug.Log($"[SpawnerManager] Spawn de {tag} desabilitado nesta horda.");
             return null;
         }
 
