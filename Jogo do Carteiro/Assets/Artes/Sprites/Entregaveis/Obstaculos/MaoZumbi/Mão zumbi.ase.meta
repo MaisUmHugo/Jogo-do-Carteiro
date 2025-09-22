@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 131da2b586800ad4f840684c6e45818f
+guid: 936eea3791a87284a87a9c9746ad35cf
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,7 +36,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 8
+    spritePixelsToUnits: 12
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -74,31 +74,31 @@ ScriptedImporter:
   previousAsepriteImporterSettings:
     fileImportMode: 0
     importHiddenLayers: 0
-    layerImportMode: 0
+    layerImportMode: 1
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
-    generateAnimationClips: 0
+    generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
   asepriteImporterSettings:
     fileImportMode: 0
     importHiddenLayers: 0
-    layerImportMode: 0
+    layerImportMode: 1
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
     mosaicPadding: 4
     spritePadding: 0
     generateModelPrefab: 1
-    generateAnimationClips: 0
+    generateAnimationClips: 1
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638940429214046221
+  platformSettingsDirtyTick: 638941531114013684
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,9 +123,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: zumbi andando
+  - name: "M\xE3o zumbi"
     originalName: 
-    pivot: {x: 0.48235297, y: 0}
+    pivot: {x: 0.625, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 85
+      width: 128
       height: 16
-    spriteID: 3dacc61ec18872344a75c920dd8e7527
+    spriteID: 69e602241d897764c82ea304f8a6a4fb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,7 +145,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: zumbi andando_0
+  - name: "M\xE3o zumbi_0"
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 7
@@ -155,9 +155,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 8
+      width: 16
       height: 16
-    spriteID: 7849b00c77db1dd4788216ed6f1ad315
+    spriteID: cc25586388330b34e809c248295d1978
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -166,7 +166,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: zumbi andando_1
+  - name: "M\xE3o zumbi_1"
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 7
@@ -174,11 +174,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 17
+      x: 20
       y: 4
-      width: 9
+      width: 16
       height: 16
-    spriteID: c74271051910cbc42881a7dc50f63f17
+    spriteID: bbefdeef4d05cba44a98a006f1616bdc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -187,7 +187,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: zumbi andando_2
+  - name: "M\xE3o zumbi_2"
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 7
@@ -195,11 +195,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 32
+      x: 36
       y: 4
-      width: 9
+      width: 16
       height: 16
-    spriteID: c7b0818684a8e7242aa8ef8f32ac8d0c
+    spriteID: b887e7aecda8a3d448e5940ed5c616b9
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -208,7 +208,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: zumbi andando_3
+  - name: "M\xE3o zumbi_3"
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 7
@@ -216,11 +216,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 49
+      x: 52
       y: 4
-      width: 8
+      width: 16
       height: 16
-    spriteID: 599a1ff8349d2064faac950e8e015a41
+    spriteID: f4b065e78cfc1f2469382f3a17e9d227
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -229,7 +229,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: zumbi andando_4
+  - name: "M\xE3o zumbi_4"
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 7
@@ -237,11 +237,11 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 65
+      x: 68
       y: 4
-      width: 9
+      width: 16
       height: 16
-    spriteID: 1154a92e3c1cb1d40bafabdf2156afe3
+    spriteID: aabde68ec1a10b24dae823f72669d237
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -250,7 +250,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: zumbi andando_5
+  - name: "M\xE3o zumbi_5"
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 7
@@ -258,11 +258,32 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 80
+      x: 84
       y: 4
-      width: 9
+      width: 16
       height: 16
-    spriteID: 0d96a4484d714d3469033de3074d05f0
+    spriteID: 54ad58977231e4b419228788919cf909
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: "M\xE3o zumbi_6"
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 116
+      y: 4
+      width: 16
+      height: 16
+    spriteID: d15ee30cf49c9df4daaae921acf5a4a4
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -273,21 +294,21 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: -7500616
-    name: Layer 1
-    layerFlags: 3
+    guid: 1241692398
+    name: "M\xE3o zumbi"
+    layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Layer 1
+    - name: "M\xE3o zumbi"
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 7
+        x: 0
         y: 0
-        width: 85
+        width: 128
         height: 16
-      spriteId: 3167a1d9107e77f4bb03dd7d3a6c1866
+      spriteId: 69e602241d897764c82ea304f8a6a4fb
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -330,5 +351,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 96, y: 16}
-  previousTextureSize: {x: 128, y: 32}
+  canvasSize: {x: 160, y: 16}
+  previousTextureSize: {x: 256, y: 32}
