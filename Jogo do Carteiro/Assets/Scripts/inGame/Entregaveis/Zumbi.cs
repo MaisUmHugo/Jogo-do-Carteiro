@@ -110,6 +110,7 @@ public class Zumbi : Entregavel
         correndo = true;
         ativoParaEntrega = true;
         anim.SetBool("Correndo", true);
+        anim.SetBool("PodeReceber", true); // ativa piscar
         sr.color = corAtivo; // feedback visual
         Debug.Log("Zumbi começou a correr! Pode entregar agora.");
     }
@@ -123,6 +124,8 @@ public class Zumbi : Entregavel
         ativoParaEntrega = false; // encerra janela de entrega
         yTravado = transform.position.y;
         anim.SetBool("Caiu", true);
+        anim.SetBool("PodeReceber", false); // desliga piscar
+
 
         sr.color = new Color(corNormal.r, corNormal.g, corNormal.b, 0.5f);
 
@@ -152,6 +155,8 @@ public class Zumbi : Entregavel
         recebeuEntrega = true;
         yTravado = transform.position.y;
         anim.SetBool("RecebeuEntrega", true);
+        anim.SetBool("PodeReceber", false); // desliga piscar
+
 
         sr.color = new Color(corNormal.r, corNormal.g, corNormal.b, 0.5f);
 

@@ -146,4 +146,18 @@ public class Louco : Entregavel
         base.ReceberEntrega();
         Debug.Log("Louco recebeu a entrega, kilegal");
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!ativoParaEntrega) return;
+
+        if (collision.CompareTag("Caixa"))
+        {
+            ReceberEntrega();
+
+            // opcional: destruir a caixa depois da entrega
+            Destroy(collision.gameObject);
+        }
+    }
+
 }
