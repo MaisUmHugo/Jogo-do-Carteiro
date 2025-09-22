@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 36983e670c3b692418e7170b4b4e638c
+guid: 35795d7e58738ec4bad699a9852254b9
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,7 +36,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 16
+    spritePixelsToUnits: 8
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638941638700472580
+  platformSettingsDirtyTick: 638941650012375910
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,9 +123,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: bebado
+  - name: "bot\xF5es menu pause"
     originalName: 
-    pivot: {x: 0.5032258, y: 0}
+    pivot: {x: 0.73770493, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 155
-      height: 32
-    spriteID: 29f0f45e8b5cc90418c7bf04683c6e1f
+      width: 61
+      height: 16
+    spriteID: 1810f66cc2d0ebc45abfc4e8d7dae471
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,19 +145,61 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: bebado_0
+  - name: "bot\xF5es menu pause_0"
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
       x: 4
-      y: 4
+      y: 6
+      width: 11
+      height: 13
+    spriteID: c36ae426915c21945bdbd61018a58fa5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: "bot\xF5es menu pause_1"
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 18
+      y: 5
+      width: 15
+      height: 15
+    spriteID: 08c2b3f8d073dde4cb7e5183dc375b50
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: "bot\xF5es menu pause_2"
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 34
+      y: 5
       width: 14
-      height: 31
-    spriteID: ffd951ea761c0574c85fcb6c5a58a134
+      height: 14
+    spriteID: 5e300229f7033e947b481882fa40ba13
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -166,40 +208,19 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: bebado_1
+  - name: "bot\xF5es menu pause_5"
     originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
     rect:
       serializedVersion: 2
-      x: 42
+      x: 50
       y: 4
-      width: 51
-      height: 32
-    spriteID: d82004a3073b4ea499b2eac26520a78c
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: bebado_2
-    originalName: 
-    pivot: {x: 0.5, y: 0.5}
-    alignment: 0
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 108
-      y: 4
-      width: 51
-      height: 32
-    spriteID: a996e54ec93300944b0d78fb4a6b7cc0
+      width: 15
+      height: 16
+    spriteID: bc02404c4d588264fb394c49ce2dcf06
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -210,21 +231,21 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: -1057944921
-    name: bebado
+    guid: 1564319831
+    name: "bot\xF5es menu pause"
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: bebado
+    - name: "bot\xF5es menu pause"
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 2
+        x: 3
         y: 0
-        width: 155
-        height: 32
-      spriteId: 29f0f45e8b5cc90418c7bf04683c6e1f
+        width: 61
+        height: 16
+      spriteId: 1810f66cc2d0ebc45abfc4e8d7dae471
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -267,5 +288,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 160, y: 32}
-  previousTextureSize: {x: 256, y: 64}
+  canvasSize: {x: 96, y: 16}
+  previousTextureSize: {x: 128, y: 32}
