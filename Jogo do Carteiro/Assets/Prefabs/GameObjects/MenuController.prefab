@@ -1397,6 +1397,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2483474990395847343}
     m_Modifications:
+    - target: {fileID: 113543578505526719, guid: 4c9d504c7e529ff42b82adf9ab0fec8a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1835146673351912760, guid: f74657c51f2f74d4c9bfcbc26fc053e9, type: 3}
     - target: {fileID: 260494372886149725, guid: 4c9d504c7e529ff42b82adf9ab0fec8a, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b
       value: 0.78431374
@@ -1453,6 +1457,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2929610314199250727, guid: 4c9d504c7e529ff42b82adf9ab0fec8a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6690150680595811584, guid: 35795d7e58738ec4bad699a9852254b9, type: 3}
     - target: {fileID: 3327223121401692202, guid: 4c9d504c7e529ff42b82adf9ab0fec8a, type: 3}
       propertyPath: m_Colors.m_HighlightedColor.b
       value: 0.78431374
@@ -1481,6 +1489,22 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0.78431374
       objectReference: {fileID: 0}
+    - target: {fileID: 5116150560119485981, guid: 4c9d504c7e529ff42b82adf9ab0fec8a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573181325222565160, guid: 4c9d504c7e529ff42b82adf9ab0fec8a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 140.727
+      objectReference: {fileID: 0}
+    - target: {fileID: 6573181325222565160, guid: 4c9d504c7e529ff42b82adf9ab0fec8a, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 152.977
+      objectReference: {fileID: 0}
+    - target: {fileID: 6749564161480512213, guid: 4c9d504c7e529ff42b82adf9ab0fec8a, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1835146673351912760, guid: f74657c51f2f74d4c9bfcbc26fc053e9, type: 3}
     - target: {fileID: 7587824619635066272, guid: 4c9d504c7e529ff42b82adf9ab0fec8a, type: 3}
       propertyPath: m_fontSize
       value: 42.74
@@ -1494,7 +1518,9 @@ PrefabInstance:
       value: OpcaoGameObject
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5482183217749557109, guid: 4c9d504c7e529ff42b82adf9ab0fec8a, type: 3}
+    - {fileID: 866609906266721334, guid: 4c9d504c7e529ff42b82adf9ab0fec8a, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c9d504c7e529ff42b82adf9ab0fec8a, type: 3}
