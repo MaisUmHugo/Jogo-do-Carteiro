@@ -52,7 +52,7 @@ public class VidaManager : MonoBehaviour
     }
     private IEnumerator DelayVida()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(3.5f);
         anim.SetBool("Damage", false);
     }
 }

@@ -201,7 +201,7 @@ public class Bebado : Entregavel
     private IEnumerator DelayTransparente()
     {
         yield return new WaitForSeconds(1.5f);
-        anim.SetBool("Transparente", true);
+        anim.SetTrigger("Transparente");
     }
     private IEnumerator PiscarEnquantoAtivo()
     {
