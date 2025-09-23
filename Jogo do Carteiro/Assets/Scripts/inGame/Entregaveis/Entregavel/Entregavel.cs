@@ -8,7 +8,7 @@ public abstract class Entregavel : MonoBehaviour
     public virtual void ReceberEntrega()
     {
         if (!ativoParaEntrega) return;
-
+        Debug.Log("Base foi ativada");
         // Pontuação e combo
         ScoreManager.instance.AdicionarPontos(100);
         ComboManager.instance.AumentarCombo();

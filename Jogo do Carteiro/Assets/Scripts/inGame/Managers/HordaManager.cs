@@ -48,6 +48,11 @@ public class HordaManager : MonoBehaviour
         TextoHorda.text = "Horda: " + NumeroHorda;
         TextoEntrega.text = $"Entregas:{N_Entregas}/{E_Necessarias}" ;
         AtualizarBarraProgresso();
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            AlterarHorda();
+        }
+
     }
     private void AtualizarBarraProgresso()
     {

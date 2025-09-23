@@ -28,7 +28,6 @@ public class Louco : Entregavel
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
-        //sr = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
 
         // Decide direção: sobe ou desce
@@ -46,7 +45,7 @@ public class Louco : Entregavel
     {
         if (atravessando)
         {
-            // --- Movimento diagonal (X negativo + Y até destino) ---
+            // Movimento diagonal (X negativo + Y até destino)
             transform.position += new Vector3(-velocidadeFrente * Time.deltaTime, 0f, 0f);
 
             float novoY = Mathf.MoveTowards(
@@ -58,29 +57,29 @@ public class Louco : Entregavel
             transform.position = new Vector3(transform.position.x, novoY, transform.position.z);
 
             if (!pulou &&
-           (Mathf.Abs(transform.position.y - yL1) < 0.3f ||
-            Mathf.Abs(transform.position.y - yL4) < 0.3f))
+                (Mathf.Abs(transform.position.y - yL1) < 0.3f ||
+                 Mathf.Abs(transform.position.y - yL4) < 0.3f))
             {
                 pulou = true;
                 if (anim != null)
                     anim.SetTrigger("Pulando");
             }
 
-            // ---- Ativação da entrega (ignora L1 e L4) ----
-            float yL2 = LanesController.instance.PosicaoY(LanesController.Linhas.L2);
-            float yL3 = LanesController.instance.PosicaoY(LanesController.Linhas.L3);
-
+            // Ativação da entrega (ignora L1 e L4)
             if (!entregaJaAtivada)
             {
-                if (Mathf.Abs(transform.position.y - yL2) < 0.1f ||
-                    Mathf.Abs(transform.position.y - yL3) < 0.1f)
+                float yL2 = LanesController.instance.PosicaoY(LanesController.Linhas.L2);
+                float yL3 = LanesController.instance.PosicaoY(LanesController.Linhas.L3);
+
+                if (Mathf.Abs(transform.position.y - yL2) < 0.1f || Mathf.Abs(transform.position.y - yL3) < 0.1f)
                 {
                     entregaJaAtivada = true;
-                    StartCoroutine(JanelaEntrega());
+                    ativoParaEntrega = true;  // Agora definimos `ativoParaEntrega` como `true` quando atingimos L2 ou L3
+                    Debug.Log("Entrega ativada em L2 ou L3!");
                 }
             }
 
-            // ---- Chegou no outro lado (passou todas as lanes) ----
+            // Chegou no outro lado (passou todas as lanes)
             if ((yDestino > 0 && transform.position.y >= yDestino - 0.05f) ||
                 (yDestino < 0 && transform.position.y <= yDestino + 0.05f))
             {
@@ -96,7 +95,7 @@ public class Louco : Entregavel
                 }
                 else
                 {
-                    Debug.Log("Louco terminou, yeah");
+                    Debug.Log("Louco terminou a travessia e recebeu a entrega!");
                 }
 
                 yTravado = transform.position.y; // trava Y
@@ -104,7 +103,7 @@ public class Louco : Entregavel
         }
         else if (terminouTravessia)
         {
-            // Depois da travessia, anda reto em X (esquerda) até sair da tela
+            // Depois da travessia, anda reto em X até sair da tela
             transform.position = new Vector3(
                 transform.position.x - velocidadeSaida * Time.deltaTime,
                 yTravado,
@@ -117,47 +116,44 @@ public class Louco : Entregavel
         }
     }
 
-    private IEnumerator JanelaEntrega()
-    {
-        ativoParaEntrega = true;
-        float tempo = 0f;
-
-        while (tempo < tempoAtivoEntrega)
-        {
-            sr.color = sr.color == Color.white ? Color.red : Color.white;
-            yield return new WaitForSeconds(intervaloPiscar);
-            tempo += intervaloPiscar;
-        }
-
-        ativoParaEntrega = false;
-        sr.color = Color.white;
-    }
-
     public override void ReceberEntrega()
     {
-        if (!ativoParaEntrega) return;
+        if (!ativoParaEntrega)
+        {
+            Debug.Log("Entrega não ativa no momento!");  // Log para depuração
+            return;  // Não faz nada se não estiver ativo para a entrega
+        }
 
-        ativoParaEntrega = false;
+        ativoParaEntrega = false;  // Desativa entrega após processar
         entregaRecebida = true;
         sr.color = Color.white;
+
         if (anim != null)
             anim.SetTrigger("RecebeuEntrega");
 
-        base.ReceberEntrega();
-        Debug.Log("Louco recebeu a entrega, kilegal");
+        // base.ReceberEntrega();  // Executa a lógica da base (pontuação, combo, etc.)
+        ScoreManager.instance.AdicionarPontos(100);
+        ComboManager.instance.AumentarCombo();
+        if (HordaManager.instance != null)
+            HordaManager.instance.AumentarEntrega();
+        Debug.Log("Louco recebeu a entrega com sucesso!");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!ativoParaEntrega) return;
+        if (!ativoParaEntrega)
+        {
+            Debug.Log("Louco não está ativo para entrega no momento");  // Verifique a condição
+            return;  // Evita processar a colisão se não for o momento certo
+        }
 
         if (collision.CompareTag("Caixa"))
         {
+            Debug.Log("Louco colidiu com a caixa! Iniciando entrega...");
             ReceberEntrega();
 
-            // opcional: destruir a caixa depois da entrega
+            // Opcional: destruir a caixa depois de processar a entrega
             Destroy(collision.gameObject);
         }
     }
-
 }

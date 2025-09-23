@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ativoParaEntrega: 1
-  velocidadeCaminhada: 4
+  velocidadeCaminhada: 6
   velocidadeCorrida: 8
   velocidadeTrocaLane: 8
   distanciaCorrida: 60
