@@ -124,6 +124,7 @@ public class Zumbi : Entregavel
         ativoParaEntrega = false; // encerra janela de entrega
         yTravado = transform.position.y;
         anim.SetBool("Caiu", true);
+        anim.SetBool("Correndo", false); // desablita animação de corrida
         anim.SetBool("PodeReceber", false); // desliga piscar
 
 
@@ -156,6 +157,7 @@ public class Zumbi : Entregavel
         yTravado = transform.position.y;
         anim.SetBool("RecebeuEntrega", true);
         anim.SetBool("PodeReceber", false); // desliga piscar
+        anim.SetBool("Correndo", false); // desablita animação de corrida
 
 
         sr.color = new Color(corNormal.r, corNormal.g, corNormal.b, 0.5f);

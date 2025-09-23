@@ -1042,9 +1042,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnerManager: {fileID: 921568369}
-  E_Necessarias: 2
+  E_Necessarias: 10
   TextoHorda: {fileID: 223114661}
-  aumentovelocidade: 0.5
+  aumentovelocidade: 0.1
   ReduzirIntervalo: 0.1
   tagsPorHorda:
   - horda: 1
