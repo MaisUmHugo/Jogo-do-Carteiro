@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-
+using System.Collections;
 public class Zumbi : Entregavel
 {
     [Header("Configuração do Zumbi")]
@@ -109,9 +109,7 @@ public class Zumbi : Entregavel
     {
         correndo = true;
         ativoParaEntrega = true;
-        anim.SetBool("Correndo", true);
-        anim.SetBool("PodeReceber", true); // ativa piscar
-        sr.color = corAtivo; // feedback visual
+        anim.SetTrigger("PodeReceber");
         Debug.Log("Zumbi começou a correr! Pode entregar agora.");
     }
 
@@ -123,9 +121,7 @@ public class Zumbi : Entregavel
         correndo = false;
         ativoParaEntrega = false; // encerra janela de entrega
         yTravado = transform.position.y;
-        anim.SetBool("Caiu", true);
-        anim.SetBool("Correndo", false); // desablita animação de corrida
-        anim.SetBool("PodeReceber", false); // desliga piscar
+        anim.SetTrigger("Caiu");
 
 
         sr.color = new Color(corNormal.r, corNormal.g, corNormal.b, 0.5f);
@@ -149,15 +145,13 @@ public class Zumbi : Entregavel
     {
         if (!ativoParaEntrega) return;
 
-        base.ReceberEntrega(); 
-
+        base.ReceberEntrega();
+        anim.SetTrigger("RecebeuEntrega");
         ativoParaEntrega = false;
         correndo = false;
         recebeuEntrega = true;
         yTravado = transform.position.y;
-        anim.SetBool("RecebeuEntrega", true);
-        anim.SetBool("PodeReceber", false); // desliga piscar
-        anim.SetBool("Correndo", false); // desablita animação de corrida
+        DelayTransparente();
 
 
         sr.color = new Color(corNormal.r, corNormal.g, corNormal.b, 0.5f);
@@ -166,5 +160,11 @@ public class Zumbi : Entregavel
         if (col != null) col.enabled = false;
 
         Debug.Log("Zumbi recebeu a entrega e desistiu do player.");
+    }
+
+    private IEnumerator DelayTransparente()
+    {
+        yield return new WaitForSeconds(1.5f);
+        anim.SetBool("Transparente", true);
     }
 }
