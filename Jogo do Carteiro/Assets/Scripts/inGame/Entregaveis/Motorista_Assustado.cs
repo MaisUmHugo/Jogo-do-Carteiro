@@ -90,6 +90,10 @@ public class Motorista_Assustado : Entregavel
         {
             ReceberEntrega();
         }
+        if (collision.CompareTag("Player"))
+        {
+            FalharEntrega();
+        }
     }
     public override void ReceberEntrega()
     {
