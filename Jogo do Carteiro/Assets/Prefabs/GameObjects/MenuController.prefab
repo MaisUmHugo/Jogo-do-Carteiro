@@ -680,6 +680,8 @@ MonoBehaviour:
   painelConfirmacao: {fileID: 811876700673979493}
   fundoCinza: {fileID: 6569255453973771824}
   CenaJogar: CenaJogar
+  CenaFim: CenaFimDemo
+  CenaMenu: MenuPrincipal
 --- !u!1 &3310790846120267121
 GameObject:
   m_ObjectHideFlags: 0

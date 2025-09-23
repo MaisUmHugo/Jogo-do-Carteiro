@@ -192,10 +192,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ativoParaEntrega: 1
-  velocidade: 5
+  velocidade: 8
   tempoAtivoEntrega: 5
   intervaloPiscar: 0.15
-  distanciaEntrega: 100
+  distanciaEntrega: 80
   offset: {x: 0, y: 8, z: 0}
   corNormal: {r: 0.07075471, g: 0.36427745, b: 1, a: 1}
   corAtivo: {r: 1, g: 0, b: 0, a: 1}
