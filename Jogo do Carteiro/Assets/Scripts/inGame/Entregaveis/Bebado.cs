@@ -140,6 +140,7 @@ public class Bebado : Entregavel
 
     private bool PodeReceberEntrega()
     {
+        anim.SetTrigger("PodeReceber");
         // precisa estar em outra lane
         bool outraLane = jogador.linhaAtual != minhaLane;
 
@@ -158,8 +159,11 @@ public class Bebado : Entregavel
     {
         if (!ativoParaEntrega) return;
 
+       
+
         if (PodeReceberEntrega())
         {
+            anim.SetTrigger("RecebeuEntrega");
             base.ReceberEntrega();
             ativoParaEntrega = false;
             parado = true; // para de andar
@@ -170,7 +174,6 @@ public class Bebado : Entregavel
                 StopCoroutine(piscarRoutine);
                 sr.color = corNormal;
             }
-            anim.SetTrigger("ReceberEntrega");
             Color cor = sr.color;
             cor.a = 0.5f; // meio transparente
             sr.color = cor;
@@ -183,8 +186,10 @@ public class Bebado : Entregavel
 
             Debug.Log("Pabéns, se entregou fih");
 
+            StartCoroutine(DelayTransparente());
+
             // Agora ele vai sumir depois de um tempo
-            
+
             //Destroy(gameObject);
         }
         else
@@ -193,7 +198,11 @@ public class Bebado : Entregavel
         }
     }
 
-
+    private IEnumerator DelayTransparente()
+    {
+        yield return new WaitForSeconds(3.5f);
+        anim.SetBool("Transparente", true);
+    }
     private IEnumerator PiscarEnquantoAtivo()
     {
         int quantidadePiscos = 5; // muda aqui se quiser mais ou menos piscadas
@@ -213,7 +222,6 @@ public class Bebado : Entregavel
         if (collision.CompareTag("Player"))
         {
             FalharEntrega();
-            Destroy(gameObject);
         }
         else if (collision.CompareTag("Caixa"))
         {

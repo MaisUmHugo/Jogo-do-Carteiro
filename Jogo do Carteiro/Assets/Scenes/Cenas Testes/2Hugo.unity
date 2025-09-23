@@ -1183,39 +1183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2871746574439256737, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
       propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2968238737743098490, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
-      propertyPath: m_Enabled
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3387964175657424534, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
-      propertyPath: m_FlipX
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3387964175657424534, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
-      propertyPath: m_Size.x
-      value: 6.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 3387964175657424534, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
-      propertyPath: m_Size.y
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3387964175657424534, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -351047306031110357, guid: 36983e670c3b692418e7170b4b4e638c, type: 3}
-    - target: {fileID: 3387964175657424534, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3387964175657424534, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 1065233613
-      objectReference: {fileID: 0}
-    - target: {fileID: 3387964175657424534, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7665410091036526775, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1403,7 +1371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4990141558665447564, guid: 8ee03c4db697ff24695cbe7505d738b4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2114,6 +2082,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Janela
       objectReference: {fileID: 0}
+    - target: {fileID: 6937591069211705461, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2427,7 +2399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4990141558665447564, guid: 8ee03c4db697ff24695cbe7505d738b4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
