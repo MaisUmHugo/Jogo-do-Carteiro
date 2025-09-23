@@ -3,16 +3,21 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal.Internal;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HordaManager : MonoBehaviour
 {
     [Header("Referência ao Spawner")]
     public SpawnerManager spawnerManager;
 
+    [Header("Barra de Progresso")]
+    public Image barraProgresso; 
+
     private int NumeroHorda, N_Entregas;
     [Header("Controle Hordas")]
     public int E_Necessarias;
     public TextMeshProUGUI TextoHorda;
+    public TextMeshProUGUI TextoEntrega;
     public float aumentovelocidade;
     public float ReduzirIntervalo;
 
@@ -41,6 +46,17 @@ public class HordaManager : MonoBehaviour
     {
         verificarhorda();
         TextoHorda.text = "Horda: " + NumeroHorda;
+        TextoEntrega.text = $"Entregas:{N_Entregas}/{E_Necessarias}" ;
+        AtualizarBarraProgresso();
+    }
+    private void AtualizarBarraProgresso()
+    {
+        if (barraProgresso != null)
+        {
+            // Calcula o valor do progresso como uma porcentagem
+            float progresso = (float)N_Entregas / (float)E_Necessarias;
+            barraProgresso.fillAmount = progresso;  // Atualiza a barra de progresso
+        }
     }
     private void Mudarcondicao()
     {

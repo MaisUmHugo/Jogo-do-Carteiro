@@ -9,6 +9,7 @@ public class PauseController : MonoBehaviour
     [SerializeField] private GameObject FundoCinza;
     [SerializeField] private GameObject painelPause;
     [SerializeField] private GameObject painelConfirmacao;
+    [SerializeField] private GameObject painelMenuInicial;
 
     public static bool JogoPausado { get; private set; }
     private System.Action acaoConfirmada; 
@@ -62,6 +63,7 @@ public class PauseController : MonoBehaviour
         painelPause.SetActive(false);
         FundoCinza.SetActive(false);
         painelConfirmacao.SetActive(false);
+        painelMenuInicial.SetActive(true);
 
         Debug.Log("Pause fechado");
     }
