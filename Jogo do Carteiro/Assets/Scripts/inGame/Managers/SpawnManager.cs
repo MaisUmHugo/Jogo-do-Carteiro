@@ -31,6 +31,7 @@ public class SpawnerManager : MonoBehaviour
     public float intervaloSpawn;
     public float multiplicadorVelocidade;
     public bool spawnAtivo = true;
+    public float intervaloaleatorio;
 
     private Dictionary<string, ConfiguracaoSpawn> dicionarioConfig = new Dictionary<string, ConfiguracaoSpawn>();
     private float proximoSpawn;
@@ -54,6 +55,7 @@ public class SpawnerManager : MonoBehaviour
         }
         intervaloPadrao = intervaloSpawn;
         velocidadePadrao = multiplicadorVelocidade;
+        intervaloaleatorio = Random.Range(-1.5f, 1.5f);
     }
 
     void Update()
@@ -80,7 +82,7 @@ public class SpawnerManager : MonoBehaviour
                 Debug.LogWarning("[SpawnerManager] Nenhum inimigo elegível para spawn nesta horda!");
             }
 
-            proximoSpawn = Time.time + intervaloSpawn;
+            proximoSpawn = Time.time + intervaloSpawn + intervaloaleatorio;
         }
     }
 
@@ -156,7 +158,7 @@ public class SpawnerManager : MonoBehaviour
 
         GameObject go = Instantiate(config.prefab, posicaoSpawn, Quaternion.identity);
         AjustarVelocidade(go);
-
+        intervaloaleatorio = Random.Range(-1.5f, 1.5f);
         return go;
     }
 
