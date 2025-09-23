@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6920e8fe01549864bb0f7855790310b9
+guid: 15f0c1b4f2d76f64a90758cad695555c
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -74,7 +74,7 @@ ScriptedImporter:
   previousAsepriteImporterSettings:
     fileImportMode: 0
     importHiddenLayers: 0
-    layerImportMode: 0
+    layerImportMode: 1
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -87,7 +87,7 @@ ScriptedImporter:
   asepriteImporterSettings:
     fileImportMode: 0
     importHiddenLayers: 0
-    layerImportMode: 0
+    layerImportMode: 1
     defaultPivotSpace: 0
     defaultPivotAlignment: 7
     customPivotPosition: {x: 0.5, y: 0.5}
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638940519711726255
+  platformSettingsDirtyTick: 638942406276715117
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,9 +123,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: zumbi joinha+atq
+  - name: zumbi andando 1
     originalName: 
-    pivot: {x: 0.7129629, y: 0}
+    pivot: {x: 0.48235297, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 108
+      width: 85
       height: 16
-    spriteID: 98e1a889a22bc8b4da8fd513d720e7a7
+    spriteID: a1dbb8cb7cc3a4b4f98f455ac2b617e0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,7 +145,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: zumbi joinha+atq_0
+  - name: zumbi andando 1_0
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 7
@@ -155,9 +155,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 14
+      width: 9
       height: 16
-    spriteID: bcfe4b7fdf7b4b2478cb519ffc3f12e3
+    spriteID: c0ab0820403d15b47a8c945c0cb9831a
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -166,7 +166,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
-  - name: zumbi joinha+atq_1
+  - name: zumbi andando 1_1
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 7
@@ -174,11 +174,95 @@ ScriptedImporter:
     customData: 
     rect:
       serializedVersion: 2
-      x: 21
+      x: 17
       y: 4
-      width: 14
+      width: 9
       height: 16
-    spriteID: 5bfe20e92d0c0884abd8faec6e446b5d
+    spriteID: bf7247f12ef0c2141bc97995f318cbcd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: zumbi andando 1_2
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 4
+      width: 9
+      height: 16
+    spriteID: 2760bc466d531594f8e3f3f79993cc8a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: zumbi andando 1_3
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 49
+      y: 4
+      width: 9
+      height: 16
+    spriteID: f2d8720815c0e8a41a8d28f3d2397de5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: zumbi andando 1_4
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 65
+      y: 4
+      width: 9
+      height: 16
+    spriteID: 1f0defed7fcda6947b2f05d835dbf24b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: zumbi andando 1_5
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 7
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 4
+      width: 9
+      height: 16
+    spriteID: 6f3709fd336936b48875cd3b5a4a1fe1
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -189,21 +273,21 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: -7500616
-    name: Layer 1
-    layerFlags: 3
+    guid: -1942367189
+    name: zumbi andando 1
+    layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Layer 1
+    - name: zumbi andando 1
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 3
+        x: 7
         y: 0
-        width: 108
+        width: 85
         height: 16
-      spriteId: 8ae05d8870447d045a2951645f2be861
+      spriteId: a1dbb8cb7cc3a4b4f98f455ac2b617e0
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -246,5 +330,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 160, y: 16}
+  canvasSize: {x: 96, y: 16}
   previousTextureSize: {x: 128, y: 32}

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class Mao_Zumbi : Entregavel
 {
@@ -99,11 +100,7 @@ public class Mao_Zumbi : Entregavel
     }
     public override void ReceberEntrega()
     {
-        sr.color = corNormal;
         base.ReceberEntrega();
-        Color cor = sr.color;
-        cor.a = 0.5f; // meio transparente
-        sr.color = cor;
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)
         {
@@ -111,15 +108,16 @@ public class Mao_Zumbi : Entregavel
         }
         recebeu = true;
         anim.SetTrigger("ReceberEntrega");
+        StartCoroutine(DelayTransparente());
+
     }
-    private System.Collections.IEnumerator ProntoparaEntrega()
+    private IEnumerator ProntoparaEntrega()
     {
         anim.SetTrigger("Surgir");
         yield return new WaitForSeconds(1.5f);
         podereceber = true;
         ativoParaEntrega = true;
         anim.SetTrigger("MaoAberta");
-        sr.color = corAtivo; // piscar (feedback visual)
         Debug.Log("Mão proxima, entregue agora!");
 
         // espera a janela de tempo para aceitar a entrega
@@ -131,5 +129,10 @@ public class Mao_Zumbi : Entregavel
             PerderCombo();
             sr.color = corNormal;
         }
+    }
+    private IEnumerator DelayTransparente()
+    {
+        yield return new WaitForSeconds(3.5f);
+        anim.SetTrigger("Transparente");
     }
 }
