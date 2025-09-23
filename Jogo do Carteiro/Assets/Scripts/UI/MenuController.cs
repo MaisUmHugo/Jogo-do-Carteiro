@@ -11,33 +11,35 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject painelConfirmacao;
     [SerializeField] private GameObject fundoCinza;
 
+    [Header("Cenas")]
     [SerializeField] private string CenaJogar;
     [SerializeField] private string CenaFim;
     [SerializeField] private string CenaMenu;
 
-    private System.Action acaoConfirmada;
+    private System.Action acaoPersonalizada;
+
+    private enum TipoConfirmacao { Nenhuma, Sair, CarregarCena, Personalizada }
+    private TipoConfirmacao tipoConfirm = TipoConfirmacao.Nenhuma;
+    private string cenaParaCarregar;
 
     private void Awake()
     {
         inputs = new INPUTS();
-
-        // ESC fecha opções se estiver nelas
-        inputs.UI.Cancel.performed += ctx =>
-        {
-            if (painelOpcoes.activeSelf) FecharOpcoes();
-            else if (painelConfirmacao.activeSelf) BotaoConfirmarNao();
-        };
+        // subscribe via método (para poder desinscrever depois)
+        inputs.UI.Cancel.performed += OnCancelPerformed;
     }
 
     private void OnEnable()
     {
         inputs.Enable();
-        inputs.Gameplay.Disable(); // garante que controles de gameplay não fiquem ativos
+        inputs.Gameplay.Disable();
         inputs.UI.Enable();
     }
 
     private void OnDisable()
     {
+        // desinscrever evento e desabilitar inputs
+        inputs.UI.Cancel.performed -= OnCancelPerformed;
         inputs.Disable();
     }
 
@@ -47,12 +49,17 @@ public class MenuController : MonoBehaviour
             painelConfirmacao.SetActive(false);
     }
 
+    // ---------------------------
+    // Botões públicos (UI)
+    // ---------------------------
     public void Jogar()
     {
-        SceneManager.LoadScene(CenaJogar); 
+        SceneManager.LoadScene(CenaJogar);
     }
+
     public void VoltarMenu()
     {
+        // você pode querer mostrar confirmação antes de sair; se sim, use MostrarConfirmacaoCarregarCena(CenaMenu)
         SceneManager.LoadScene(CenaMenu);
     }
 
@@ -72,39 +79,92 @@ public class MenuController : MonoBehaviour
 
     public void SairJogo()
     {
-        MostrarConfirmacao(() =>
-        {
-            Debug.Log("Saindo do jogo...");
-            Application.Quit();
-        });
+        MostrarConfirmacaoSair();
     }
 
-    public void BotaoCreditos()
+    // mostra confirmação para carregar uma cena específica
+    public void MostrarConfirmacaoCarregarCena(string nomeCena)
     {
-        SceneManager.LoadScene("Creditos"); 
+        tipoConfirm = TipoConfirmacao.CarregarCena;
+        cenaParaCarregar = nomeCena;
+        MostrarPainelConfirmacao();
     }
 
-    private void MostrarConfirmacao(System.Action acao)
+    // mostra confirmação para sair
+    public void MostrarConfirmacaoSair()
+    {
+        tipoConfirm = TipoConfirmacao.Sair;
+        MostrarPainelConfirmacao();
+    }
+
+    // mostra confirmação com ação custom 
+    public void MostrarConfirmacaoPersonalizada(System.Action acao)
+    {
+        tipoConfirm = TipoConfirmacao.Personalizada;
+        acaoPersonalizada = acao;
+        MostrarPainelConfirmacao();
+    }
+
+    private void MostrarPainelConfirmacao()
     {
         painelMenuInicial.SetActive(false);
         fundoCinza.SetActive(true);
         painelConfirmacao.SetActive(true);
-
-        acaoConfirmada = acao;
     }
 
-    public void BotaoConfirmarSim()
-    {
-        acaoConfirmada?.Invoke();
-        acaoConfirmada = null;
-    }
-
-    public void BotaoConfirmarNao()
+    private void LimparConfirmacao()
     {
         painelConfirmacao.SetActive(false);
         fundoCinza.SetActive(false);
         painelMenuInicial.SetActive(true);
+        acaoPersonalizada = null;
+        tipoConfirm = TipoConfirmacao.Nenhuma;
+        cenaParaCarregar = null;
+    }
 
-        acaoConfirmada = null;
+    public void BotaoConfirmarSim()
+    {
+        Debug.Log("Confirmou, confirmou" + tipoConfirm);
+
+        switch (tipoConfirm)
+        {
+            case TipoConfirmacao.Sair:
+                Debug.Log("Jogo indo de arrasta intencionalmente");
+                Application.Quit();
+                // OBS: em WebGL / Editor isso não fecha; verifique logs
+                break;
+
+            case TipoConfirmacao.CarregarCena:
+                if (!string.IsNullOrEmpty(cenaParaCarregar))
+                {
+                    SceneManager.LoadScene(cenaParaCarregar);
+                }
+                break;
+
+            case TipoConfirmacao.Personalizada:
+                acaoPersonalizada?.Invoke();
+                break;
+
+            case TipoConfirmacao.Nenhuma:
+            default:
+                Debug.LogWarning("[Menu] Confirmar sem ação definida!");
+                break;
+        }
+
+        LimparConfirmacao();
+    }
+
+    public void BotaoConfirmarNao()
+    {
+        Debug.Log("Confirmou no.");
+        LimparConfirmacao();
+    }
+    private void OnCancelPerformed(UnityEngine.InputSystem.InputAction.CallbackContext ctx)
+    {
+        // fecha opções se estiver nelas, senão fecha o confirm se aberto
+        if (painelOpcoes != null && painelOpcoes.activeSelf)
+            FecharOpcoes();
+        else if (painelConfirmacao != null && painelConfirmacao.activeSelf)
+            BotaoConfirmarNao();
     }
 }

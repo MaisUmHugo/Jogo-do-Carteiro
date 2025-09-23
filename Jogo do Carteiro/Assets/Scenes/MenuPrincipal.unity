@@ -119,11 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &246789463 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4372192122414240913, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
-  m_PrefabInstance: {fileID: 4083696786185700381}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &661031283
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,26 +343,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 811876700673979493, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1463594191307461489, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2353590107404747780, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1835146673351912760, guid: f74657c51f2f74d4c9bfcbc26fc053e9, type: 3}
-    - target: {fileID: 2754589942446572537, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 140.727
-      objectReference: {fileID: 0}
-    - target: {fileID: 2754589942446572537, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 152.977
-      objectReference: {fileID: 0}
     - target: {fileID: 2792283733562743002, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
       propertyPath: m_Name
       value: MenuController
@@ -412,30 +387,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4180135059424895180, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4379413966157647750, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
-      propertyPath: CenaJogar
-      value: CenaJogo
-      objectReference: {fileID: 0}
-    - target: {fileID: 6173014986631258614, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -6690150680595811584, guid: 35795d7e58738ec4bad699a9852254b9, type: 3}
-    - target: {fileID: 7220405857595602449, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
-      propertyPath: painelMenuInicial
-      value: 
-      objectReference: {fileID: 246789463}
-    - target: {fileID: 8976103055663704942, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1835146673351912760, guid: f74657c51f2f74d4c9bfcbc26fc053e9, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 3537091474655734180, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
-    - {fileID: 8143691741001145063, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23878fe161cf3224cb42501ff5f32e69, type: 3}
