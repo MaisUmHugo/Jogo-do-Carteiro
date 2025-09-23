@@ -92,6 +92,10 @@ public class Mao_Zumbi : Entregavel
         {
             ReceberEntrega();
         }
+        if (collision.CompareTag("Player"))
+        {
+            FalharEntrega();
+        }
     }
     public override void ReceberEntrega()
     {
