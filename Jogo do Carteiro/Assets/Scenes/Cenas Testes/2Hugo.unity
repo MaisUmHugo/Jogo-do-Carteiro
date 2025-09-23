@@ -1371,7 +1371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4990141558665447564, guid: 8ee03c4db697ff24695cbe7505d738b4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2393,13 +2393,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2521987094199550952, guid: 8ee03c4db697ff24695cbe7505d738b4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4990141558665447564, guid: 8ee03c4db697ff24695cbe7505d738b4, type: 3}
       propertyPath: m_Name
       value: Louco
       objectReference: {fileID: 0}
     - target: {fileID: 4990141558665447564, guid: 8ee03c4db697ff24695cbe7505d738b4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
