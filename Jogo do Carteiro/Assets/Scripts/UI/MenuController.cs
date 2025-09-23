@@ -12,6 +12,8 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject fundoCinza;
 
     [SerializeField] private string CenaJogar;
+    [SerializeField] private string CenaFim;
+    [SerializeField] private string CenaMenu;
 
     private System.Action acaoConfirmada;
 
@@ -48,6 +50,10 @@ public class MenuController : MonoBehaviour
     public void Jogar()
     {
         SceneManager.LoadScene(CenaJogar); 
+    }
+    public void VoltarMenu()
+    {
+        SceneManager.LoadScene(CenaMenu);
     }
 
     public void AbrirOpcoes()

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Rendering.Universal.Internal;
+using UnityEngine.SceneManagement;
 
 public class HordaManager : MonoBehaviour
 {
@@ -67,9 +69,14 @@ public class HordaManager : MonoBehaviour
     private void AlterarHorda()
     {
         NumeroHorda = NumeroHorda + 1;
+        E_Necessarias += 1;
         HordaMudou = true;
         Objetivo = false;
         N_Entregas = 0;
+        if (NumeroHorda >= 11)
+        {
+            Final();
+        }
         Mudarcondicao();
         AtualizarInimigosPermitidos();
     }
@@ -96,5 +103,9 @@ public class HordaManager : MonoBehaviour
     {
         spawnerManager.tagsPermitidas = tags;
         Debug.Log($"[SpawnerManager] Tags permitidas atualizadas: {string.Join(", ", tags)}");
+    }
+    private void Final()
+    {
+        SceneManager.LoadScene("CenaFimDemo");
     }
 }
