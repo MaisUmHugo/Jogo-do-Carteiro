@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2f5a7ebc8023fd5409ddc17ededb09ee
+guid: 984606824366e2d4f859115cca60784d
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -36,7 +36,7 @@ ScriptedImporter:
     spriteMeshType: 1
     alignment: 0
     spritePivot: {x: 0.5, y: 0.5}
-    spritePixelsToUnits: 18
+    spritePixelsToUnits: 12
     spriteBorder: {x: 0, y: 0, z: 0, w: 0}
     spriteGenerateFallbackPhysicsShape: 0
     generateCubemap: 6
@@ -98,7 +98,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638942186591875134
+  platformSettingsDirtyTick: 638942188672209685
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -123,9 +123,9 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: louco
+  - name: Player_Arremessando
     originalName: 
-    pivot: {x: 0.5729167, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -133,9 +133,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 144
-      height: 32
-    spriteID: b9d6e773bb9d12d4e8f5dd043951fb62
+      width: 20
+      height: 24
+    spriteID: e82457b843a0206489854dffe8a526d8
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -145,7 +145,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
   spriteSheetImportData:
-  - name: louco_0
+  - name: Player_Arremessando_0
     originalName: 
     pivot: {x: 0.5, y: 0}
     alignment: 7
@@ -155,135 +155,9 @@ ScriptedImporter:
       serializedVersion: 2
       x: 4
       y: 4
-      width: 16
-      height: 32
-    spriteID: f0edc7391a8792c438df6db351944b11
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: louco_1
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 7
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 21
-      y: 4
-      width: 16
-      height: 32
-    spriteID: 34a94b51a7ab72f449e91dddcc50a08a
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: louco_2
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 7
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 38
-      y: 4
-      width: 16
-      height: 32
-    spriteID: 918abc62b74f77045848c6e96245e9a3
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: louco_3
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 7
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 56
-      y: 4
-      width: 16
-      height: 32
-    spriteID: 01f5b3263dfc6044c9ca2ae749280ec1
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: louco_4
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 7
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 74
-      y: 4
-      width: 16
-      height: 32
-    spriteID: 8546a9bd94b7f234eb706f4b3efb4dd6
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: louco_5
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 7
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 91
-      y: 4
-      width: 16
-      height: 32
-    spriteID: cfb8c89f6f15f6c4e9e4d6561b82f0e1
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 0, y: 0}
-  - name: louco_6
-    originalName: 
-    pivot: {x: 0.5, y: 0}
-    alignment: 7
-    border: {x: 0, y: 0, z: 0, w: 0}
-    customData: 
-    rect:
-      serializedVersion: 2
-      x: 132
-      y: 4
-      width: 16
-      height: 32
-    spriteID: 8955f422c634b704c997fba8e4692aad
+      width: 20
+      height: 24
+    spriteID: ab0bdc672ee8c534da86f13b49cec325
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -294,21 +168,21 @@ ScriptedImporter:
     uvTransform: {x: 0, y: 0}
   asepriteLayers:
   - layerIndex: 0
-    guid: 795228640
-    name: louco
+    guid: 270794208
+    name: Player_Arremessando
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: louco
+    - name: Player_Arremessando
       frameIndex: 0
       additiveSortOrder: 0
       cellRect:
-        x: 0
+        x: 6
         y: 0
-        width: 144
-        height: 32
-      spriteId: b9d6e773bb9d12d4e8f5dd043951fb62
+        width: 20
+        height: 24
+      spriteId: e82457b843a0206489854dffe8a526d8
     linkedCells: []
     parentIndex: -1
   platformSettings:
@@ -351,5 +225,5 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 165, y: 32}
-  previousTextureSize: {x: 256, y: 64}
+  canvasSize: {x: 32, y: 32}
+  previousTextureSize: {x: 32, y: 32}

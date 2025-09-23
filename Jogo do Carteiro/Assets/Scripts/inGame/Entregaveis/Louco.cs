@@ -37,7 +37,7 @@ public class Louco : Entregavel
         yL1 = LanesController.instance.PosicaoY(LanesController.Linhas.L1);
         yL4 = LanesController.instance.PosicaoY(LanesController.Linhas.L4);
 
-        float offset = 4f; // para sair da "rua"
+        float offset = 6f; // para sair da "rua"
 
         yDestino = vindoDeBaixo ? (yL1 + offset) : (yL4 - offset);
     }

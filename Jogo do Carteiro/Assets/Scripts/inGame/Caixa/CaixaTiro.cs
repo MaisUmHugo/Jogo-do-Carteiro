@@ -13,9 +13,11 @@ public class CaixaTiro : MonoBehaviour
     private Camera cam;
     private Mira mira;
     private float tempoUltimoLancamento;
+    private Animator anim;
 
     private void Awake()
     {
+        anim = GetComponentInChildren<Animator>();
         inputs = new INPUTS();
         cam = Camera.main;
         mira = FindFirstObjectByType<Mira>();
@@ -42,6 +44,8 @@ public class CaixaTiro : MonoBehaviour
         // Garante que temos prefab e mira na cena
         if (prefabCaixa == null) return;
 
+        anim.SetTrigger("Throw");
+
         // Pega posição da mira
         Vector3 posMira = mira.transform.position;
 
@@ -50,6 +54,8 @@ public class CaixaTiro : MonoBehaviour
 
         // Instancia a caixa
         GameObject novaCaixa = Instantiate(prefabCaixa, pontoLancamento.position, Quaternion.identity);
+
+        
 
         // Adiciona movimento
         Rigidbody2D rb = novaCaixa.GetComponent<Rigidbody2D>();

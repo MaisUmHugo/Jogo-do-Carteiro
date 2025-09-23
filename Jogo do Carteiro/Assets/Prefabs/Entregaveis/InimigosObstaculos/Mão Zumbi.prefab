@@ -235,8 +235,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.047678947, y: 1.08981}
-  m_Size: {x: 1.5721498, y: 3.416756}
+  m_Offset: {x: 0.021206856, y: 1.4831015}
+  m_Size: {x: 2.0486355, y: 4.20334}
   m_Direction: 0
 --- !u!50 &7034196718101872863
 Rigidbody2D:
@@ -281,6 +281,6 @@ MonoBehaviour:
   velocidade: 4
   tempoAtivoEntrega: 2
   intervaloPiscar: 0.15
-  distanciaEntrega: 20
+  distanciaEntrega: 40
   corNormal: {r: 1, g: 1, b: 1, a: 1}
   corAtivo: {r: 1, g: 0, b: 0, a: 1}
