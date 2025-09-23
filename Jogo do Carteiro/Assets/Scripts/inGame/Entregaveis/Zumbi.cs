@@ -151,7 +151,7 @@ public class Zumbi : Entregavel
         correndo = false;
         recebeuEntrega = true;
         yTravado = transform.position.y;
-        DelayTransparente();
+        StartCoroutine(DelayTransparente());
 
 
         sr.color = new Color(corNormal.r, corNormal.g, corNormal.b, 0.5f);
