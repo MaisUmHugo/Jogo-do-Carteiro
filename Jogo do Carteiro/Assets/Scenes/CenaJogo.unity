@@ -166,6 +166,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 452
       objectReference: {fileID: 0}
+    - target: {fileID: 5657035201867057674, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 37.1
+      objectReference: {fileID: 0}
     - target: {fileID: 5956796060140994657, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -174,6 +178,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6640490239518991581, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: configuracoes.Array.data[1].pontosFixos.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640490239518991581, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: 'configuracoes.Array.data[1].pontosFixos.Array.data[0]'
+      value: 
+      objectReference: {fileID: 148052389}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: TextoHorda
       value: 
@@ -439,6 +451,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+--- !u!4 &148052389 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5657035201867057674, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+  m_PrefabInstance: {fileID: 148052388}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &153304212
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,6 +1031,10 @@ PrefabInstance:
     - target: {fileID: 6596183935556652839, guid: 31cc4adeada673c43b62d5c281b2a61b, type: 3}
       propertyPath: m_Name
       value: Caixa
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596183935556652839, guid: 31cc4adeada673c43b62d5c281b2a61b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7845382680727832695, guid: 31cc4adeada673c43b62d5c281b2a61b, type: 3}
       propertyPath: m_SortingLayer
