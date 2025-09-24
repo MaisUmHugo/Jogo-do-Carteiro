@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: RecebeuZumbi
+  m_Name: RecebeuZumbi 1
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,8 +21,10 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
+      value: {fileID: 1738892217658405323, guid: 15f0c1b4f2d76f64a90758cad695555c, type: 3}
+    - time: 0.033333335
       value: {fileID: 2279177847475085535, guid: 7628186d30ce7ee4aab6700424e28b6d, type: 3}
-    - time: 0.25
+    - time: 0.16666667
       value: {fileID: 7655945370915917852, guid: 7628186d30ce7ee4aab6700424e28b6d, type: 3}
     attribute: m_Sprite
     path: 
@@ -46,6 +48,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
+    - {fileID: 1738892217658405323, guid: 15f0c1b4f2d76f64a90758cad695555c, type: 3}
     - {fileID: 2279177847475085535, guid: 7628186d30ce7ee4aab6700424e28b6d, type: 3}
     - {fileID: 7655945370915917852, guid: 7628186d30ce7ee4aab6700424e28b6d, type: 3}
   m_AnimationClipSettings:
@@ -53,7 +56,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.26666668
+    m_StopTime: 0.18333334
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

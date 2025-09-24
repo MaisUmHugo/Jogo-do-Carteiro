@@ -22,6 +22,10 @@ public class Zumbi : Entregavel
 
     private Animator anim;
 
+   /* public Sprite[] spritesRecebeu;
+    public float tempoPorFrame = 0.35f;
+    private bool estaRecebendo;
+   */
     private void Awake()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
@@ -56,6 +60,8 @@ public class Zumbi : Entregavel
         }
         else if (!correndo)
         {
+            anim.SetBool("Andar", true);
+
             // Estado 1: caminhando
             transform.position += Vector3.left * velocidadeCaminhada * Time.deltaTime;
 
@@ -108,8 +114,10 @@ public class Zumbi : Entregavel
     private void IniciarCorrida()
     {
         correndo = true;
+        anim.SetBool("Correr", true);
+        anim.SetBool("Andar", false);
         ativoParaEntrega = true;
-        anim.SetTrigger("PodeReceber");
+        //anim.SetTrigger("PodeReceber");
         Debug.Log("Zumbi começou a correr! Pode entregar agora.");
     }
 
@@ -117,19 +125,19 @@ public class Zumbi : Entregavel
     {
         if (caiu) return;
 
+        anim.SetBool("Caiu", true);
         caiu = true;
         correndo = false;
         ativoParaEntrega = false; // encerra janela de entrega
         yTravado = transform.position.y;
-        anim.SetTrigger("Caiu");
+        
 
 
         sr.color = new Color(corNormal.r, corNormal.g, corNormal.b, 0.5f);
 
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false;
-
-        FalharEntrega(); // causa dano no player
+        StartCoroutine(DelayCair()); //causa dano no player
         Debug.Log("Zumbi escorregou e bateu no player!");
     }
 
@@ -146,15 +154,12 @@ public class Zumbi : Entregavel
         if (!ativoParaEntrega) return;
 
         base.ReceberEntrega();
-        anim.SetTrigger("RecebeuEntrega");
+        anim.SetBool("RecebeuEntrega", true);
         ativoParaEntrega = false;
         correndo = false;
         recebeuEntrega = true;
         yTravado = transform.position.y;
         StartCoroutine(DelayTransparente());
-
-
-        sr.color = new Color(corNormal.r, corNormal.g, corNormal.b, 0.5f);
 
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false;
@@ -166,5 +171,10 @@ public class Zumbi : Entregavel
     {
         yield return new WaitForSeconds(1.5f);
         anim.SetBool("Transparente", true);
+    }
+    private IEnumerator DelayCair()
+    {
+        yield return new WaitForSeconds(1.5f);
+        FalharEntrega();//causa dano no player
     }
 }
