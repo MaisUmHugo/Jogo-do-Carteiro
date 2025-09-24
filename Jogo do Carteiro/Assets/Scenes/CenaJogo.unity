@@ -138,9 +138,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 159742885404279207, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -18.6
+      objectReference: {fileID: 0}
     - target: {fileID: 264237268767651568, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 471.99988
+      objectReference: {fileID: 0}
+    - target: {fileID: 1390379406498867610, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11
       objectReference: {fileID: 0}
     - target: {fileID: 2841223109370088606, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -370,6 +378,14 @@ PrefabInstance:
       propertyPath: 'tagsPorHorda.Array.data[9].tagsPermitidas.Array.data[4]'
       value: Pcasa
       objectReference: {fileID: 0}
+    - target: {fileID: 7749544740702748748, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7749544740702748748, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7843383984504006800, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: m_Type
       value: 3
@@ -504,8 +520,8 @@ Transform:
   m_GameObject: {fileID: 153304212}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.4207, y: -0.1273, z: 0}
-  m_LocalScale: {x: 2.8432782, y: 1.8148426, z: 1}
+  m_LocalPosition: {x: -0.1295, y: -0.4098, z: 0}
+  m_LocalScale: {x: 2.9618454, y: 1.9111619, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
