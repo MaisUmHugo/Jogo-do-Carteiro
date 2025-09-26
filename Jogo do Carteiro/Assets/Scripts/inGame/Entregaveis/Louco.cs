@@ -31,7 +31,9 @@ public class Louco : Entregavel
         anim = GetComponentInChildren<Animator>();
 
         // Decide direção: sobe ou desce
-        bool vindoDeBaixo = Random.value > 0.5f;
+        // bool vindoDeBaixo = Random.value > 0.5f;
+        bool vindoDeBaixo = true;
+
 
         yL1 = LanesController.instance.PosicaoY(LanesController.Linhas.L1);
         yL4 = LanesController.instance.PosicaoY(LanesController.Linhas.L4);
