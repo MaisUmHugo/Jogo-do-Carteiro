@@ -66,7 +66,7 @@ public class Zumbi : Entregavel
             transform.position += Vector3.left * velocidadeCaminhada * Time.deltaTime;
 
             // Se chegou perto o suficiente - começa corrida
-            if (Vector3.Distance(transform.position, jogador.transform.position) <= distanciaCorrida)
+            if (Mathf.Abs(transform.position.x - jogador.transform.position.x) <= distanciaCorrida)
             {
                 IniciarCorrida();
             }

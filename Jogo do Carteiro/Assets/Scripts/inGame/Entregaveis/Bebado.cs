@@ -145,7 +145,7 @@ public class Bebado : Entregavel
         bool outraLane = jogador.linhaAtual != minhaLane;
 
         // precisa ta perto o suficiente
-        float distancia = Vector3.Distance(transform.position, jogador.transform.position);
+        float distancia = Mathf.Abs(transform.position.x - jogador.transform.position.x);
         bool perto = distancia <= distanciaEntrega;
 
         /*if (outraLane && perto)

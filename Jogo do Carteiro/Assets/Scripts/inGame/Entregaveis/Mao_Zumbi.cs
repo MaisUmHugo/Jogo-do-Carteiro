@@ -50,7 +50,7 @@ public class Mao_Zumbi : Entregavel
         }
 
         // Se está em range de entrega, pode esperar pela caixa
-        if (!coroutineIniciada && Vector3.Distance(transform.position, jogador.transform.position) <= distanciaEntrega)
+        if (!coroutineIniciada && Mathf.Abs(transform.position.x - jogador.transform.position.x) <= distanciaEntrega)
         {
             coroutineIniciada = true;
             StartCoroutine(ProntoparaEntrega());
