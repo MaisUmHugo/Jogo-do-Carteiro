@@ -27,7 +27,7 @@ public class CaixaTiro : MonoBehaviour
     private void OnEnable()
     {
         inputs.Gameplay.Enable();
-        inputs.Gameplay.Shoot.performed += Atirar; // "Shoot" = ação no Input Actions
+        inputs.Gameplay.Shoot.performed += Atirar; // ação no Input Actions
     }
 
     private void OnDisable()
