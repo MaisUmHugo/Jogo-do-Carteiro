@@ -12,6 +12,7 @@ TagManager:
   - Poste
   - Caixa
   - Louco
+  - Malabarista
   layers:
   - Default
   - TransparentFX
