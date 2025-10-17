@@ -174,14 +174,40 @@ public class SpawnerManager : MonoBehaviour
     private void AjustarVelocidade(GameObject inimigo)
     {
         var componentes = inimigo.GetComponents<MonoBehaviour>();
+
         foreach (var c in componentes)
         {
-            var campo = c.GetType().GetField("velocidade");
-            if (campo != null && campo.FieldType == typeof(float))
+            var campos = c.GetType().GetFields(System.Reflection.BindingFlags.Public |
+                                               System.Reflection.BindingFlags.NonPublic |
+                                               System.Reflection.BindingFlags.Instance);
+
+            foreach (var campo in campos)
             {
-                float vOriginal = (float)campo.GetValue(c);
-                campo.SetValue(c, vOriginal * multiplicadorVelocidade);
+                // verifica se o nome do campo contém "velocidade"
+                if (campo.Name.ToLower().Contains("velocidade") && campo.FieldType == typeof(float))
+                {
+                    float vOriginal = (float)campo.GetValue(c);
+                    campo.SetValue(c, vOriginal * multiplicadorVelocidade);
+                    // Debug opcional:
+                    // Debug.Log($"[{c.GetType().Name}] {campo.Name} alterado para {vOriginal * multiplicadorVelocidade}");
+                }
             }
         }
     }
+
+
+    //private void AjustarVelocidade(GameObject inimigo)
+    //{
+    //    var componentes = inimigo.GetComponents<MonoBehaviour>();
+    //    foreach (var c in componentes)
+    //    {
+    //        var campo = c.GetType().GetField("velocidade");
+    //        if (campo != null && campo.FieldType == typeof(float))
+    //        {
+    //            float vOriginal = (float)campo.GetValue(c);
+    //            campo.SetValue(c, vOriginal * multiplicadorVelocidade);
+    //        }
+    //    }
+    //}
+
 }
