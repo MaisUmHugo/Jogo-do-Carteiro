@@ -2,7 +2,7 @@
 
 public class Motorista_Assustado : Entregavel
 {
-    [Header("Configuração da mão")]
+    [Header("Configuração Motorista")]
     public float velocidade;
     public float tempoAtivoEntrega;
     public float intervaloPiscar;
