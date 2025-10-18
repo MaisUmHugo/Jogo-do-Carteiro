@@ -1312,8 +1312,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8747392143363527779, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1406261009}
   m_SourcePrefab: {fileID: 100100000, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
+--- !u!114 &1406261007 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3650597393286077402, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
+  m_PrefabInstance: {fileID: 1406261006}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77572b8c7cf4baa44bb1cbba99545853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1406261008 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8747392143363527779, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
+  m_PrefabInstance: {fileID: 1406261006}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1406261009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406261008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c4f23aa62aca2448ac7aaa7d5241e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LancamentoCaixa
+  caixaTiro: {fileID: 1406261007}
 --- !u!1 &1561481498
 GameObject:
   m_ObjectHideFlags: 0

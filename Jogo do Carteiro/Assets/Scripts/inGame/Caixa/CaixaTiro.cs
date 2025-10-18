@@ -36,16 +36,8 @@ public class CaixaTiro : MonoBehaviour
         inputs.Gameplay.Disable();
     }
 
-    private void Atirar(InputAction.CallbackContext ctx)
+    public void SpawnCaixa()
     {
-        //Cooldown
-        if (Time.time < tempoUltimoLancamento + delayLancamento) return;
-
-        // Garante que temos prefab e mira na cena
-        if (prefabCaixa == null) return;
-
-        anim.SetTrigger("Throw");
-
         // Pega posição da mira
         Vector3 posMira = mira.transform.position;
 
@@ -55,15 +47,19 @@ public class CaixaTiro : MonoBehaviour
         // Instancia a caixa
         GameObject novaCaixa = Instantiate(prefabCaixa, pontoLancamento.position, Quaternion.identity);
 
-        
-
         // Adiciona movimento
         Rigidbody2D rb = novaCaixa.GetComponent<Rigidbody2D>();
         if (rb != null)
-        {
             rb.linearVelocity = direcao * velocidadeCaixa;
-        }
-        //armazena o tempo do último lançamento
+    }
+
+    private void Atirar(InputAction.CallbackContext ctx)
+    {
+        if (Time.time < tempoUltimoLancamento + delayLancamento) return;
+        if (prefabCaixa == null) return;
+
+        anim.SetTrigger("Throw");
         tempoUltimoLancamento = Time.time;
     }
+
 }
