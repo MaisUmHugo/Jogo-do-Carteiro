@@ -1116,6 +1116,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31cc4adeada673c43b62d5c281b2a61b, type: 3}
+--- !u!1 &986953921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+  m_PrefabInstance: {fileID: 1817482851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &986953926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986953921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6f1d26ba6d4f54fad6ac298a2548b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca
+  intervalo: 0.2
 --- !u!1001 &1187020339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1257,17 +1275,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1868196326477802708, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
-      propertyPath: vidasIniciais
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 2258029726913759884, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
       propertyPath: m_Name
       value: Carteiro
-      objectReference: {fileID: 0}
-    - target: {fileID: 3650597393286077402, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
-      propertyPath: velocidadeCaixa
-      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 5630294650069993853, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1312,40 +1322,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8747392143363527779, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1406261009}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
---- !u!114 &1406261007 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3650597393286077402, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
-  m_PrefabInstance: {fileID: 1406261006}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77572b8c7cf4baa44bb1cbba99545853, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!1 &1406261008 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8747392143363527779, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
-  m_PrefabInstance: {fileID: 1406261006}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1406261009
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1406261008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74c4f23aa62aca2448ac7aaa7d5241e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LancamentoCaixa
-  caixaTiro: {fileID: 1406261007}
 --- !u!1 &1561481498
 GameObject:
   m_ObjectHideFlags: 0
@@ -1425,6 +1403,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1785128183
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 68.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231926460306695510, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: entregavelPisca
+      value: 
+      objectReference: {fileID: 2102441832}
+    - target: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_Name
+      value: Zumbi (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2102441832}
+  m_SourcePrefab: {fileID: 100100000, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
 --- !u!1001 &1817482851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1473,6 +1519,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6193675665935076517, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231926460306695510, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: entregavelPisca
+      value: 
+      objectReference: {fileID: 986953926}
     - target: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
       propertyPath: m_Name
       value: Zumbi
@@ -1484,7 +1538,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 986953926}
   m_SourcePrefab: {fileID: 100100000, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
 --- !u!1001 &1928465504
 PrefabInstance:
@@ -1547,6 +1604,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f37544219bba8af4cbd9459dba4b1897, type: 3}
+--- !u!1 &2102441831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+  m_PrefabInstance: {fileID: 1785128183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2102441832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102441831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6f1d26ba6d4f54fad6ac298a2548b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca
+  intervalo: 0.2
 --- !u!1001 &40139897325349408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1821,6 +1896,7 @@ SceneRoots:
   - {fileID: 6189519486331376005}
   - {fileID: 1561481501}
   - {fileID: 1817482851}
+  - {fileID: 1785128183}
   - {fileID: 4427083587200038873}
   - {fileID: 1144938520339811200}
   - {fileID: 1187020339}

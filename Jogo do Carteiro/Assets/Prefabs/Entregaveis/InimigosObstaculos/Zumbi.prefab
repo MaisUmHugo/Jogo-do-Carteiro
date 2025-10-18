@@ -53,6 +53,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -74,6 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 1065233613
   m_SortingLayer: 1
   m_SortingOrder: 0
@@ -122,6 +125,7 @@ GameObject:
   - component: {fileID: 4581203935450386768}
   - component: {fileID: 7244239830235243564}
   - component: {fileID: 6231926460306695510}
+  - component: {fileID: 4807060384459946138}
   m_Layer: 7
   m_Name: Zumbi
   m_TagString: Zumbi
@@ -236,5 +240,18 @@ MonoBehaviour:
   velocidadeTrocaLane: 8
   distanciaCorrida: 60
   distanciaColisao: 6
-  corNormal: {r: 0.17254902, g: 0.35686275, b: 0.08235294, a: 1}
-  corAtivo: {r: 1, g: 0, b: 0, a: 1}
+  entregavelPisca: {fileID: 4807060384459946138}
+--- !u!114 &4807060384459946138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6936723691277091453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6f1d26ba6d4f54fad6ac298a2548b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca
+  intervalo: 0.2
+  quantidadePiscadas: 3

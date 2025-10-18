@@ -168,11 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5657035201867057674, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 34.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5657035201867057674, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -36.5
+      value: 37.1
       objectReference: {fileID: 0}
     - target: {fileID: 5956796060140994657, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: m_IsActive
@@ -181,6 +177,22 @@ PrefabInstance:
     - target: {fileID: 6576130131072578626, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640490239518991581, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: configuracoes.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640490239518991581, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: configuracoes.Array.data[6].nome
+      value: Malabarista
+      objectReference: {fileID: 0}
+    - target: {fileID: 6640490239518991581, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: configuracoes.Array.data[6].prefab
+      value: 
+      objectReference: {fileID: 7414189773533966048, guid: bdf300c3519590a49ac28823076f960c, type: 3}
+    - target: {fileID: 6640490239518991581, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: configuracoes.Array.data[6].tagAssociada
+      value: Malabarista
       objectReference: {fileID: 0}
     - target: {fileID: 6640490239518991581, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: configuracoes.Array.data[1].pontosFixos.Array.size
@@ -256,7 +268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: tagsPorHorda.Array.data[0].tagsPermitidas.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: tagsPorHorda.Array.data[1].tagsPermitidas.Array.size
@@ -296,7 +308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[0].tagsPermitidas.Array.data[0]'
-      value: Louco
+      value: Malabarista
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[0].tagsPermitidas.Array.data[1]'
@@ -505,6 +517,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -526,6 +540,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -863,7 +878,6 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
-  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -871,6 +885,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1101,6 +1116,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31cc4adeada673c43b62d5c281b2a61b, type: 3}
+--- !u!1 &986953921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+  m_PrefabInstance: {fileID: 1817482851}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &986953926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986953921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6f1d26ba6d4f54fad6ac298a2548b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca
+  intervalo: 0.2
 --- !u!1001 &1187020339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1242,17 +1275,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1868196326477802708, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
-      propertyPath: vidasIniciais
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 2258029726913759884, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
       propertyPath: m_Name
       value: Carteiro
-      objectReference: {fileID: 0}
-    - target: {fileID: 3650597393286077402, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
-      propertyPath: velocidadeCaixa
-      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 5630294650069993853, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1378,6 +1403,74 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1785128183
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 68.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1454131370688109998, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231926460306695510, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: entregavelPisca
+      value: 
+      objectReference: {fileID: 2102441832}
+    - target: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_Name
+      value: Zumbi (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2102441832}
+  m_SourcePrefab: {fileID: 100100000, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
 --- !u!1001 &1817482851
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1426,6 +1519,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6193675665935076517, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231926460306695510, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      propertyPath: entregavelPisca
+      value: 
+      objectReference: {fileID: 986953926}
     - target: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
       propertyPath: m_Name
       value: Zumbi
@@ -1437,7 +1538,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 986953926}
   m_SourcePrefab: {fileID: 100100000, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
 --- !u!1001 &1928465504
 PrefabInstance:
@@ -1500,6 +1604,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f37544219bba8af4cbd9459dba4b1897, type: 3}
+--- !u!1 &2102441831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
+  m_PrefabInstance: {fileID: 1785128183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2102441832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102441831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6f1d26ba6d4f54fad6ac298a2548b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca
+  intervalo: 0.2
 --- !u!1001 &40139897325349408
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1774,6 +1896,7 @@ SceneRoots:
   - {fileID: 6189519486331376005}
   - {fileID: 1561481501}
   - {fileID: 1817482851}
+  - {fileID: 1785128183}
   - {fileID: 4427083587200038873}
   - {fileID: 1144938520339811200}
   - {fileID: 1187020339}

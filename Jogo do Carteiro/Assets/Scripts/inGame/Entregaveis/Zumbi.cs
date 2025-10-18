@@ -17,8 +17,10 @@ public class Zumbi : Entregavel
     private SpriteRenderer sr;
     private Mov jogador;
 
-    public Color corNormal = Color.white;
-    public Color corAtivo = Color.red;
+    [Header("Efeito Visual")]
+    public EntregavelPisca entregavelPisca;
+    //public Color corNormal = Color.white;
+    //public Color corAtivo = Color.red;
 
     private Animator anim;
 
@@ -118,6 +120,7 @@ public class Zumbi : Entregavel
         anim.SetBool("Andar", false);
         ativoParaEntrega = true;
         //anim.SetTrigger("PodeReceber");
+        entregavelPisca?.IniciarPiscar();
         Debug.Log("Zumbi começou a correr! Pode entregar agora.");
     }
 
@@ -129,11 +132,14 @@ public class Zumbi : Entregavel
         caiu = true;
         correndo = false;
         ativoParaEntrega = false; // encerra janela de entrega
+
+        entregavelPisca?.PararPiscar();
+
         yTravado = transform.position.y;
         
 
 
-        sr.color = new Color(corNormal.r, corNormal.g, corNormal.b, 0.5f);
+        //sr.color = new Color(corNormal.r, corNormal.g, corNormal.b, 0.5f);
 
         Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false;
@@ -159,6 +165,9 @@ public class Zumbi : Entregavel
         correndo = false;
         recebeuEntrega = true;
         yTravado = transform.position.y;
+
+        entregavelPisca?.PararPiscar();
+
         StartCoroutine(DelayTransparente());
 
         Collider2D col = GetComponent<Collider2D>();
