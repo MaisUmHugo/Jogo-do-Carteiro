@@ -18,9 +18,6 @@ public class Bebado : Entregavel
     private LanesController.Linhas minhaLane;  // lane atual
     private SpriteRenderer sr;
 
-    private Coroutine piscarRoutine;
-    public Color corNormal = Color.white;
-    public Color corPiscar = Color.red;
     //private bool jaPiscou = false;
 
     // Travar o y do bebado quando recebe a entrega,
@@ -28,7 +25,7 @@ public class Bebado : Entregavel
     private float yTravado;
 
     private Animator anim;
-
+    public EntregavelPisca entregavelPisca;
 
     private bool parado = false; // quando recebe entrega para de mexe
 
@@ -81,21 +78,13 @@ public class Bebado : Entregavel
                 if (PodeReceberEntrega())
                 {
                     ativoParaEntrega = true;
-                    //jaPiscou = true;
-                    piscarRoutine = StartCoroutine(PiscarEnquantoAtivo());
+                    entregavelPisca.IniciarPiscar();
                 }
             }
             else if (ativoParaEntrega && !PodeReceberEntrega())
             {
                 ativoParaEntrega = false;
-
-                if (piscarRoutine != null)
-                {
-                    StopCoroutine(piscarRoutine);
-                    piscarRoutine = null;
-                }
-
-                sr.color = corNormal;
+                entregavelPisca.PararPiscar();
             }
         }
         else
@@ -167,17 +156,8 @@ public class Bebado : Entregavel
             base.ReceberEntrega();
             ativoParaEntrega = false;
             parado = true; // para de andar
-            yTravado = transform.position.y; 
-
-            if (piscarRoutine != null)
-            {
-                StopCoroutine(piscarRoutine);
-                sr.color = corNormal;
-            }
-            Color cor = sr.color;
-            cor.a = 0.5f; // meio transparente
-            sr.color = cor;
-
+            yTravado = transform.position.y;
+            
             Collider2D col = GetComponent<Collider2D>();
             if (col != null)
             {
@@ -186,7 +166,6 @@ public class Bebado : Entregavel
 
             Debug.Log("Pabéns, se entregou fih");
 
-            StartCoroutine(DelayTransparente());
 
             // Agora ele vai sumir depois de um tempo
 
@@ -198,24 +177,7 @@ public class Bebado : Entregavel
         }
     }
 
-    private IEnumerator DelayTransparente()
-    {
-        yield return new WaitForSeconds(1.5f);
-        anim.SetTrigger("Transparente");
-    }
-    private IEnumerator PiscarEnquantoAtivo()
-    {
-        int quantidadePiscos = 5; // muda aqui se quiser mais ou menos piscadas
-        for (int i = 0; i < quantidadePiscos; i++)
-        {
-            sr.color = corPiscar;
-            yield return new WaitForSeconds(intervaloPiscar);
-            sr.color = corNormal;
-            yield return new WaitForSeconds(intervaloPiscar);
-        }
-
-        sr.color = corNormal; // garante cor normal no final
-    }
+   
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

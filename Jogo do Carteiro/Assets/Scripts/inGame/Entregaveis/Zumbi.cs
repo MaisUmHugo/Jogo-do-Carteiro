@@ -13,11 +13,8 @@ public class Zumbi : Entregavel
     private bool caiu = false;
     private bool recebeuEntrega = false;
     private float yTravado;
-
     private SpriteRenderer sr;
     private Mov jogador;
-
-    [Header("Efeito Visual")]
     public EntregavelPisca entregavelPisca;
     //public Color corNormal = Color.white;
     //public Color corAtivo = Color.red;

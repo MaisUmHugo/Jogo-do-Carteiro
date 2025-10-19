@@ -10,7 +10,6 @@ public class Louco : Entregavel
     public float tempoAtivoEntrega = 1.2f;
     public float intervaloPiscar = 0.15f;
 
-    private SpriteRenderer sr;
     private bool atravessando = true;
     private bool terminouTravessia = false;
     private float yDestino;
@@ -23,13 +22,17 @@ public class Louco : Entregavel
     private float yL1;
     private float yL4;
 
+    [Header("Efeito Visual")]
+    public EntregavelPisca entregavelPisca;
+
     private Animator anim;
 
+    private Collider2D colisor;
+    
     private void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
-
+        colisor = GetComponent<Collider2D>();
         // Decide direção: sobe ou desce
         // bool vindoDeBaixo = Random.value > 0.5f;
         bool vindoDeBaixo = true;
@@ -77,6 +80,7 @@ public class Louco : Entregavel
                 {
                     entregaJaAtivada = true;
                     ativoParaEntrega = true;  // Agora definimos `ativoParaEntrega` como `true` quando atingimos L2 ou L3
+                    entregavelPisca?.IniciarPiscar();
                     Debug.Log("Entrega ativada em L2 ou L3!");
                 }
             }
@@ -87,6 +91,7 @@ public class Louco : Entregavel
             {
                 atravessando = false;
                 terminouTravessia = true;
+                entregavelPisca?.PararPiscar();
 
                 if (!entregaRecebida)
                 {
@@ -128,7 +133,10 @@ public class Louco : Entregavel
 
         ativoParaEntrega = false;  // Desativa entrega após processar
         entregaRecebida = true;
-        sr.color = Color.white;
+        entregavelPisca?.PararPiscar();
+
+        if (colisor != null)
+            colisor.enabled = false;
 
         if (anim != null)
             anim.SetTrigger("RecebeuEntrega");

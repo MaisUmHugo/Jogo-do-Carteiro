@@ -14,7 +14,6 @@ public class Motorista_Assustado : Entregavel
     private bool coroutineIniciada = false;
     private Mov jogador;
     private bool recebeu, podereceber;
-
     private Animator anim;
     private void Awake()
     {

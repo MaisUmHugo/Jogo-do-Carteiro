@@ -22,7 +22,6 @@ public class Malabarista : Entregavel
     private bool recebeu, podereceber;
     private bool podeatirar;
     private bool ComecouCoroutineAtirar;
-
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();

@@ -16,9 +16,9 @@ public class Mao_Zumbi : Entregavel
     private bool coroutineIniciada = false;
     private Mov jogador;
     private bool recebeu, podereceber;
+    public EntregavelPisca entregavelPisca;
 
     private Animator anim;
-
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -108,6 +108,7 @@ public class Mao_Zumbi : Entregavel
         }
         recebeu = true;
         anim.SetTrigger("ReceberEntrega");
+        entregavelPisca.PararPiscar();
         StartCoroutine(DelayTransparente());
 
     }
@@ -118,6 +119,7 @@ public class Mao_Zumbi : Entregavel
         podereceber = true;
         ativoParaEntrega = true;
         anim.SetTrigger("MaoAberta");
+        entregavelPisca.IniciarPiscar();
         Debug.Log("Mão proxima, entregue agora!");
 
         // espera a janela de tempo para aceitar a entrega
@@ -132,7 +134,7 @@ public class Mao_Zumbi : Entregavel
     }
     private IEnumerator DelayTransparente()
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(1.25f);
         anim.SetTrigger("Transparente");
     }
 }
