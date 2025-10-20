@@ -12,6 +12,8 @@ public class Malabarista : Entregavel
     public float distanciaEntrega;
     public float IntervaloTiro;
     public float DistanciaTiro;
+    public float offsetbola;
+    public float intervaloaleatorio;
 
     // Sprite renderer para fazer o efeito de piscar
     private SpriteRenderer sr;
@@ -142,13 +144,13 @@ public class Malabarista : Entregavel
     }
     private IEnumerator atirar()
     {
-        if (podeatirar)
+        if (podeatirar && !podereceber)
         {
-            Debug.Log("Tentou Atirar");
-            Vector3 posSpawn = transform.position + transform.right * -0.5f;
+            intervaloaleatorio = Random.Range(-1.5f, 1.5f);
+            Vector3 posSpawn = transform.position + transform.right * offsetbola;
             Instantiate(bola, posSpawn, Quaternion.identity);
             podeatirar = false;
-            yield return new WaitForSeconds(IntervaloTiro);
+            yield return new WaitForSeconds(IntervaloTiro + intervaloaleatorio);
             podeatirar = true;
             StartCoroutine(atirar());
         }
