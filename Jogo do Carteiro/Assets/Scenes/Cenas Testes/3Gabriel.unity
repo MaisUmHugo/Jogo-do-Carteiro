@@ -827,14 +827,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -2371364442106000463, guid: bdf300c3519590a49ac28823076f960c, type: 3}
-      propertyPath: offsetbola
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: -2371364442106000463, guid: bdf300c3519590a49ac28823076f960c, type: 3}
-      propertyPath: distanciaEntrega
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 7406056961147312241, guid: bdf300c3519590a49ac28823076f960c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.7527

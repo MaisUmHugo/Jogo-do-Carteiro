@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4346294256826962226
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1723400015989253098}
+  m_Layer: 0
+  m_Name: PontoExclamacao
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1723400015989253098
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4346294256826962226}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -25.4, y: 3.58, z: 0}
+  m_LocalScale: {x: 6.666666, y: 1.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7406056961147312241}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7414189773533966048
 GameObject:
   m_ObjectHideFlags: 0
@@ -32,7 +63,8 @@ Transform:
   m_LocalPosition: {x: -3.7274, y: 0, z: 0}
   m_LocalScale: {x: 0.15, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1723400015989253098}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8551630601717197538
@@ -107,10 +139,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Malabarista
   ativoParaEntrega: 1
   bola: {fileID: 5321252365096296630, guid: e1fa043f34f9f904aba9222e970e0d4c, type: 3}
+  Exclamacao: {fileID: 1723400015989253098}
   velocidade: 12
   tempoAtivoEntrega: 5
   intervaloPiscar: 0.2
-  distanciaEntrega: 0
+  distanciaEntrega: 100
   IntervaloTiro: 5
   DistanciaTiro: 120
   offsetbola: -0.5

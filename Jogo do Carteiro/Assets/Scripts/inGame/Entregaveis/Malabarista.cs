@@ -5,6 +5,7 @@ using System.Reflection;
 public class Malabarista : Entregavel
 {
     public GameObject bola;
+    public Transform Exclamacao;
     [Header("Configuração do malabarista")]
     public float velocidade;
     public float tempoAtivoEntrega;
@@ -24,6 +25,7 @@ public class Malabarista : Entregavel
     private bool recebeu, podereceber;
     private bool podeatirar;
     private bool ComecouCoroutineAtirar;
+    private GameObject avisoexclamacao;
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -31,6 +33,7 @@ public class Malabarista : Entregavel
     }
     private void Start()
     {
+        if (Exclamacao == null) Exclamacao = transform;
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
         {
@@ -124,6 +127,13 @@ public class Malabarista : Entregavel
     private IEnumerator ProntoparaEntrega()
     {
         yield return new WaitForSeconds(1.5f);
+        //exclamacao
+        GameObject prefab = Resources.Load<GameObject>("PontoExclamacao");
+        if (prefab != null)
+        {
+            GameObject instancia = Instantiate(prefab, Exclamacao.position, Quaternion.identity);
+            instancia.transform.SetParent(gameObject.transform, worldPositionStays: true);
+        }
         podereceber = true;
         ativoParaEntrega = true;
         Debug.Log("Malabarista proximo, entregue agora!");

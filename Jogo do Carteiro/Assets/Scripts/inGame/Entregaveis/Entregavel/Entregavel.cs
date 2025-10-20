@@ -4,7 +4,6 @@ public abstract class Entregavel : MonoBehaviour
 {
     [Header("Configuração do Entregável")]
     public bool ativoParaEntrega = true; // booleana para alternar quando pode entregar ou n
-    public GameObject avisoexclamacao;
 
     public virtual void ReceberEntrega()
     {
@@ -32,9 +31,5 @@ public abstract class Entregavel : MonoBehaviour
     {
         // Reset Combo
         ComboManager.instance.ResetarCombo();
-    }
-    public virtual void exclamacao()
-    {
-        Instantiate(avisoexclamacao, gameObject.transform.position, Quaternion.identity);
     }
 }
