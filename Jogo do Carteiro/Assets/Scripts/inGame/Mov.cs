@@ -36,6 +36,7 @@ public class Mov : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.instance.TocarMusicaJogo();
         indiceLinha = (int)linhaAtual;
         AtualizarPosicao();
     }

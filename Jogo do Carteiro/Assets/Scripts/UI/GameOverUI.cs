@@ -30,6 +30,7 @@ public class GameOverController : MonoBehaviour
     private void MostrarGameOver()
     {
         Time.timeScale = 0f;
+        AudioManager.instance.TocarMusicaGameOver();
 
         fundoCinza.SetActive(true);
         painelGameOver.SetActive(true);

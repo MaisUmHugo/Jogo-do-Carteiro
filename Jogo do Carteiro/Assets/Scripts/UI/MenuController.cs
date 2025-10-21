@@ -13,6 +13,7 @@ public class MenuController : MonoBehaviour
 
     [Header("Cenas")]
     [SerializeField] private string CenaJogar;
+    [SerializeField] private string CenaCutscene;
     [SerializeField] private string CenaFim;
     [SerializeField] private string CenaMenu;
 
@@ -25,7 +26,6 @@ public class MenuController : MonoBehaviour
     private void Awake()
     {
         inputs = new INPUTS();
-        // subscribe via método (para poder desinscrever depois)
         inputs.UI.Cancel.performed += OnCancelPerformed;
     }
 
@@ -38,13 +38,14 @@ public class MenuController : MonoBehaviour
 
     private void OnDisable()
     {
-        // desinscrever evento e desabilitar inputs
         inputs.UI.Cancel.performed -= OnCancelPerformed;
         inputs.Disable();
     }
 
     private void Start()
     {
+        AudioManager.instance.TocarMusicaMenu();
+
         if (painelConfirmacao != null)
             painelConfirmacao.SetActive(false);
     }
@@ -54,6 +55,7 @@ public class MenuController : MonoBehaviour
     // ---------------------------
     public void Jogar()
     {
+        //SceneManager.LoadScene(CenaCutscene);
         SceneManager.LoadScene(CenaJogar);
     }
 
