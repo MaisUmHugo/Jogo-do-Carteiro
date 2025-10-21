@@ -14,6 +14,9 @@ public class VidaManager : MonoBehaviour
     public event Action OnGameOver;
     private Animator anim;
 
+    private bool invulneravel = false;
+    [SerializeField] private float tempoInvulneravel = 1.5f;
+
     private void Awake()
     {
         anim = GetComponentInChildren<Animator>();
@@ -34,14 +37,22 @@ public class VidaManager : MonoBehaviour
 
     public void PerderVida()
     {
+        // evita perder vida se já estiver invulnerável ou morto
+        if (invulneravel || vidasAtuais <= 0)
+            return;
+
         vidasAtuais--;
         anim.SetBool("Damage", true);
         OnVidaMudou?.Invoke(vidasAtuais);
-        DelayVida();
+        StartCoroutine(DelayVida());
         if (vidasAtuais <= 0)
         {
             Debug.Log("GAME OVER!");
             OnGameOver?.Invoke();
+        }
+        else
+        {
+            StartCoroutine(InvulnerabilidadeTemporaria());
         }
     }
 
@@ -55,4 +66,12 @@ public class VidaManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         anim.SetBool("Damage", false);
     }
+
+    private IEnumerator InvulnerabilidadeTemporaria()
+    {
+        invulneravel = true;
+        yield return new WaitForSeconds(tempoInvulneravel);
+        invulneravel = false;
+    }
+
 }

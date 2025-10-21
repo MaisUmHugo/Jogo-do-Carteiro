@@ -129,7 +129,6 @@ public class Bebado : Entregavel
 
     private bool PodeReceberEntrega()
     {
-        anim.SetTrigger("PodeReceber");
         // precisa estar em outra lane
         bool outraLane = jogador.linhaAtual != minhaLane;
 
