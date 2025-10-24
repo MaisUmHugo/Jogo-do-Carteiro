@@ -15,6 +15,7 @@ public class Malabarista : Entregavel
     public float DistanciaTiro;
     public float offsetbola;
     public float intervaloaleatorio;
+    public float tempoexclamacao;
 
     // Sprite renderer para fazer o efeito de piscar
     private SpriteRenderer sr;
@@ -133,6 +134,14 @@ public class Malabarista : Entregavel
         {
             GameObject instancia = Instantiate(prefab, Exclamacao.position, Quaternion.identity);
             instancia.transform.SetParent(gameObject.transform, worldPositionStays: true);
+            float tempo = 0;
+            while (tempo < tempoexclamacao)
+            {
+                tempo += Time.deltaTime;
+                yield return null;
+            }
+            Destroy(instancia);
+            tempo = 0;
         }
         podereceber = true;
         ativoParaEntrega = true;

@@ -30,7 +30,7 @@ public class Mira : MonoBehaviour
 
         // Converte para mundo
         Vector3 worldPos = cam.ScreenToWorldPoint(pointerPos);
-        worldPos.z = 0f;
+        worldPos.z = -5f;
 
         // Move a mira
         transform.position = worldPos;
