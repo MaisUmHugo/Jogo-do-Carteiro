@@ -108,7 +108,8 @@ public class Mao_Zumbi : Entregavel
         }
         recebeu = true;
         anim.SetTrigger("ReceberEntrega");
-        entregavelPisca.PararPiscar();
+        //entregavelPisca.PararPiscar();
+        entregavelPisca?.PiscarRecebendo();
         StartCoroutine(DelayTransparente());
 
     }
@@ -119,7 +120,7 @@ public class Mao_Zumbi : Entregavel
         podereceber = true;
         ativoParaEntrega = true;
         anim.SetTrigger("MaoAberta");
-        entregavelPisca.IniciarPiscar();
+        entregavelPisca?.PiscarAtivo();
         Debug.Log("Mão proxima, entregue agora!");
 
         // espera a janela de tempo para aceitar a entrega

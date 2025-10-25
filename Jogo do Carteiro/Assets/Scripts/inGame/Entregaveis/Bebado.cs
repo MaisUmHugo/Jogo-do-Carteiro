@@ -78,7 +78,7 @@ public class Bebado : Entregavel
                 if (PodeReceberEntrega())
                 {
                     ativoParaEntrega = true;
-                    entregavelPisca.IniciarPiscar();
+                    entregavelPisca?.PiscarAtivo();
                 }
             }
             else if (ativoParaEntrega && !PodeReceberEntrega())
@@ -156,7 +156,7 @@ public class Bebado : Entregavel
             ativoParaEntrega = false;
             parado = true; // para de andar
             yTravado = transform.position.y;
-            
+            entregavelPisca?.PiscarRecebendo();
             Collider2D col = GetComponent<Collider2D>();
             if (col != null)
             {

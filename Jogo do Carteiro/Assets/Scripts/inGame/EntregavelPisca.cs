@@ -6,35 +6,39 @@ public class EntregavelPisca : MonoBehaviour
     private SpriteRenderer sr;
     private Coroutine rotina;
 
-    [Header("Configurações de Piscar")]
-    public float intervalo = 0.2f;
-    public int quantidadePiscadas = 3;
-    private Color corPiscar = new Color(1f, 0.2f, 0.2f, 0.8f);
+    [Header("Configurações - Piscar Ativo (pode receber)")]
+    public float intervaloAtivo = 0.3f;
+    public int quantidadePiscadasAtivo = 3;
+    public Color corPiscarAtivo = new Color(1f, 1f, 1f, 0.6f);
+
+    [Header("Configurações - Piscar Recebendo")]
+    public float intervaloRecebendo = 0.1f;
+    public int quantidadePiscadasRecebendo = 2;
+    public Color corPiscarRecebendo = new Color(1f, 1f, 1f, 0.3f);
 
     private void Awake()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
-        if (sr == null)
-            Debug.LogWarning($"{name}: Nenhum SpriteRenderer encontrado!");
-        else
-            Debug.Log($"{name}: SpriteRenderer encontrado -> {sr.gameObject.name}");
     }
 
-    public void IniciarPiscar()
+    public void PiscarAtivo()
     {
-        if (sr == null) return;
-
-        // Se já estiver piscando, cancela a anterior
         if (rotina != null) StopCoroutine(rotina);
-        rotina = StartCoroutine(Piscar());
+        rotina = StartCoroutine(Piscar(corPiscarAtivo, intervaloAtivo, quantidadePiscadasAtivo));
     }
 
-    private IEnumerator Piscar()
+    public void PiscarRecebendo()
     {
-        // guarda cor original
+        if (rotina != null) StopCoroutine(rotina);
+        rotina = StartCoroutine(Piscar(corPiscarRecebendo, intervaloRecebendo, quantidadePiscadasRecebendo));
+    }
+
+    private IEnumerator Piscar(Color corPiscar, float intervalo, int quantidade)
+    {
+        if (sr == null) yield break;
         Color corOriginal = sr.material.color;
 
-        for (int i = 0; i < quantidadePiscadas; i++)
+        for (int i = 0; i < quantidade; i++)
         {
             sr.material.color = corPiscar;
             yield return new WaitForSeconds(intervalo);
@@ -42,7 +46,6 @@ public class EntregavelPisca : MonoBehaviour
             yield return new WaitForSeconds(intervalo);
         }
 
-        // garante que volta ao normal no fim
         sr.material.color = corOriginal;
         rotina = null;
     }

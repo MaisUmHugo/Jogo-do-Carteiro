@@ -36,4 +36,11 @@ public class ComboManager : MonoBehaviour
             Debug.Log("Ganhou 1 Vida pelo combo!");
         }
     }
+
+    public int GetMultiplicador()
+    {
+        // 0–9 = 1x, 10–19 = 2x, etc.
+        return (comboAtual / 10) + 1;
+    }
+
 }
