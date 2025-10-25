@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3454033119658295028}
   - component: {fileID: 1130958043773434091}
   - component: {fileID: 1208012836282366132}
-  - component: {fileID: 3948457351439556632}
   m_Layer: 0
   m_Name: Building_Parallax
   m_TagString: Untagged
@@ -90,19 +89,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3948457351439556632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2043534133966052689}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0feb0041ea2f69b40a0e11dd056016fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  speed: 0.2
 --- !u!1 &2184583083458364571
 GameObject:
   m_ObjectHideFlags: 0
@@ -114,7 +100,6 @@ GameObject:
   - component: {fileID: 330389531305898605}
   - component: {fileID: 3255516858821102519}
   - component: {fileID: 22668106403970936}
-  - component: {fileID: 1136405537441660652}
   m_Layer: 0
   m_Name: Building_Parallax_Back
   m_TagString: Untagged
@@ -131,8 +116,8 @@ Transform:
   m_GameObject: {fileID: 2184583083458364571}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 1.4635, y: 1.36189, z: 2}
-  m_LocalScale: {x: 1.7707468, y: 1, z: 0.31715614}
+  m_LocalPosition: {x: -0.05722, y: 1.49971, z: 2}
+  m_LocalScale: {x: 1.8293205, y: 1, z: 0.344717}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7971249874522593865}
@@ -193,19 +178,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1136405537441660652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2184583083458364571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0feb0041ea2f69b40a0e11dd056016fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  speed: 0.2
 --- !u!1 &4571045553712541340
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +189,6 @@ GameObject:
   - component: {fileID: 6114940221119720850}
   - component: {fileID: 6149472721838922275}
   - component: {fileID: 4956611908054741810}
-  - component: {fileID: 769190585846177143}
   m_Layer: 0
   m_Name: Street_Parallax
   m_TagString: Untagged
@@ -234,7 +205,7 @@ Transform:
   m_GameObject: {fileID: 4571045553712541340}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
-  m_LocalPosition: {x: 2.9758, y: -3.57031, z: 0}
+  m_LocalPosition: {x: 2.9758, y: -3.57031, z: 1}
   m_LocalScale: {x: 3.5453203, y: 1, z: 0.67875445}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -296,19 +267,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &769190585846177143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4571045553712541340}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0feb0041ea2f69b40a0e11dd056016fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  speed: 0.2
 --- !u!1 &6658673356952740535
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +293,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.4425, y: 1.98711, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 6.4, y: 6.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3454033119658295028}

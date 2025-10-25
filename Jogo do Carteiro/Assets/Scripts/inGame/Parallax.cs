@@ -1,22 +1,79 @@
 using UnityEngine;
 
-public class Parallax : MonoBehaviour
+public class ParallaxController : MonoBehaviour
 {
-    Material mat;
-    float distance;
+    public Transform Cam;
+    Vector3 CamStartPosition;
+    float Distance;
 
-    [Range(0f, 0.5f)]
-    public float speed = 0.2f;
+    GameObject[] backgrounds;
+    Material[] mat;
+    float[] backspeed;
+
+    float farthestBack;
+
+    [Range(0.01f, 0.5f)]
+    public float parallaxspeed;
 
     void Start()
     {
-        mat = GetComponent<Renderer>().material;
+
+
+        CamStartPosition = Cam.position;
+
+        int backCount = transform.childCount;
+        mat = new Material[backCount];
+        backspeed = new float[backCount];
+
+        backgrounds = new GameObject[backCount];
+
+        for (int i = 0; i < backCount; i++)
+        {
+
+            backgrounds[i] = transform.GetChild(i).gameObject;
+            mat[i] = backgrounds[i].GetComponent<Renderer>().material;
+
+        }
+
+        BackSpeedCalculate(backCount);
+
     }
 
-    void Update()
+    void BackSpeedCalculate(int backCount)
     {
-        distance += Time.deltaTime * speed;
-        mat.SetTextureOffset("_MainTex", Vector2.right * distance);
+
+        for (int i = 0; i < backCount; i++)
+        {
+
+            if ((backgrounds[i].transform.position.z - Cam.position.z) > farthestBack)
+            {
+
+                farthestBack = backgrounds[i].transform.position.z - Cam.position.z;
+            }
+
+        }
+
+
+        for (int i = 0; i < backCount; i++)
+        {
+
+            backspeed[i] = 1 - (backgrounds[i].transform.position.z - Cam.position.z) / farthestBack;
+
+        }
+
+    }
+
+    private void LateUpdate()
+    {
+        Distance = Cam.position.x - CamStartPosition.x;
+        transform.position = new Vector3(Cam.position.x, transform.position.y, 0);
+
+        for (int i = 0; i < backgrounds.Length; i++)
+        {
+
+            float speed = backspeed[i] * parallaxspeed;
+            mat[i].SetTextureOffset("_MainTex", new Vector2(Distance, 0) * speed);
+
+        }
     }
 }
-

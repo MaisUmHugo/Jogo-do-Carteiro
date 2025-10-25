@@ -1356,11 +1356,11 @@ MonoBehaviour:
   m_Content: {fileID: 5706558077181555757}
   m_Horizontal: 1
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 1
+  m_ScrollSensitivity: 6
   m_Viewport: {fileID: 3164451990458350895}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 5767942438629406126}
@@ -3882,4 +3882,3 @@ MonoBehaviour:
   FundoCinza: {fileID: 466117386380681700}
   painelPause: {fileID: 442019511845637507}
   painelConfirmacao: {fileID: 110172492937459459}
-  painelMenuInicial: {fileID: 0}
