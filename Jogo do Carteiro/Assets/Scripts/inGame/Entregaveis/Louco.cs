@@ -83,6 +83,7 @@ public class Louco : Entregavel
                 {
                     entregaJaAtivada = true;
                     ativoParaEntrega = true;  // Agora definimos `ativoParaEntrega` como `true` quando atingimos L2 ou L3
+                    StartCoroutine(exclamacao());
                     entregavelPisca?.PiscarAtivo();
                     Debug.Log("Entrega ativada em L2 ou L3!");
                 }
