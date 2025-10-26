@@ -345,6 +345,7 @@ Transform:
   - {fileID: 7088979844666674651}
   - {fileID: 3002740100294442711}
   - {fileID: 6364293197950511746}
+  - {fileID: 8738102126108588458}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3582242115707068488
@@ -433,12 +434,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ativoParaEntrega: 1
+  Exclamacao: {fileID: 8738102126108588458}
   velocidade: 5
   trocaLaneIntervalo: 1.5
   velocidadeTrocaLane: 5
   tempoAtivoEntrega: 3.5
   intervaloPiscar: 0.15
-  distanciaEntrega: 50
+  distanciaEntrega: 100
+  tempoexclamacao: 2
   entregavelPisca: {fileID: -1538667524945953015}
   popupPontuacao: {fileID: 2840320702199764024}
 --- !u!114 &-1538667524945953015
@@ -453,12 +456,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6f1d26ba6d4f54fad6ac298a2548b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca
-  intervaloAtivo: 0.3
-  quantidadePiscadasAtivo: 3
-  corPiscarAtivo: {r: 1, g: 1, b: 1, a: 0.6}
-  intervaloRecebendo: 0.1
-  quantidadePiscadasRecebendo: 2
-  corPiscarRecebendo: {r: 1, g: 1, b: 1, a: 0.3}
+--- !u!1 &3136623225874624623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8738102126108588458}
+  m_Layer: 0
+  m_Name: PontoExclamacao
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8738102126108588458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3136623225874624623}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.701, y: 1.071, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7665410091036526775}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7980667811414164660
 GameObject:
   m_ObjectHideFlags: 0

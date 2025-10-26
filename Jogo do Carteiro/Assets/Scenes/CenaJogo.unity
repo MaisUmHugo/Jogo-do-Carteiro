@@ -125,7 +125,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 148052388}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a32a3ea75b2346543a807a57495b7995, type: 3}
   m_Name: 
@@ -200,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6640490239518991581, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6640490239518991581, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: configuracoes.Array.size
@@ -332,7 +332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[0].tagsPermitidas.Array.data[0]'
-      value: Malabarista
+      value: Bebado
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[0].tagsPermitidas.Array.data[1]'
@@ -1211,12 +1211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6f1d26ba6d4f54fad6ac298a2548b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca
-  intervaloAtivo: 0.3
-  quantidadePiscadasAtivo: 3
-  corPiscarAtivo: {r: 1, g: 1, b: 1, a: 0.6}
-  intervaloRecebendo: 0.1
-  quantidadePiscadasRecebendo: 2
-  corPiscarRecebendo: {r: 1, g: 1, b: 1, a: 0.3}
 --- !u!1001 &998861243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1679,7 +1673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1688,9 +1682,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2102441832}
-    - targetCorrespondingSourceObject: {fileID: 4441541291614412163, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
 --- !u!1001 &1817482851
 PrefabInstance:
@@ -1754,7 +1745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8534554062298061138, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
       propertyPath: m_fontSize
@@ -1771,9 +1762,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6936723691277091453, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 986953926}
-    - targetCorrespondingSourceObject: {fileID: 4441541291614412163, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 4c78bbc4e5a4e5f4aaab717d9330b2a7, type: 3}
 --- !u!1001 &1928465504
 PrefabInstance:
@@ -1853,12 +1841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6f1d26ba6d4f54fad6ac298a2548b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca
-  intervaloAtivo: 0.3
-  quantidadePiscadasAtivo: 3
-  corPiscarAtivo: {r: 1, g: 1, b: 1, a: 0.6}
-  intervaloRecebendo: 0.1
-  quantidadePiscadasRecebendo: 2
-  corPiscarRecebendo: {r: 1, g: 1, b: 1, a: 0.3}
 --- !u!1001 &40139897325349408
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -3,15 +3,17 @@ using UnityEngine;
 
 public class Bebado : Entregavel
 {
+    public Transform Exclamacao;
     [Header("Configuração do Bêbado")]
     public float velocidade;
     public float trocaLaneIntervalo;
     public float velocidadeTrocaLane;
 
     [Header("Entrega")]
-    public float tempoAtivoEntrega = 3.5f;
-    public float intervaloPiscar = 0.15f;
-    public float distanciaEntrega = 50f; // distancia minima pra pode entrega
+    public float tempoAtivoEntrega;
+    public float intervaloPiscar;
+    public float distanciaEntrega; // distancia minima pra pode entrega
+    public float tempoexclamacao;
 
     private Mov jogador;
     private float tempoUltimaTroca;
@@ -32,6 +34,7 @@ public class Bebado : Entregavel
 
     private void Start()
     {
+        if (Exclamacao == null) Exclamacao = transform;
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
             jogador = playerObj.GetComponent<Mov>();
@@ -80,6 +83,7 @@ public class Bebado : Entregavel
                 {
                     ativoParaEntrega = true;
                     entregavelPisca?.PiscarAtivo();
+                    StartCoroutine(exclamacao());
                 }
             }
             else if (ativoParaEntrega && !PodeReceberEntrega())
@@ -212,5 +216,25 @@ public class Bebado : Entregavel
     {
         yield return new WaitForSeconds(1.5f);
         entregavelPisca?.PararPiscar();
+    }
+    private IEnumerator exclamacao()
+    {
+        yield return new WaitForSeconds(0.1f);
+        //exclamacao
+        GameObject prefab = Resources.Load<GameObject>("PontoExclamacao");
+        if (prefab != null)
+        {
+            Debug.Log("prefab não é nulo");
+            GameObject instancia = Instantiate(prefab, Exclamacao.position, Quaternion.identity);
+            instancia.transform.SetParent(gameObject.transform, worldPositionStays: true);
+            float tempo = 0;
+            while (tempo < tempoexclamacao)
+            {
+                tempo += Time.deltaTime;
+                yield return null;
+            }
+            Destroy(instancia);
+            tempo = 0;
+        }
     }
 }
