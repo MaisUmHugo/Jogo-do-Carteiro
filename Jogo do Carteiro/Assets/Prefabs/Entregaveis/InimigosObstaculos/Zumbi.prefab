@@ -192,7 +192,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7195188193920619961, guid: b0c57ae1e5976c045bc6410cb5fdaf72, type: 2}
+  - {fileID: 4206388723785168454, guid: a906e41c4375985448660ea03142ab27, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -235,10 +235,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +10
+  m_text: +100
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: b0c57ae1e5976c045bc6410cb5fdaf72, type: 2}
-  m_sharedMaterial: {fileID: -7195188193920619961, guid: b0c57ae1e5976c045bc6410cb5fdaf72, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a906e41c4375985448660ea03142ab27, type: 2}
+  m_sharedMaterial: {fileID: 4206388723785168454, guid: a906e41c4375985448660ea03142ab27, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -268,7 +268,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -583,7 +583,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca
   intervaloAtivo: 0.3
   quantidadePiscadasAtivo: 3
-  corPiscarAtivo: {r: 1, g: 0.0047169924, b: 0.0047169924, a: 0.6}
-  intervaloRecebendo: 0.1
+  intervaloRecebendo: 0.3
   quantidadePiscadasRecebendo: 2
-  corPiscarRecebendo: {r: 1, g: 1, b: 1, a: 0.3}

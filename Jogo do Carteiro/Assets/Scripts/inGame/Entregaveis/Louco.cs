@@ -24,6 +24,7 @@ public class Louco : Entregavel
 
     [Header("Efeito Visual")]
     public EntregavelPisca entregavelPisca;
+    public PontuacaoPopup popupPontuacao;
 
     private Animator anim;
 
@@ -134,6 +135,11 @@ public class Louco : Entregavel
         ativoParaEntrega = false;  // Desativa entrega após processar
         entregaRecebida = true;
         //entregavelPisca?.PararPiscar();
+        // Calcula pontuação com bônus
+        int multiplicador = ComboManager.instance.GetMultiplicador();
+        int total = 100 * multiplicador;
+
+        popupPontuacao?.MostrarPontuacao(total);
         entregavelPisca?.PiscarRecebendo();
         if (colisor != null)
             colisor.enabled = false;
@@ -146,6 +152,8 @@ public class Louco : Entregavel
         ComboManager.instance.AumentarCombo();
         if (HordaManager.instance != null)
             HordaManager.instance.AumentarEntrega();
+
+        StartCoroutine(PararPiscar());
         Debug.Log("Louco recebeu a entrega com sucesso!");
     }
 
@@ -165,5 +173,10 @@ public class Louco : Entregavel
             // Opcional: destruir a caixa depois de processar a entrega
             Destroy(collision.gameObject);
         }
+    }
+    private IEnumerator PararPiscar()
+    {
+        yield return new WaitForSeconds(1.5f);
+        entregavelPisca?.PararPiscar();
     }
 }

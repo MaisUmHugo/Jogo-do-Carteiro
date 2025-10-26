@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class Pessoa_janela : Entregavel
 {
@@ -16,6 +17,10 @@ public class Pessoa_janela : Entregavel
     private Mov jogador;
     private bool recebeu, podereceber;
     private Animator anim;
+
+    [Header("Efeito Visual")]
+    public EntregavelPisca entregavelPisca;
+    public PontuacaoPopup popupPontuacao;
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -98,6 +103,11 @@ public class Pessoa_janela : Entregavel
         Color cor = sr.color;
         cor.a = 0.5f; // meio transparente
         sr.color = cor;
+        // Calcula pontuação com bônus
+        int multiplicador = ComboManager.instance.GetMultiplicador();
+        int total = 100 * multiplicador;
+
+        popupPontuacao?.MostrarPontuacao(total);
 
         if (anim != null)
             anim.SetTrigger("RecebeuEntrega");
@@ -108,6 +118,7 @@ public class Pessoa_janela : Entregavel
             col.enabled = false; // desliga colisão
         }
         recebeu = true;
+        StartCoroutine(PararPiscar());
     }
     private System.Collections.IEnumerator ProntoparaEntrega()
     {
@@ -134,5 +145,11 @@ public class Pessoa_janela : Entregavel
             if (anim != null)
                 anim.SetTrigger("FalhouEntrega");
         }
+    }
+
+    private IEnumerator PararPiscar()
+    {
+        yield return new WaitForSeconds(1.5f);
+        entregavelPisca?.PararPiscar();
     }
 }

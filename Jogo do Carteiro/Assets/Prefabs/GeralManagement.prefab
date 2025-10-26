@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1309700405249207356}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -13.497627, y: 4.5007277, z: 0.1897741}
+  m_LocalPosition: {x: -13, y: 9, z: 0.1897741}
   m_LocalScale: {x: 2.1389, y: 252.19954, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -164,7 +164,7 @@ Transform:
   m_GameObject: {fileID: 1995415300030195633}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -13.497627, y: -16.899273, z: 0.1897741}
+  m_LocalPosition: {x: -13, y: -16.5, z: 0.1897741}
   m_LocalScale: {x: 2.1389, y: 252.19954, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -298,7 +298,7 @@ Transform:
   m_GameObject: {fileID: 2798089959084500707}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.102373, y: -30.299273, z: 0.1897741}
+  m_LocalPosition: {x: 37.1, y: -30.299273, z: 0.1897741}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -425,7 +425,7 @@ Transform:
   m_GameObject: {fileID: 3609104675111702992}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -13.497627, y: -2.3992724, z: 0.1897741}
+  m_LocalPosition: {x: -13, y: 0.5, z: 0.1897741}
   m_LocalScale: {x: 2.1389, y: 252.19954, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -586,21 +586,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69e7e63e231e9840ae1059d7a8c4eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnerManager: {fileID: 0}
-  barraProgresso: {fileID: 0}
-  E_Necessarias: 10
+  spawnerManager: {fileID: 6640490239518991581}
+  barraProgresso: {fileID: 7843383984504006800}
+  E_Necessarias: 3
   TextoHorda: {fileID: 0}
-  TextoEntrega: {fileID: 0}
-  aumentovelocidade: 0.1
-  ReduzirIntervalo: 0.1
+  TextoEntrega: {fileID: 7031645082656350563}
+  aumentovelocidade: 0.2
+  ReduzirIntervalo: 0.2
   tagsPorHorda:
   - horda: 1
     tagsPermitidas:
-    - Bebado
+    - Malabarista
   - horda: 2
+    tagsPermitidas:
+    - MAssustado
+  - horda: 3
+    tagsPermitidas:
+    - MAssustado
+    - PCasa
+  - horda: 4
+    tagsPermitidas:
+    - MaoZumbi
+    - Louco
+  - horda: 5
+    tagsPermitidas:
+    - MAssustado
+    - Bebado
+  - horda: 6
+    tagsPermitidas:
+    - PCasa
+    - Zumbi
+    - Bebado
+  - horda: 7
+    tagsPermitidas:
+    - Louco
+    - MAssustado
+    - Zumbi
+  - horda: 8
     tagsPermitidas:
     - Bebado
     - MaoZumbi
+    - Louco
+  - horda: 9
+    tagsPermitidas:
+    - Zumbi
+    - PCasa
+    - Louco
+    - MAssustado
+  - horda: 10
+    tagsPermitidas:
+    - Zumbi
+    - MaoZumbi
+    - Bebado
+    - Louco
+    - Pcasa
 --- !u!1 &5956796060140994657
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +697,6 @@ MonoBehaviour:
     tagAssociada: Louco
     tipoSpawn: 2
     pontosFixos:
-    - {fileID: 320821475687523773}
     - {fileID: 5657035201867057674}
   - nome: Bebado
     prefab: {fileID: 2871746574439256737, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
@@ -678,6 +716,11 @@ MonoBehaviour:
   - nome: Zumbi
     prefab: {fileID: 2166660927828198906, guid: fd2ed285d5f2eb647bb92e60686f81cb, type: 3}
     tagAssociada: Zumbi
+    tipoSpawn: 0
+    pontosFixos: []
+  - nome: Malabarista
+    prefab: {fileID: 7414189773533966048, guid: bdf300c3519590a49ac28823076f960c, type: 3}
+    tagAssociada: Malabarista
     tipoSpawn: 0
     pontosFixos: []
   intervaloSpawn: 5
@@ -711,7 +754,7 @@ Transform:
   m_GameObject: {fileID: 6001844302227023954}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -13.497627, y: -9.699272, z: 0.1897741}
+  m_LocalPosition: {x: -13, y: -8, z: 0.1897741}
   m_LocalScale: {x: 2.1389, y: 252.19954, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -917,6 +960,58 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5388579717524526507}
     m_Modifications:
+    - target: {fileID: 633122645700701758, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 633122645700701758, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 778009999278609435, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a906e41c4375985448660ea03142ab27, type: 2}
+    - target: {fileID: 778009999278609435, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4206388723785168454, guid: a906e41c4375985448660ea03142ab27, type: 2}
+    - target: {fileID: 2047224883924779580, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a906e41c4375985448660ea03142ab27, type: 2}
+    - target: {fileID: 2047224883924779580, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4206388723785168454, guid: a906e41c4375985448660ea03142ab27, type: 2}
+    - target: {fileID: 2990100493445539101, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: a906e41c4375985448660ea03142ab27, type: 2}
+    - target: {fileID: 2990100493445539101, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4206388723785168454, guid: a906e41c4375985448660ea03142ab27, type: 2}
+    - target: {fileID: 4563019571093926636, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4863338673976183344, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 339.99988
+      objectReference: {fileID: 0}
+    - target: {fileID: 6064674218037864259, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 406
+      objectReference: {fileID: 0}
+    - target: {fileID: 6110325974478290775, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 452
+      objectReference: {fileID: 0}
+    - target: {fileID: 7474502009148092510, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 471.99988
+      objectReference: {fileID: 0}
     - target: {fileID: 8305771035808657065, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
       propertyPath: m_Name
       value: CanvasHUD
@@ -1020,6 +1115,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7031645082656350563 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 397841163295205325, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
+  m_PrefabInstance: {fileID: 7210264775453279918}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7843383984504006800 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 633122645700701758, guid: f7b25b3af64da3d4198fae97638bb2df, type: 3}
+  m_PrefabInstance: {fileID: 7210264775453279918}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &7988271265604670133 stripped

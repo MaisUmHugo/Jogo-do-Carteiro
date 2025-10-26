@@ -26,6 +26,7 @@ public class Bebado : Entregavel
 
     private Animator anim;
     public EntregavelPisca entregavelPisca;
+    public PontuacaoPopup popupPontuacao;
 
     private bool parado = false; // quando recebe entrega para de mexe
 
@@ -156,6 +157,11 @@ public class Bebado : Entregavel
             ativoParaEntrega = false;
             parado = true; // para de andar
             yTravado = transform.position.y;
+            // Calcula pontuação com bônus
+            int multiplicador = ComboManager.instance.GetMultiplicador();
+            int total = 100 * multiplicador;
+
+            popupPontuacao?.MostrarPontuacao(total);
             entregavelPisca?.PiscarRecebendo();
             Collider2D col = GetComponent<Collider2D>();
             if (col != null)
@@ -165,7 +171,7 @@ public class Bebado : Entregavel
 
             Debug.Log("Pabéns, se entregou fih");
 
-
+            StartCoroutine(PararPiscar());
             // Agora ele vai sumir depois de um tempo
 
             //Destroy(gameObject);
@@ -200,5 +206,11 @@ public class Bebado : Entregavel
                 Destroy(collision.gameObject); // cancela antes da Caixa entregar
             }
         }
+    }
+
+    private IEnumerator PararPiscar()
+    {
+        yield return new WaitForSeconds(1.5f);
+        entregavelPisca?.PararPiscar();
     }
 }

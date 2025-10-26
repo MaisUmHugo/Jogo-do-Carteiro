@@ -27,6 +27,10 @@ public class Malabarista : Entregavel
     private bool podeatirar;
     private bool ComecouCoroutineAtirar;
     private GameObject avisoexclamacao;
+
+    [Header("Efeito Visual")]
+    public EntregavelPisca entregavelPisca;
+    public PontuacaoPopup popupPontuacao;
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -116,6 +120,11 @@ public class Malabarista : Entregavel
     public override void ReceberEntrega()
     {
         base.ReceberEntrega();
+        // Calcula pontuação com bônus
+        int multiplicador = ComboManager.instance.GetMultiplicador();
+        int total = 100 * multiplicador;
+
+        popupPontuacao?.MostrarPontuacao(total);
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)
         {
@@ -123,6 +132,7 @@ public class Malabarista : Entregavel
         }
         recebeu = true;
         StartCoroutine(DelayTransparente());
+        StartCoroutine(PararPiscar());
 
     }
     private IEnumerator ProntoparaEntrega()
@@ -173,5 +183,10 @@ public class Malabarista : Entregavel
             podeatirar = true;
             StartCoroutine(atirar());
         }
+    }
+    private IEnumerator PararPiscar()
+    {
+        yield return new WaitForSeconds(1.5f);
+        entregavelPisca?.PararPiscar();
     }
 }

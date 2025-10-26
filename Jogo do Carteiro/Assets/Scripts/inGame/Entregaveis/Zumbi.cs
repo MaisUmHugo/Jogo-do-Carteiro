@@ -145,6 +145,7 @@ public class Zumbi : Entregavel
     private IEnumerator DelayTransparente()
     {
         yield return new WaitForSeconds(1.5f);
+        entregavelPisca?.PararPiscar();
         anim.SetBool("Transparente", true);
     }
 

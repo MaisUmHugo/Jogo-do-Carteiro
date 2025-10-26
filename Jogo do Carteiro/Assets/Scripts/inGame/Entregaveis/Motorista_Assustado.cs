@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class Motorista_Assustado : Entregavel
 {
@@ -15,6 +16,10 @@ public class Motorista_Assustado : Entregavel
     private Mov jogador;
     private bool recebeu, podereceber;
     private Animator anim;
+
+    [Header("Efeito Visual")]
+    public EntregavelPisca entregavelPisca;
+    public PontuacaoPopup popupPontuacao;
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -98,6 +103,11 @@ public class Motorista_Assustado : Entregavel
     {
         sr.color = corNormal;
         base.ReceberEntrega();
+        // Calcula pontuação com bônus
+        int multiplicador = ComboManager.instance.GetMultiplicador();
+        int total = 100 * multiplicador;
+
+        popupPontuacao?.MostrarPontuacao(total);
         Color cor = sr.color;
         cor.a = 0.5f; // meio transparente
         sr.color = cor;
@@ -110,6 +120,8 @@ public class Motorista_Assustado : Entregavel
             col.enabled = false; // desliga colisão
         }
         recebeu = true;
+
+        StartCoroutine(PararPiscar());
     }
     private System.Collections.IEnumerator ProntoparaEntrega()
     {
@@ -129,5 +141,10 @@ public class Motorista_Assustado : Entregavel
             PerderCombo();
             sr.color = corNormal;
         }
+    }
+    private IEnumerator PararPiscar()
+    {
+        yield return new WaitForSeconds(1.5f);
+        entregavelPisca?.PararPiscar();
     }
 }

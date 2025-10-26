@@ -7,14 +7,14 @@ public class EntregavelPisca : MonoBehaviour
     private Coroutine rotina;
 
     [Header("Configurações - Piscar Ativo (pode receber)")]
-    public float intervaloAtivo = 0.3f;
-    public int quantidadePiscadasAtivo = 3;
-    public Color corPiscarAtivo = new Color(1f, 1f, 1f, 0.6f);
+    private float intervaloAtivo = 0.3f;
+    private int quantidadePiscadasAtivo = 3;
+    private Color corPiscarAtivo = new Color(1f, 0.4f, 0.5f, 0.6f);
 
     [Header("Configurações - Piscar Recebendo")]
-    public float intervaloRecebendo = 0.1f;
-    public int quantidadePiscadasRecebendo = 2;
-    public Color corPiscarRecebendo = new Color(1f, 1f, 1f, 0.3f);
+    private float intervaloRecebendo = 0.3f;
+    private int quantidadePiscadasRecebendo = 3;
+    private Color corPiscarRecebendo = new Color(0.7f, 0.7f, 0.7f, 0.4f);
 
     private void Awake()
     {
@@ -42,10 +42,12 @@ public class EntregavelPisca : MonoBehaviour
         {
             sr.material.color = corPiscar;
             yield return new WaitForSeconds(intervalo);
+
             sr.material.color = corOriginal;
             yield return new WaitForSeconds(intervalo);
         }
 
+        // garante volta final
         sr.material.color = corOriginal;
         rotina = null;
     }

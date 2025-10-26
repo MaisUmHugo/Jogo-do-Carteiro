@@ -17,6 +17,7 @@ public class Mao_Zumbi : Entregavel
     private Mov jogador;
     private bool recebeu, podereceber;
     public EntregavelPisca entregavelPisca;
+    public PontuacaoPopup popupPontuacao;
 
     private Animator anim;
     private void Awake()
@@ -109,9 +110,14 @@ public class Mao_Zumbi : Entregavel
         recebeu = true;
         anim.SetTrigger("ReceberEntrega");
         //entregavelPisca.PararPiscar();
+        // Calcula pontuação com bônus
+        int multiplicador = ComboManager.instance.GetMultiplicador();
+        int total = 100 * multiplicador;
+
+        popupPontuacao?.MostrarPontuacao(total);
         entregavelPisca?.PiscarRecebendo();
         StartCoroutine(DelayTransparente());
-
+        StartCoroutine(PararPiscar());
     }
     private IEnumerator ProntoparaEntrega()
     {
@@ -137,5 +143,11 @@ public class Mao_Zumbi : Entregavel
     {
         yield return new WaitForSeconds(1.25f);
         anim.SetTrigger("Transparente");
+    }
+
+    private IEnumerator PararPiscar()
+    {
+        yield return new WaitForSeconds(1.5f);
+        entregavelPisca?.PararPiscar();
     }
 }
