@@ -1849,10 +1849,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 442019511845637507, guid: 8f339f7fceb0c464eafd3f0d20dcca50, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2702862090208060602, guid: 8f339f7fceb0c464eafd3f0d20dcca50, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1892,6 +1888,22 @@ PrefabInstance:
     - target: {fileID: 2702862090208060602, guid: 8f339f7fceb0c464eafd3f0d20dcca50, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3960964300146621292, guid: 8f339f7fceb0c464eafd3f0d20dcca50, type: 3}
+      propertyPath: mixerParameter
+      value: sfxParamater
+      objectReference: {fileID: 0}
+    - target: {fileID: 4130553903476864822, guid: 8f339f7fceb0c464eafd3f0d20dcca50, type: 3}
+      propertyPath: mixerParameter
+      value: masterParamater
+      objectReference: {fileID: 0}
+    - target: {fileID: 7771078730619167948, guid: 8f339f7fceb0c464eafd3f0d20dcca50, type: 3}
+      propertyPath: mixerParameter
+      value: bgmParamater
+      objectReference: {fileID: 0}
+    - target: {fileID: 8003754581541494091, guid: 8f339f7fceb0c464eafd3f0d20dcca50, type: 3}
+      propertyPath: mixerParameter
+      value: cutsceneParamater
       objectReference: {fileID: 0}
     - target: {fileID: 9024803893265074521, guid: 8f339f7fceb0c464eafd3f0d20dcca50, type: 3}
       propertyPath: m_Name

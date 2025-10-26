@@ -593,6 +593,8 @@ MonoBehaviour:
   TextoEntrega: {fileID: 7031645082656350563}
   aumentovelocidade: 0.2
   ReduzirIntervalo: 0.2
+  delayInicial: 3.5
+  delayEntreHordas: 2
   tagsPorHorda:
   - horda: 1
     tagsPermitidas:

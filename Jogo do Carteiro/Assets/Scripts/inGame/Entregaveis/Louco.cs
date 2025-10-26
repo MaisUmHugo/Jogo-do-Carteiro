@@ -7,7 +7,7 @@ public class Louco : Entregavel
     [Header("Configuração do Louco")]
     public float velocidadeVertical = 5f;   // velocidade no eixo Y
     public float velocidadeFrente = 2f;     // velocidade no eixo X (frente = esquerda)
-    public float velocidadeSaida = 3f;      // velocidade depois que atravessou
+    public float velocidadeSaida = 6f;      // velocidade depois que atravessou
     public float tempoAtivoEntrega = 1.2f;
     public float intervaloPiscar = 0.15f;
     public float tempoexclamacao;

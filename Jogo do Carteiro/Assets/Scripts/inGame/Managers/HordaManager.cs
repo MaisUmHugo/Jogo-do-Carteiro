@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal.Internal;
@@ -21,6 +22,14 @@ public class HordaManager : MonoBehaviour
     public float aumentovelocidade;
     public float ReduzirIntervalo;
 
+    //private bool aguardandoInicio = false;
+
+    [Header("Delay de Início das Hordas")]
+    [Tooltip("Tempo (em segundos) antes da primeira horda começar após carregar a cena.")]
+    public float delayInicial;
+    [Tooltip("Tempo de espera entre o fim de uma horda e o início da próxima.")]
+    public float delayEntreHordas;
+
     private bool HordaMudou, Objetivo;
     public static HordaManager instance;
     [System.Serializable]
@@ -36,7 +45,8 @@ public class HordaManager : MonoBehaviour
     private void Start()
     {
         NumeroHorda = 1;
-        AtualizarInimigosPermitidos();
+        spawnerManager.DesativarSpawn();
+        StartCoroutine(IniciarHordaComDelay(delayInicial));
     }
     private void Awake()
     {
@@ -54,6 +64,19 @@ public class HordaManager : MonoBehaviour
         }
 
     }
+
+    private IEnumerator IniciarHordaComDelay(float delay)
+    {
+        //aguardandoInicio = true;
+        spawnerManager.DesativarSpawn();
+
+        yield return new WaitForSeconds(delay);
+
+        AtualizarInimigosPermitidos(); 
+        spawnerManager.AtivarSpawn();
+        //aguardandoInicio = false;
+    }
+
     private void AtualizarBarraProgresso()
     {
         if (barraProgresso != null)
@@ -87,20 +110,40 @@ public class HordaManager : MonoBehaviour
             AlterarHorda();
         }
     }
+
+    private bool trocandoHorda = false;
+
     private void AlterarHorda()
     {
-        NumeroHorda = NumeroHorda + 1;
-        E_Necessarias += 1;
+        if (trocandoHorda) return; // impede sobreposição
+        trocandoHorda = true;
+
+        NumeroHorda++;
+        E_Necessarias++;
         HordaMudou = true;
         Objetivo = false;
         N_Entregas = 0;
+
         if (NumeroHorda >= 11)
         {
             Final();
+            return;
         }
+
         Mudarcondicao();
-        AtualizarInimigosPermitidos();
+        StartCoroutine(DelayProximaHorda());
+        Debug.Log($"[HordaManager] Esperando {delayEntreHordas}s antes da próxima horda ({NumeroHorda})");
     }
+
+    private IEnumerator DelayProximaHorda()
+    {
+        spawnerManager.DesativarSpawn();
+        yield return new WaitForSeconds(delayEntreHordas);
+        AtualizarInimigosPermitidos();
+        spawnerManager.AtivarSpawn();
+        trocandoHorda = false;
+    }
+
     public void AumentarEntrega()
     {
         N_Entregas++;
