@@ -129,6 +129,7 @@ public class Mao_Zumbi : Entregavel
         ativoParaEntrega = true;
         anim.SetTrigger("MaoAberta");
         entregavelPisca?.PiscarAtivo();
+        // Exclamação
         GameObject prefab = Resources.Load<GameObject>("PontoExclamacao");
         if (prefab != null)
         {

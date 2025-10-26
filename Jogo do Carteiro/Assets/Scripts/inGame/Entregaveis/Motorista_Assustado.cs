@@ -3,11 +3,13 @@ using System.Collections;
 
 public class Motorista_Assustado : Entregavel
 {
+    public Transform Exclamacao;
     [Header("Configuração Motorista")]
     public float velocidade;
     public float tempoAtivoEntrega;
     public float intervaloPiscar;
     public float distanciaEntrega;
+    public float tempoexclamacao;
 
     private SpriteRenderer sr;
     public Color corNormal = Color.white; // cor padrão
@@ -130,6 +132,20 @@ public class Motorista_Assustado : Entregavel
         anim.SetTrigger("PodeEntregar");
        sr.color = corAtivo; // piscar (feedback visual)
         Debug.Log("MAssustado proximo, entregue agora!");
+        GameObject prefab = Resources.Load<GameObject>("PontoExclamacao");
+        if (prefab != null)
+        {
+            GameObject instancia = Instantiate(prefab, Exclamacao.position, Quaternion.identity);
+            instancia.transform.SetParent(gameObject.transform, worldPositionStays: true);
+            float tempo = 0;
+            while (tempo < tempoexclamacao)
+            {
+                tempo += Time.deltaTime;
+                yield return null;
+            }
+            Destroy(instancia);
+            tempo = 0;
+        }
 
         // espera a janela de tempo para aceitar a entrega
         yield return new WaitForSeconds(tempoAtivoEntrega);

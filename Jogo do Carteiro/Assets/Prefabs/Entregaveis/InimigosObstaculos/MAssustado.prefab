@@ -149,6 +149,7 @@ Transform:
   - {fileID: 1999171616399430023}
   - {fileID: 535956194703112385}
   - {fileID: 7484192478286079854}
+  - {fileID: 7825072720261211923}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2340565487093467281
@@ -268,10 +269,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ativoParaEntrega: 1
+  Exclamacao: {fileID: 7825072720261211923}
   velocidade: 15
   tempoAtivoEntrega: 2
   intervaloPiscar: 0.15
   distanciaEntrega: 50
+  tempoexclamacao: 1
   corNormal: {r: 1, g: 1, b: 1, a: 1}
   corAtivo: {r: 1, g: 0, b: 0, a: 1}
   entregavelPisca: {fileID: 0}
@@ -628,3 +631,34 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &7844150582060725545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7825072720261211923}
+  m_Layer: 0
+  m_Name: PontoExclamacao
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7825072720261211923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7844150582060725545}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.895, y: 0.848, z: 0}
+  m_LocalScale: {x: 0.16666667, y: 0.33333334, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1672553856762754069}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

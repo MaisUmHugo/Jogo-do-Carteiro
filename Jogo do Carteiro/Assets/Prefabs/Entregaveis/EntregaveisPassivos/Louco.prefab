@@ -278,6 +278,7 @@ Transform:
   - {fileID: 422066670033287553}
   - {fileID: 469225258573552561}
   - {fileID: 3454099607849626921}
+  - {fileID: 8916029965392623579}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &3437429018384719260
@@ -366,11 +367,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ativoParaEntrega: 1
+  Exclamacao: {fileID: 8916029965392623579}
   velocidadeVertical: 4
   velocidadeFrente: 2
   velocidadeSaida: 3
   tempoAtivoEntrega: 3.5
   intervaloPiscar: 0.15
+  tempoexclamacao: 1.5
   entregavelPisca: {fileID: 1939544482609072499}
   popupPontuacao: {fileID: 8905584891220059948}
 --- !u!114 &1939544482609072499
@@ -385,12 +388,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6f1d26ba6d4f54fad6ac298a2548b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca
-  intervaloAtivo: 0.3
-  quantidadePiscadasAtivo: 3
-  corPiscarAtivo: {r: 1, g: 1, b: 1, a: 0.6}
-  intervaloRecebendo: 0.1
-  quantidadePiscadasRecebendo: 2
-  corPiscarRecebendo: {r: 1, g: 1, b: 1, a: 0.3}
+--- !u!1 &8625399158413746503
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8916029965392623579}
+  m_Layer: 0
+  m_Name: PontoExclamacao
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8916029965392623579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8625399158413746503}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.111296974, y: 0.78518677, z: 0}
+  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1569069538524046685}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8933798099329291435
 GameObject:
   m_ObjectHideFlags: 0
