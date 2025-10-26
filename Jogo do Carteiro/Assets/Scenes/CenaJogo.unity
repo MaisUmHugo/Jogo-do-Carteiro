@@ -1987,6 +1987,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5680095873349623148, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
+      propertyPath: distanciaEntrega
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 7665410091036526775, guid: 72db2c075fab77b4daadf4c2e0aa3065, type: 3}
       propertyPath: m_LocalPosition.x
       value: 72.3

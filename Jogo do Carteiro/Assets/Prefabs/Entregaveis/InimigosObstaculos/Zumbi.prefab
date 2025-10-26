@@ -129,6 +129,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &3876622860215788266
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9101041247903458550}
+  m_Layer: 0
+  m_Name: PontoExclamacao
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9101041247903458550
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3876622860215788266}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.0226736, y: 0.1892066, z: 0}
+  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1454131370688109998}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4441541291614412163
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +505,7 @@ Transform:
   - {fileID: 6215649718306683255}
   - {fileID: 3628546597736827030}
   - {fileID: 6503473753298819526}
+  - {fileID: 9101041247903458550}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4581203935450386768
@@ -562,11 +594,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ativoParaEntrega: 1
+  Exclamacao: {fileID: 9101041247903458550}
   velocidadeCaminhada: 6
   velocidadeCorrida: 8
   velocidadeTrocaLane: 8
   distanciaCorrida: 60
   distanciaColisao: 6
+  tempoexclamacao: 1.5
   entregavelPisca: {fileID: 4807060384459946138}
   popupPontuacao: {fileID: 5706932820895983494}
 --- !u!114 &4807060384459946138
@@ -581,7 +615,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6f1d26ba6d4f54fad6ac298a2548b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca
-  intervaloAtivo: 0.3
-  quantidadePiscadasAtivo: 3
-  intervaloRecebendo: 0.3
-  quantidadePiscadasRecebendo: 2

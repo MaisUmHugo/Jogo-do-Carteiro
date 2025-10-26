@@ -224,7 +224,6 @@ public class Bebado : Entregavel
         GameObject prefab = Resources.Load<GameObject>("PontoExclamacao");
         if (prefab != null)
         {
-            Debug.Log("prefab não é nulo");
             GameObject instancia = Instantiate(prefab, Exclamacao.position, Quaternion.identity);
             instancia.transform.SetParent(gameObject.transform, worldPositionStays: true);
             float tempo = 0;

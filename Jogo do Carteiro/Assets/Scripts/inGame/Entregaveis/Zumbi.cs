@@ -3,12 +3,14 @@ using System.Collections;
 
 public class Zumbi : Entregavel
 {
+    public Transform Exclamacao;
     [Header("Configuração do Zumbi")]
     public float velocidadeCaminhada;
     public float velocidadeCorrida;
     public float velocidadeTrocaLane;
     public float distanciaCorrida;
     public float distanciaColisao;
+    public float tempoexclamacao;
 
     private bool correndo = false;
     private bool caiu = false;
@@ -90,6 +92,7 @@ public class Zumbi : Entregavel
         anim.SetBool("Correr", true);
         anim.SetBool("Andar", false);
         ativoParaEntrega = true;
+        StartCoroutine(exclamacao());
         entregavelPisca?.PiscarAtivo();
     }
 
@@ -153,5 +156,24 @@ public class Zumbi : Entregavel
     {
         yield return new WaitForSeconds(1.5f);
         FalharEntrega();
+    }
+    private IEnumerator exclamacao()
+    {
+        yield return new WaitForSeconds(0.1f);
+        //exclamacao
+        GameObject prefab = Resources.Load<GameObject>("PontoExclamacao");
+        if (prefab != null)
+        {
+            GameObject instancia = Instantiate(prefab, Exclamacao.position, Quaternion.identity);
+            instancia.transform.SetParent(gameObject.transform, worldPositionStays: true);
+            float tempo = 0;
+            while (tempo < tempoexclamacao)
+            {
+                tempo += Time.deltaTime;
+                yield return null;
+            }
+            Destroy(instancia);
+            tempo = 0;
+        }
     }
 }
