@@ -131,6 +131,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: GeralManagement
       objectReference: {fileID: 0}
+    - target: {fileID: 4830185967593448990, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5956796060140994657, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: TextoHorda
       value: 
@@ -876,12 +884,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6f1d26ba6d4f54fad6ac298a2548b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca
-  intervaloAtivo: 0.3
-  quantidadePiscadasAtivo: 3
-  corPiscarAtivo: {r: 1, g: 1, b: 1, a: 0.6}
-  intervaloRecebendo: 0.1
-  quantidadePiscadasRecebendo: 2
-  corPiscarRecebendo: {r: 1, g: 1, b: 1, a: 0.3}
 --- !u!1001 &998861243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1507,12 +1509,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6f1d26ba6d4f54fad6ac298a2548b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca
-  intervaloAtivo: 0.3
-  quantidadePiscadasAtivo: 3
-  corPiscarAtivo: {r: 1, g: 1, b: 1, a: 0.6}
-  intervaloRecebendo: 0.1
-  quantidadePiscadasRecebendo: 2
-  corPiscarRecebendo: {r: 1, g: 1, b: 1, a: 0.3}
 --- !u!1001 &40139897325349408
 PrefabInstance:
   m_ObjectHideFlags: 0
