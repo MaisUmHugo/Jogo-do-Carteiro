@@ -3,11 +3,13 @@ using System.Collections;
 
 public class Mao_Zumbi : Entregavel
 {
+    public Transform Exclamacao;
     [Header("Configuração da mão")]
     public float velocidade;
     public float tempoAtivoEntrega;
     public float intervaloPiscar;
     public float distanciaEntrega;
+    public float tempoexclamacao;
 
     // Sprite renderer para fazer o efeito de piscar
     private SpriteRenderer sr;
@@ -127,6 +129,20 @@ public class Mao_Zumbi : Entregavel
         ativoParaEntrega = true;
         anim.SetTrigger("MaoAberta");
         entregavelPisca?.PiscarAtivo();
+        GameObject prefab = Resources.Load<GameObject>("PontoExclamacao");
+        if (prefab != null)
+        {
+            GameObject instancia = Instantiate(prefab, Exclamacao.position, Quaternion.identity);
+            instancia.transform.SetParent(gameObject.transform, worldPositionStays: true);
+            float tempo = 0;
+            while (tempo < tempoexclamacao)
+            {
+                tempo += Time.deltaTime;
+                yield return null;
+            }
+            Destroy(instancia);
+            tempo = 0;
+        }
         Debug.Log("Mão proxima, entregue agora!");
 
         // espera a janela de tempo para aceitar a entrega

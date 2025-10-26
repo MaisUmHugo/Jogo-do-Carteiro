@@ -438,6 +438,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &7824295507420085562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4279375068704336945}
+  m_Layer: 0
+  m_Name: PontoExclamacao
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4279375068704336945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7824295507420085562}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2, y: 3.31, z: 0}
+  m_LocalScale: {x: 0.5, y: 0.57142854, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9091135819714808482}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9061229168869557155
 GameObject:
   m_ObjectHideFlags: 0
@@ -474,6 +505,7 @@ Transform:
   - {fileID: 965562386946635435}
   - {fileID: 8409244331091251761}
   - {fileID: 5696932848715613169}
+  - {fileID: 4279375068704336945}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &8611616697012024522
@@ -553,10 +585,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ativoParaEntrega: 1
+  Exclamacao: {fileID: 4279375068704336945}
   velocidade: 6
   tempoAtivoEntrega: 2
   intervaloPiscar: 0.15
   distanciaEntrega: 40
+  tempoexclamacao: 1.5
   corNormal: {r: 1, g: 1, b: 1, a: 1}
   corAtivo: {r: 1, g: 0, b: 0, a: 1}
   entregavelPisca: {fileID: 803829001119571900}
@@ -573,9 +607,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed6f1d26ba6d4f54fad6ac298a2548b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca
-  intervaloAtivo: 0.3
-  quantidadePiscadasAtivo: 3
-  corPiscarAtivo: {r: 1, g: 1, b: 1, a: 0.6}
-  intervaloRecebendo: 0.1
-  quantidadePiscadasRecebendo: 2
-  corPiscarRecebendo: {r: 1, g: 1, b: 1, a: 0.3}
