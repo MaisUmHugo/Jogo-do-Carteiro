@@ -28,6 +28,10 @@ public class Malabarista : Entregavel
     private bool ComecouCoroutineAtirar;
     private GameObject avisoexclamacao;
 
+    [Header("Ajuste de posição")]
+    public float offsetY = 6f; // valor pequeno pra alinhar o pé com a lane
+
+
     [Header("Efeito Visual")]
     public EntregavelPisca entregavelPisca;
     public PontuacaoPopup popupPontuacao;
@@ -49,7 +53,7 @@ public class Malabarista : Entregavel
             Debug.LogWarning("Player não encontrado! Verifique se o objeto do jogador tem a tag 'Player'.");
         }
         Vector3 pos = transform.position;
-        pos.y = LanesController.instance.PosicaoY((LanesController.Linhas)Random.Range(0, 4));
+        pos.y = LanesController.instance.PosicaoY((LanesController.Linhas)Random.Range(0, 4)) + offsetY;
         transform.position = pos;
     }
     private void Update()

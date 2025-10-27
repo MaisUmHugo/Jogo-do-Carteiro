@@ -332,7 +332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[0].tagsPermitidas.Array.data[0]'
-      value: Louco
+      value: Malabarista
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[0].tagsPermitidas.Array.data[1]'
@@ -738,9 +738,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2053121548289843061, guid: 6af983a5a52302b4db3cd9797954dda2, type: 3}
+      propertyPath: m_FillOrigin
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4148019729949960094, guid: 6af983a5a52302b4db3cd9797954dda2, type: 3}
       propertyPath: m_Name
       value: CanvasMira
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268739430575932792, guid: 6af983a5a52302b4db3cd9797954dda2, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7065500137617337450, guid: 6af983a5a52302b4db3cd9797954dda2, type: 3}
       propertyPath: m_Pivot.x
@@ -821,6 +829,22 @@ PrefabInstance:
     - target: {fileID: 7065500137617337450, guid: 6af983a5a52302b4db3cd9797954dda2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167639595292360341, guid: 6af983a5a52302b4db3cd9797954dda2, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 4.0113
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167639595292360341, guid: 6af983a5a52302b4db3cd9797954dda2, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 3.957
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167639595292360341, guid: 6af983a5a52302b4db3cd9797954dda2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7167639595292360341, guid: 6af983a5a52302b4db3cd9797954dda2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.003
       objectReference: {fileID: 0}
     - target: {fileID: 8882482169198109913, guid: 6af983a5a52302b4db3cd9797954dda2, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
