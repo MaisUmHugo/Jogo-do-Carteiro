@@ -1,12 +1,17 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
+using UnityEngine.UI;
 
 public class Mira : MonoBehaviour
 {
     private Camera cam;
     private INPUTS inputs;
 
+    [Header("Cooldown Visual")]
+    public Image cooldownUI; // Imagem do círculo de cooldown
+    [HideInInspector] public float cooldownProgresso; // Valor entre 0 e 1
+    [HideInInspector] public bool emCooldown;
     void Awake()
     {
         cam = Camera.main;
@@ -34,5 +39,12 @@ public class Mira : MonoBehaviour
 
         // Move a mira
         transform.position = worldPos;
+
+        // Atualiza visual do cooldown
+        if (cooldownUI != null)
+        {
+            cooldownUI.fillAmount = 1f - cooldownProgresso; // inverte, pra ir "descendo"
+            cooldownUI.enabled = emCooldown; // só aparece enquanto está recarregando
+        }
     }
 }

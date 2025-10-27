@@ -21,6 +21,12 @@ public class Pessoa_janela : Entregavel
     [Header("Efeito Visual")]
     public EntregavelPisca entregavelPisca;
     public PontuacaoPopup popupPontuacao;
+
+
+    [Header("Exclamação")]
+    public Transform Exclamacao;
+    public float tempoExclamacao = 1.5f;
+
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -100,6 +106,8 @@ public class Pessoa_janela : Entregavel
     {
         sr.color = corNormal;
         base.ReceberEntrega();
+
+        entregavelPisca?.PiscarRecebendo();
         Color cor = sr.color;
         cor.a = 0.5f; // meio transparente
         sr.color = cor;
@@ -129,6 +137,7 @@ public class Pessoa_janela : Entregavel
         
         podereceber = true;
         ativoParaEntrega = true;
+        StartCoroutine(ExibirExclamacao());
         sr.color = corAtivo; // piscar (feedback visual)
         
         Debug.Log("Janela proxima, entregue agora!");
@@ -145,6 +154,18 @@ public class Pessoa_janela : Entregavel
             if (anim != null)
                 anim.SetTrigger("FalhouEntrega");
         }
+    }
+
+    private IEnumerator ExibirExclamacao()
+    {
+        GameObject prefab = Resources.Load<GameObject>("PontoExclamacao");
+        if (prefab == null) yield break;
+
+        GameObject instancia = Instantiate(prefab, Exclamacao.position, Quaternion.identity);
+        instancia.transform.SetParent(transform, true);
+
+        yield return new WaitForSeconds(tempoExclamacao);
+        Destroy(instancia);
     }
 
     private IEnumerator PararPiscar()

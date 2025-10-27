@@ -105,6 +105,9 @@ public class Motorista_Assustado : Entregavel
     {
         sr.color = corNormal;
         base.ReceberEntrega();
+
+        entregavelPisca?.PiscarRecebendo();
+
         // Calcula pontuação com bônus
         int multiplicador = ComboManager.instance.GetMultiplicador();
         int total = 100 * multiplicador;

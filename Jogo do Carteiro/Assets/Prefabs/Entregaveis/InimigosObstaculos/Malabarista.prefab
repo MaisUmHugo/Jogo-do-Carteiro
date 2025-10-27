@@ -66,7 +66,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 54.9, y: 7.4}
+  m_AnchoredPosition: {x: 43.2, y: 7.4}
   m_SizeDelta: {x: 3.7896, y: 0.6723}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &8433362379733728990
@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: -2371364442106000463}
   - component: {fileID: 3609380294575140456}
   - component: {fileID: -8753955209446439088}
+  - component: {fileID: 3858005263237758121}
   m_Layer: 7
   m_Name: Malabarista
   m_TagString: Malabarista
@@ -478,7 +479,7 @@ MonoBehaviour:
   tempoexclamacao: 1
   corNormal: {r: 1, g: 1, b: 1, a: 1}
   corAtivo: {r: 1, g: 0, b: 0, a: 1}
-  entregavelPisca: {fileID: 0}
+  entregavelPisca: {fileID: 3858005263237758121}
   popupPontuacao: {fileID: 8184628141019201036}
 --- !u!61 &3609380294575140456
 BoxCollider2D:
@@ -553,3 +554,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3858005263237758121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7414189773533966048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6f1d26ba6d4f54fad6ac298a2548b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca

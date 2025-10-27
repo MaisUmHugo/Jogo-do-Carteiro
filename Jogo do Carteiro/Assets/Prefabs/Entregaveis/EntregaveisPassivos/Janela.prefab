@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6268864417605258406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8935985987119779645}
+  m_Layer: 0
+  m_Name: PontoExclamacao
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8935985987119779645
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268864417605258406}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.73, y: 1.01, z: 0}
+  m_LocalScale: {x: 0.33333334, y: 0.33333334, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2951059114790262384}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6661323290642559500
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,6 +134,7 @@ GameObject:
   - component: {fileID: 4555680665276184044}
   - component: {fileID: 1731035633455444844}
   - component: {fileID: 5679823470234373369}
+  - component: {fileID: 1230551791462745207}
   m_Layer: 7
   m_Name: Janela
   m_TagString: PCasa
@@ -126,6 +158,7 @@ Transform:
   - {fileID: 2735956759356522}
   - {fileID: 36703898046919941}
   - {fileID: 8525219721337147298}
+  - {fileID: 8935985987119779645}
   - {fileID: 5804035706649937963}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -207,8 +240,10 @@ MonoBehaviour:
   offset: {x: 0, y: 13, z: 0}
   corNormal: {r: 0.07075471, g: 0.36427745, b: 1, a: 1}
   corAtivo: {r: 1, g: 0, b: 0, a: 1}
-  entregavelPisca: {fileID: 0}
+  entregavelPisca: {fileID: 1230551791462745207}
   popupPontuacao: {fileID: 7256402222274394702}
+  Exclamacao: {fileID: 8935985987119779645}
+  tempoExclamacao: 1.5
 --- !u!50 &1731035633455444844
 Rigidbody2D:
   serializedVersion: 5
@@ -282,6 +317,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1230551791462745207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6937591069211705461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed6f1d26ba6d4f54fad6ac298a2548b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntregavelPisca
 --- !u!1 &7281122795453114623
 GameObject:
   m_ObjectHideFlags: 0
@@ -559,7 +606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.92, y: 2.28}
+  m_AnchoredPosition: {x: 1.92, y: 0.97}
   m_SizeDelta: {x: 3.7896, y: 0.6723}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &886226910770467105
@@ -606,9 +653,9 @@ MeshRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1065233613
+  m_SortingLayer: 1
+  m_SortingOrder: 210
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &4502573338702533036
 MonoBehaviour:

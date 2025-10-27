@@ -121,6 +121,8 @@ public class Malabarista : Entregavel
     {
         base.ReceberEntrega();
         // Calcula pontuação com bônus
+
+        entregavelPisca?.PiscarRecebendo();
         int multiplicador = ComboManager.instance.GetMultiplicador();
         int total = 100 * multiplicador;
 
@@ -155,10 +157,12 @@ public class Malabarista : Entregavel
         }
         podereceber = true;
         ativoParaEntrega = true;
+        entregavelPisca?.PiscarAtivo();
         Debug.Log("Malabarista proximo, entregue agora!");
 
         // espera a janela de tempo para aceitar a entrega
         yield return new WaitForSeconds(tempoAtivoEntrega);
+        entregavelPisca?.PararPiscar();
 
         if (ativoParaEntrega && !recebeu)
         {

@@ -60,6 +60,26 @@ public class CaixaTiro : MonoBehaviour
 
         anim.SetTrigger("Throw");
         tempoUltimoLancamento = Time.time;
+
+        // Inicia cooldown visual
+        StartCoroutine(CooldownVisual());
     }
 
+    private System.Collections.IEnumerator CooldownVisual()
+    {
+        if (mira == null) yield break;
+
+        mira.emCooldown = true;
+        float t = 0;
+
+        while (t < delayLancamento)
+        {
+            t += Time.deltaTime;
+            mira.cooldownProgresso = Mathf.Clamp01(t / delayLancamento);
+            yield return null;
+        }
+
+        mira.emCooldown = false;
+        mira.cooldownProgresso = 0;
+    }
 }
