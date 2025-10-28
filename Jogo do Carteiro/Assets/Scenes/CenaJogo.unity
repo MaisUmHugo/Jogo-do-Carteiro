@@ -227,9 +227,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 148052389}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: Bola
+      value: 
+      objectReference: {fileID: 5321252365096296630, guid: e1fa043f34f9f904aba9222e970e0d4c, type: 3}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: TextoHorda
       value: 
       objectReference: {fileID: 223114661}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: Malabarista
+      value: 
+      objectReference: {fileID: 1492970466}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: TextoEntrega
       value: 
@@ -252,7 +260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: aumentovelocidade
-      value: 0.35
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: multiplicadorParallax
@@ -260,7 +268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: aumentoParallaxPorHorda
-      value: 0.3
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: tagsPorHorda.Array.size
@@ -316,7 +324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: tagsPorHorda.Array.data[4].tagsPermitidas.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: tagsPorHorda.Array.data[5].tagsPermitidas.Array.size
@@ -328,7 +336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: tagsPorHorda.Array.data[7].tagsPermitidas.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: tagsPorHorda.Array.data[8].tagsPermitidas.Array.size
@@ -336,7 +344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: tagsPorHorda.Array.data[9].tagsPermitidas.Array.size
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[0].tagsPermitidas.Array.data[0]'
@@ -351,12 +359,16 @@ PrefabInstance:
       value: MAssustado
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
-      propertyPath: 'tagsPorHorda.Array.data[2].tagsPermitidas.Array.data[0]'
+      propertyPath: 'tagsPorHorda.Array.data[1].tagsPermitidas.Array.data[1]'
       value: MAssustado
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: 'tagsPorHorda.Array.data[2].tagsPermitidas.Array.data[0]'
+      value: Malabarista
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[2].tagsPermitidas.Array.data[1]'
-      value: PCasa
+      value: Zumbi
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[3].tagsPermitidas.Array.data[0]'
@@ -368,10 +380,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[4].tagsPermitidas.Array.data[0]'
-      value: MAssustado
+      value: Zumbi
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[4].tagsPermitidas.Array.data[1]'
+      value: MAssustado
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: 'tagsPorHorda.Array.data[4].tagsPermitidas.Array.data[2]'
       value: Bebado
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
@@ -380,7 +396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[5].tagsPermitidas.Array.data[1]'
-      value: Zumbi
+      value: Malabarista
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[5].tagsPermitidas.Array.data[2]'
@@ -400,7 +416,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[7].tagsPermitidas.Array.data[0]'
-      value: Bebado
+      value: Zumbi
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[7].tagsPermitidas.Array.data[1]'
@@ -411,8 +427,12 @@ PrefabInstance:
       value: Louco
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: 'tagsPorHorda.Array.data[7].tagsPermitidas.Array.data[3]'
+      value: MAssustado
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[8].tagsPermitidas.Array.data[0]'
-      value: Zumbi
+      value: Malabarista
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[8].tagsPermitidas.Array.data[1]'
@@ -420,11 +440,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[8].tagsPermitidas.Array.data[2]'
-      value: Louco
+      value: Bebado
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[8].tagsPermitidas.Array.data[3]'
-      value: MAssustado
+      value: MaoZumbi
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[9].tagsPermitidas.Array.data[0]'
@@ -1533,7 +1553,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3650597393286077402, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
       propertyPath: delayLancamento
-      value: 0.6
+      value: 0.45
       objectReference: {fileID: 0}
     - target: {fileID: 3650597393286077402, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
       propertyPath: velocidadeCaixa
@@ -1617,6 +1637,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7fa789bc2da6d8d4081bb08d66a6541b, type: 3}
+--- !u!114 &1492970466 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -2371364442106000463, guid: bdf300c3519590a49ac28823076f960c, type: 3}
+  m_PrefabInstance: {fileID: 309441166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d7e19677e1e00459af9ff539d01a0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Malabarista
 --- !u!1 &1561481498
 GameObject:
   m_ObjectHideFlags: 0

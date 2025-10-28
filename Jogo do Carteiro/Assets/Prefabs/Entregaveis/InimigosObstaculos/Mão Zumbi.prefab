@@ -589,7 +589,7 @@ MonoBehaviour:
   velocidade: 6
   tempoAtivoEntrega: 2
   intervaloPiscar: 0.15
-  distanciaEntrega: 40
+  distanciaEntrega: 80
   tempoexclamacao: 1.5
   corNormal: {r: 1, g: 1, b: 1, a: 1}
   corAtivo: {r: 1, g: 0, b: 0, a: 1}

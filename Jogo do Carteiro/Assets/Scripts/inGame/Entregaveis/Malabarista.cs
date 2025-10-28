@@ -1,9 +1,11 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Reflection;
+using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 public class Malabarista : Entregavel
 {
+    public float multiplicadorVelocidade = 1f;
     public GameObject bola;
     public Transform Exclamacao;
     [Header("Configuração do malabarista")]
@@ -183,7 +185,7 @@ public class Malabarista : Entregavel
         cor.a = 0.5f;           
         sr.color = cor;         
     }
-    private IEnumerator atirar()
+    public IEnumerator atirar()
     {
         if (podeatirar && !podereceber)
         {
@@ -192,9 +194,9 @@ public class Malabarista : Entregavel
             Vector3 posSpawn = transform.position
                              + transform.right * offsetBolaX   // deslocamento em X
                              + transform.up * offsetBolaY;     // deslocamento em Y
-
-            Instantiate(bola, posSpawn, Quaternion.identity);
-
+            GameObject novaBola = Instantiate(bola, posSpawn, Quaternion.identity);
+            Bola bolaScript = novaBola.GetComponent<Bola>();
+            bolaScript.velocidade *= multiplicadorVelocidade;
             podeatirar = false;
             yield return new WaitForSeconds(IntervaloTiro + intervaloaleatorio);
             podeatirar = true;

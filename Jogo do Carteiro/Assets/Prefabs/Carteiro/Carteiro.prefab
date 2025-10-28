@@ -257,8 +257,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabCaixa: {fileID: 6596183935556652839, guid: 31cc4adeada673c43b62d5c281b2a61b, type: 3}
   pontoLancamento: {fileID: 8804935888859585432}
-  velocidadeCaixa: 70
-  delayLancamento: 0.75
+  velocidadeCaixa: 100
+  delayLancamento: 0.7
 --- !u!114 &1868196326477802708
 MonoBehaviour:
   m_ObjectHideFlags: 0

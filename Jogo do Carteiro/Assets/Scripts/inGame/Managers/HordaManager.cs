@@ -11,6 +11,7 @@ public class HordaManager : MonoBehaviour
     public List<string> todasAsTagsEntregaveis;
     [Header("Referência ao Spawner")]
     public SpawnerManager spawnerManager;
+    public Malabarista Malabarista;
 
     [Header("Barra de Progresso")]
     public Image barraProgresso; 
@@ -98,9 +99,14 @@ public class HordaManager : MonoBehaviour
         {
             // velocidade dos inimigos da horda
             float novoMultiplicador = spawnerManager.multiplicadorVelocidade + aumentovelocidade;
+            Malabarista.multiplicadorVelocidade = novoMultiplicador;
             spawnerManager.DefinirVelocidade(novoMultiplicador);
             // intervalo de spawn deles
             float novoIntervalo = spawnerManager.intervaloSpawn - ReduzirIntervalo;
+            if (novoIntervalo <= 1.5f)
+            {
+                novoIntervalo = 1.5f;
+            }
             spawnerManager.DefinirIntervalo(novoIntervalo);
             HordaMudou = false;
 
@@ -139,7 +145,7 @@ public class HordaManager : MonoBehaviour
         Objetivo = false;
         N_Entregas = 0;
 
-        if (NumeroHorda >= 11)
+        if (NumeroHorda >= 10)
         {
             Final();
             return;

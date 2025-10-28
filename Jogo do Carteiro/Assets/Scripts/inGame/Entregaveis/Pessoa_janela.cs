@@ -133,7 +133,7 @@ public class Pessoa_janela : Entregavel
         if (anim != null)
             anim.SetTrigger("AbrirJanela");
        
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(0.1f);
         
         podereceber = true;
         ativoParaEntrega = true;

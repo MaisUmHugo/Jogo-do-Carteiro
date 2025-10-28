@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ativoParaEntrega: 1
-  velocidade: 8
+  velocidade: 9
   tempoAtivoEntrega: 5
   intervaloPiscar: 0.15
   distanciaEntrega: 80
