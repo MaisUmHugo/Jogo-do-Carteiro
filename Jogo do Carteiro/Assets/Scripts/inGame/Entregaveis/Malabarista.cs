@@ -13,7 +13,6 @@ public class Malabarista : Entregavel
     public float distanciaEntrega;
     public float IntervaloTiro;
     public float DistanciaTiro;
-    public float offsetbola;
     public float intervaloaleatorio;
     public float tempoexclamacao;
 
@@ -28,9 +27,10 @@ public class Malabarista : Entregavel
     private bool ComecouCoroutineAtirar;
     private GameObject avisoexclamacao;
 
-    [Header("Ajuste de posição")]
-    public float offsetY = 6f; // valor pequeno pra alinhar o pé com a lane
-
+    [Header("Ajuste de posições")]
+    public float offsetY; // valor pequeno pra alinhar o pé com a lane
+    public float offsetBolaX;  // deslocamento lateral
+    public float offsetBolaY; // deslocamento vertical
 
     [Header("Efeito Visual")]
     public EntregavelPisca entregavelPisca;
@@ -177,15 +177,24 @@ public class Malabarista : Entregavel
     }
     private IEnumerator DelayTransparente()
     {
-        yield return new WaitForSeconds(3.5f);
+        yield return new WaitForSeconds(1f);
+
+        Color cor = sr.color;   
+        cor.a = 0.5f;           
+        sr.color = cor;         
     }
     private IEnumerator atirar()
     {
         if (podeatirar && !podereceber)
         {
             intervaloaleatorio = Random.Range(-1.5f, 1.5f);
-            Vector3 posSpawn = transform.position + transform.right * offsetbola;
+
+            Vector3 posSpawn = transform.position
+                             + transform.right * offsetBolaX   // deslocamento em X
+                             + transform.up * offsetBolaY;     // deslocamento em Y
+
             Instantiate(bola, posSpawn, Quaternion.identity);
+
             podeatirar = false;
             yield return new WaitForSeconds(IntervaloTiro + intervaloaleatorio);
             podeatirar = true;

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4346294256826962226
+--- !u!1 &4051218851982626478
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1723400015989253098}
-  m_Layer: 0
-  m_Name: PontoExclamacao
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1723400015989253098
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4346294256826962226}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -25.4, y: 3.58, z: 0}
-  m_LocalScale: {x: 6.666666, y: 1.25, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7406056961147312241}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4459496037515974519
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5725895725759155018}
-  - component: {fileID: 8433362379733728990}
-  - component: {fileID: 8511760035992324661}
-  - component: {fileID: 8184628141019201036}
+  - component: {fileID: 1977264800695052750}
+  - component: {fileID: 5087155124339981794}
+  - component: {fileID: 7586219612077899764}
+  - component: {fileID: 2428067650581101520}
   m_Layer: 7
   m_Name: textopontuacao
   m_TagString: Untagged
@@ -50,32 +19,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &5725895725759155018
+--- !u!224 &1977264800695052750
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4459496037515974519}
+  m_GameObject: {fileID: 4051218851982626478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 20, y: 3.75, z: 1}
+  m_LocalScale: {x: 0.46875, y: 0.46875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7406056961147312241}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 43.2, y: 7.4}
+  m_AnchoredPosition: {x: 0.86, y: 0.69}
   m_SizeDelta: {x: 3.7896, y: 0.6723}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!23 &8433362379733728990
+--- !u!23 &5087155124339981794
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4459496037515974519}
+  m_GameObject: {fileID: 4051218851982626478}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -117,13 +86,13 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8511760035992324661
+--- !u!114 &7586219612077899764
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4459496037515974519}
+  m_GameObject: {fileID: 4051218851982626478}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
@@ -209,24 +178,55 @@ MonoBehaviour:
   _SortingLayerID: 0
   _SortingOrder: 0
   m_hasFontAssetChanged: 0
-  m_renderer: {fileID: 8433362379733728990}
+  m_renderer: {fileID: 5087155124339981794}
   m_maskType: 0
---- !u!114 &8184628141019201036
+--- !u!114 &2428067650581101520
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4459496037515974519}
+  m_GameObject: {fileID: 4051218851982626478}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ac9bd9d72e149643b009762aad5a002, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PontuacaoPopUPFilho
-  textoPontuacao: {fileID: 8511760035992324661}
+  textoPontuacao: {fileID: 7586219612077899764}
   duracao: 1
   distanciaY: 1
   fadeSpeed: 1.5
+--- !u!1 &4595650575896310090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2902982904923244336}
+  m_Layer: 0
+  m_Name: PontoExclamacao
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2902982904923244336
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4595650575896310090}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.47, y: 0.59, z: 0}
+  m_LocalScale: {x: 0.15625, y: 0.15625, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7406056961147312241}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5062597733044027804
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,9 +390,9 @@ Transform:
   m_LocalScale: {x: 6.4, y: 6.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1723400015989253098}
   - {fileID: 1658244256680968595}
-  - {fileID: 5725895725759155018}
+  - {fileID: 1977264800695052750}
+  - {fileID: 2902982904923244336}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8551630601717197538
@@ -467,21 +467,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Malabarista
   ativoParaEntrega: 1
   bola: {fileID: 5321252365096296630, guid: e1fa043f34f9f904aba9222e970e0d4c, type: 3}
-  Exclamacao: {fileID: 1723400015989253098}
+  Exclamacao: {fileID: 2902982904923244336}
   velocidade: 12
   tempoAtivoEntrega: 5
   intervaloPiscar: 0.2
   distanciaEntrega: 100
   IntervaloTiro: 5
   DistanciaTiro: 120
-  offsetbola: -0.5
   intervaloaleatorio: 0
   tempoexclamacao: 1
   corNormal: {r: 1, g: 1, b: 1, a: 1}
   corAtivo: {r: 1, g: 0, b: 0, a: 1}
   offsetY: 3
+  offsetBolaX: -0.5
+  offsetBolaY: -2
   entregavelPisca: {fileID: 3858005263237758121}
-  popupPontuacao: {fileID: 8184628141019201036}
+  popupPontuacao: {fileID: 2428067650581101520}
 --- !u!61 &3609380294575140456
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -516,7 +517,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.033501588, y: 0.0029325485}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -526,7 +527,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 19.2, y: 10.8}
+  m_Size: {x: 0.22658609, y: 1.0075583}
   m_EdgeRadius: 0
 --- !u!50 &-8753955209446439088
 Rigidbody2D:
