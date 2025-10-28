@@ -24,8 +24,8 @@ public class Motorista_Assustado : Entregavel
     public PontuacaoPopup popupPontuacao;
     private void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
-        //sr = GetComponentInChildren<SpriteRenderer>();
+        //sr = GetComponent<SpriteRenderer>();
+        sr = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
     }
     private void Start()
