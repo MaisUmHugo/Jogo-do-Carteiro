@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Reflection;
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 
 public class Malabarista : Entregavel
 {
