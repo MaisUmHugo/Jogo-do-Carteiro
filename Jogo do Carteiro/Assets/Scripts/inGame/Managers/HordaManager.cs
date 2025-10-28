@@ -31,6 +31,11 @@ public class HordaManager : MonoBehaviour
     [Tooltip("Tempo de espera entre o fim de uma horda e o início da próxima.")]
     public float delayEntreHordas;
 
+    [Header("Parallax")]
+    public float multiplicadorParallax = 1f;      
+    public float aumentoParallaxPorHorda = 0.05f; 
+
+
     private bool HordaMudou, Objetivo;
     public static HordaManager instance;
     [System.Serializable]
@@ -98,6 +103,15 @@ public class HordaManager : MonoBehaviour
             float novoIntervalo = spawnerManager.intervaloSpawn - ReduzirIntervalo;
             spawnerManager.DefinirIntervalo(novoIntervalo);
             HordaMudou = false;
+
+            // aumenta levemente a velocidade do fundo (efeito de intensidade)
+            multiplicadorParallax += aumentoParallaxPorHorda;
+
+            // notifica todos os parallax ativos
+            foreach (Parallax p in FindObjectsByType<Parallax>(FindObjectsSortMode.None))
+            {
+                p.AtualizarVelocidadeParallax(multiplicadorParallax);
+            }
         }
     }
     private void verificarhorda()
