@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 public class HordaManager : MonoBehaviour
 {
+    public List<string> todasAsTagsEntregaveis;
     [Header("Referência ao Spawner")]
     public SpawnerManager spawnerManager;
 
@@ -151,18 +152,32 @@ public class HordaManager : MonoBehaviour
     }
     private void AtualizarInimigosPermitidos()
     {
-        foreach (var config in tagsPorHorda)
+        // tenta encontrar uma configuração para a horda atual
+        TagsPorHorda config = tagsPorHorda.Find(t => t.horda == NumeroHorda);
+
+        if (config != null && config.tagsPermitidas != null && config.tagsPermitidas.Count > 0)
         {
-            if (config.horda == NumeroHorda)
+            // usa as tags configuradas normalmente
+            spawnerManager.DefinirTagsPermitidas(config.tagsPermitidas);
+            Debug.Log($"[HordaManager] Tags permitidas na horda {NumeroHorda}: {string.Join(", ", config.tagsPermitidas)}");
+        }
+        else
+        {
+            // nenhuma configuração -> escolher uma tag aleatória entre todas
+            if (spawnerManager.todasAsTagsEntregaveis != null && spawnerManager.todasAsTagsEntregaveis.Count > 0)
             {
-                spawnerManager.DefinirTagsPermitidas(config.tagsPermitidas);
-                Debug.Log($"[HordaManager] Tags permitidas na horda {NumeroHorda}: {string.Join(", ", config.tagsPermitidas)}");
-                return;
+                string tagAleatoria = spawnerManager.todasAsTagsEntregaveis[Random.Range(0, spawnerManager.todasAsTagsEntregaveis.Count)];
+                spawnerManager.DefinirTagsPermitidas(new List<string> { tagAleatoria });
+
+                Debug.Log($"[HordaManager] Nenhuma tag configurada para a horda {NumeroHorda}. Escolhida aleatoriamente: {tagAleatoria}");
+            }
+            else
+            {
+                Debug.LogWarning("[HordaManager] Nenhuma tag configurada e nenhuma tag possível definida no SpawnerManager!");
             }
         }
-
-        spawnerManager.DefinirTagsPermitidas(new List<string>());
     }
+
     public void DefinirTagsPermitidas(List<string> tags)
     {
         spawnerManager.tagsPermitidas = tags;

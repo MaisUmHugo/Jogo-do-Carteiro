@@ -5,7 +5,6 @@ using UnityEngine;
 public class SpawnerManager : MonoBehaviour
 {
     public static SpawnerManager instance;
-
     public enum TipoSpawn
     {
         EmLane,
@@ -22,6 +21,9 @@ public class SpawnerManager : MonoBehaviour
         public TipoSpawn tipoSpawn = TipoSpawn.EmLane;
         public Transform[] pontosFixos; // usado se tipo = Fixo
     }
+
+    [Header("Tags disponíveis de entregáveis")]
+    public List<string> todasAsTagsEntregaveis = new List<string>();
 
     [Header("Configurações de Spawn")]
     public List<ConfiguracaoSpawn> configuracoes = new List<ConfiguracaoSpawn>();
