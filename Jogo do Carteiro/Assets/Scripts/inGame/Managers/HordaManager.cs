@@ -32,8 +32,8 @@ public class HordaManager : MonoBehaviour
     public float delayEntreHordas;
 
     [Header("Parallax")]
-    public float multiplicadorParallax = 1f;      
-    public float aumentoParallaxPorHorda = 0.05f; 
+    public float multiplicadorParallax;
+    public float aumentoParallaxPorHorda; 
 
 
     private bool HordaMudou, Objetivo;
