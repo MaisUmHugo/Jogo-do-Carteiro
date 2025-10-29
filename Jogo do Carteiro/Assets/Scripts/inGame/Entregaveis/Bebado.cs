@@ -32,6 +32,10 @@ public class Bebado : Entregavel
 
     private bool parado = false; // quando recebe entrega para de mexe
 
+    [Header("Ajuste de posição")]
+public float offsetY;
+
+
     private void Start()
     {
         if (Exclamacao == null) Exclamacao = transform;
@@ -47,7 +51,7 @@ public class Bebado : Entregavel
         int laneIndex = Random.Range(0, 4);
         minhaLane = (LanesController.Linhas)laneIndex;
         Vector3 pos = transform.position;
-        pos.y = LanesController.instance.PosicaoY(minhaLane);
+        pos.y = LanesController.instance.PosicaoY(minhaLane) + offsetY;
         transform.position = pos;
 
         tempoUltimaTroca = Time.time;
@@ -70,7 +74,7 @@ public class Bebado : Entregavel
 
             float novoY = Mathf.MoveTowards(
                 transform.position.y,
-                LanesController.instance.PosicaoY(minhaLane),
+                LanesController.instance.PosicaoY(minhaLane) + offsetY,
                 velocidadeTrocaLane * Time.deltaTime
             );
 

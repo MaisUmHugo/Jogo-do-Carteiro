@@ -444,6 +444,7 @@ MonoBehaviour:
   tempoexclamacao: 2
   entregavelPisca: {fileID: -1538667524945953015}
   popupPontuacao: {fileID: 2840320702199764024}
+  offsetY: 4
 --- !u!114 &-1538667524945953015
 MonoBehaviour:
   m_ObjectHideFlags: 0

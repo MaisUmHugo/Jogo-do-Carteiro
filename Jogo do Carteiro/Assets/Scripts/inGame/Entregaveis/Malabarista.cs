@@ -146,22 +146,10 @@ public class Malabarista : Entregavel
     {
         yield return new WaitForSeconds(1.5f);
         //exclamacao
-        GameObject prefab = Resources.Load<GameObject>("PontoExclamacao");
-        if (prefab != null)
-        {
-            GameObject instancia = Instantiate(prefab, Exclamacao.position, Quaternion.identity);
-            instancia.transform.SetParent(gameObject.transform, worldPositionStays: true);
-            float tempo = 0;
-            while (tempo < tempoexclamacao)
-            {
-                tempo += Time.deltaTime;
-                yield return null;
-            }
-            Destroy(instancia);
-            tempo = 0;
-        }
+       
         podereceber = true;
         ativoParaEntrega = true;
+        StartCoroutine(exclamacao());
         entregavelPisca?.PiscarAtivo();
         Debug.Log("Malabarista proximo, entregue agora!");
 
@@ -206,5 +194,25 @@ public class Malabarista : Entregavel
     {
         yield return new WaitForSeconds(1.5f);
         entregavelPisca?.PararPiscar();
+    }
+
+    private IEnumerator exclamacao()
+    {
+        yield return new WaitForSeconds(0.1f);
+        //exclamacao
+        GameObject prefab = Resources.Load<GameObject>("PontoExclamacao");
+        if (prefab != null)
+        {
+            GameObject instancia = Instantiate(prefab, Exclamacao.position, Quaternion.identity);
+            instancia.transform.SetParent(gameObject.transform, worldPositionStays: true);
+            float tempo = 0;
+            while (tempo < tempoexclamacao)
+            {
+                tempo += Time.deltaTime;
+                yield return null;
+            }
+            Destroy(instancia);
+            tempo = 0;
+        }
     }
 }

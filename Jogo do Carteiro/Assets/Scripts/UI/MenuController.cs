@@ -16,6 +16,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private string CenaCutscene;
     [SerializeField] private string CenaFim;
     [SerializeField] private string CenaMenu;
+    [SerializeField] private string CenaCreditos;
 
     private System.Action acaoPersonalizada;
 
@@ -57,6 +58,12 @@ public class MenuController : MonoBehaviour
     {
         //SceneManager.LoadScene(CenaCutscene);
         SceneManager.LoadScene(CenaJogar);
+    }
+
+    public void Creditos()
+    {
+        //SceneManager.LoadScene(CenaCutscene);
+        SceneManager.LoadScene(CenaCreditos);
     }
 
     public void VoltarMenu()
