@@ -29,8 +29,8 @@ public class Pessoa_janela : Entregavel
 
     private void Awake()
     {
-        sr = GetComponent<SpriteRenderer>();
-        //sr = GetComponentInChildren<SpriteRenderer>();
+        //sr = GetComponent<SpriteRenderer>();
+        sr = GetComponentInChildren<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
     }
     private void Start()
