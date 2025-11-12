@@ -8,10 +8,12 @@ public class AudioManager : MonoBehaviour
     [Header("Referências")]
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private AudioSource bgmSource;
+    [SerializeField] private AudioSource cutsceneSource;
     [SerializeField] private AudioSource sfxSource;
 
     [Header("Músicas")]
     [SerializeField] private AudioClip musicaMenu;
+    [SerializeField] private AudioClip cutsceneAudio;
     [SerializeField] private AudioClip musicaJogo;
     [SerializeField] private AudioClip musicaGameOver;
 
@@ -40,10 +42,17 @@ public class AudioManager : MonoBehaviour
             sfxSource.playOnAwake = false;
         }
 
+        if (cutsceneSource == null)
+        {
+            cutsceneSource = gameObject.AddComponent<AudioSource>();
+            cutsceneSource.loop = false;
+            cutsceneSource.playOnAwake = false;
+        }
+
         AudioSettings.AplicarVolumesIniciais(mixer);
     }
 
-    // ---- MÚSICAS ----
+    // MÚSICAS 
     public void TocarMusica(AudioClip clip, bool loop = true)
     {
         if (clip == null || (bgmSource.clip == clip && bgmSource.isPlaying))
@@ -55,6 +64,7 @@ public class AudioManager : MonoBehaviour
         bgmSource.Play();
     }
 
+    public void TocarAudioCutscene(AudioClip audio) => TocarCutscene(audio);
     public void TocarMusicaMenu() => TocarMusica(musicaMenu);
     public void TocarMusicaJogo() => TocarMusica(musicaJogo);
     public void TocarMusicaGameOver() => TocarMusica(musicaGameOver, false);
@@ -64,14 +74,22 @@ public class AudioManager : MonoBehaviour
         bgmSource.Stop();
     }
 
-    // ---- EFEITOS ----
+    // EFEITOS 
     public void TocarSFX(AudioClip clip)
     {
         if (clip != null)
             sfxSource.PlayOneShot(clip);
     }
-
-    // ---- VOLUME ----
+    // CUTSCENE
+    public void TocarCutscene(AudioClip clip)
+    {
+        if (clip != null)
+        {
+            cutsceneAudio = clip;
+            cutsceneSource.PlayOneShot(cutsceneAudio);
+        }
+    }
+    // VOLUME 
     public void AjustarVolume(string parametro, float valor)
     {
         AudioSettings.AplicarVolume(mixer, parametro, valor);

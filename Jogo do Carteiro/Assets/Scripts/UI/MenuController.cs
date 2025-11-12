@@ -51,24 +51,22 @@ public class MenuController : MonoBehaviour
             painelConfirmacao.SetActive(false);
     }
 
-    // ---------------------------
-    // Botões públicos (UI)
-    // ---------------------------
+    // Botões(UI)
+   
     public void Jogar()
     {
-        //SceneManager.LoadScene(CenaCutscene);
-        SceneManager.LoadScene(CenaJogar);
+        SceneManager.LoadScene(CenaCutscene);
+        //SceneManager.LoadScene(CenaJogar);
     }
 
     public void Creditos()
     {
-        //SceneManager.LoadScene(CenaCutscene);
         SceneManager.LoadScene(CenaCreditos);
     }
 
     public void VoltarMenu()
     {
-        // você pode querer mostrar confirmação antes de sair; se sim, use MostrarConfirmacaoCarregarCena(CenaMenu)
+        // Se quiser mostrar confirmação antes de sair, use MostrarConfirmacaoCarregarCena(CenaMenu)
         SceneManager.LoadScene(CenaMenu);
     }
 
@@ -140,7 +138,6 @@ public class MenuController : MonoBehaviour
             case TipoConfirmacao.Sair:
                 Debug.Log("Jogo indo de arrasta intencionalmente");
                 Application.Quit();
-                // OBS: em WebGL / Editor isso não fecha; verifique logs
                 break;
 
             case TipoConfirmacao.CarregarCena:

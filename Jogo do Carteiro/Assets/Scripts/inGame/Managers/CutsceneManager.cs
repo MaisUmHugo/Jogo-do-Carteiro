@@ -6,17 +6,21 @@ public class CutsceneManager : MonoBehaviour
 {
     [Header("Configurações da Cutscene")]
     [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private AudioSource cutsceneAudio;
     [SerializeField] private string cenaJogo = "CenaJogo";
     [SerializeField] private bool podePular = true;
 
     void Start()
     {
+        cutsceneAudio = videoPlayer.GetTargetAudioSource(0);
+
         if (videoPlayer != null)
         {
             videoPlayer.Prepare();
             videoPlayer.prepareCompleted += (vp) =>
             {
                 // Agora o áudio e o vídeo estão prontos
+                AudioManager.instance.TocarAudioCutscene(cutsceneAudio.clip);
                 vp.Play();
             };
             videoPlayer.loopPointReached += OnVideoEnd;
