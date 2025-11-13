@@ -139,7 +139,7 @@ public float offsetY;
     private bool PodeReceberEntrega()
     {
         // precisa estar em outra lane
-        bool outraLane = jogador.linhaAtual != minhaLane;
+        //bool outraLane = jogador.linhaAtual != minhaLane;
 
         // precisa ta perto o suficiente
         float distancia = Mathf.Abs(transform.position.x - jogador.transform.position.x);
@@ -148,7 +148,8 @@ public float offsetY;
         /*if (outraLane && perto)
             Debug.Log($"Pode receber entrega! Distância: {distancia}"); */
 
-        return outraLane && perto;
+        //return outraLane && perto;
+        return perto;
     }
 
 

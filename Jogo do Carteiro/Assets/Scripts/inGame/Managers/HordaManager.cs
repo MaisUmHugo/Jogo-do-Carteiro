@@ -145,11 +145,12 @@ public class HordaManager : MonoBehaviour
         Objetivo = false;
         N_Entregas = 0;
 
-        if (NumeroHorda >= 10)
+        /*if (NumeroHorda >= 10)
         {
             Final();
             return;
         }
+        */
 
         Mudarcondicao();
         StartCoroutine(DelayProximaHorda());
