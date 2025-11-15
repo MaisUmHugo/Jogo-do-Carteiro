@@ -7,7 +7,7 @@ public class CutsceneManager : MonoBehaviour
     [Header("Configurações da Cutscene")]
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private AudioSource cutsceneAudio;
-    [SerializeField] private string cenaJogo = "CenaJogo";
+    [SerializeField] private string cenaMenu = "MenuPrincipal";
     [SerializeField] private bool podePular = true;
 
     void Start()
@@ -48,6 +48,6 @@ public class CutsceneManager : MonoBehaviour
 
     private void CarregarCenaJogo()
     {
-        SceneManager.LoadScene(cenaJogo);
+        SceneManager.LoadScene(cenaMenu);
     }
 }

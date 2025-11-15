@@ -39,8 +39,20 @@ public class Motorista_Assustado : Entregavel
         {
             Debug.LogWarning("Player não encontrado! Verifique se o objeto do jogador tem a tag 'Player'.");
         }
+
         Vector3 pos = transform.position;
-        pos.y = LanesController.instance.PosicaoY((LanesController.Linhas)Random.Range(0, 4));
+
+        if (jogador != null)
+        {
+            pos.y = LanesController.instance.PosicaoY(jogador.linhaAtual);
+        }
+        else
+        {
+            Debug.Log("F PLAYER, SOBROU NADA P BETINHA");
+            pos.y = LanesController.instance.PosicaoY(
+            (LanesController.Linhas)Random.Range(0, 4)
+        );
+        }
         transform.position = pos;
     }
     private void Update()
@@ -133,7 +145,7 @@ public class Motorista_Assustado : Entregavel
         podereceber = true;
         ativoParaEntrega = true;
         anim.SetTrigger("PodeEntregar");
-       sr.color = corAtivo; // piscar (feedback visual)
+        sr.color = corAtivo; // piscar (feedback visual)
         Debug.Log("MAssustado proximo, entregue agora!");
         GameObject prefab = Resources.Load<GameObject>("PontoExclamacao");
         if (prefab != null)

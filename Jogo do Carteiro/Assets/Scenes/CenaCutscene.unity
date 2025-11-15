@@ -378,7 +378,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CutsceneManager
   videoPlayer: {fileID: 115515629}
-  cenaJogo: CenaJogo
+  cutsceneAudio: {fileID: 480734110}
+  cenaMenu: MenuPrincipal
   podePular: 1
 --- !u!1 &1135226377
 GameObject:

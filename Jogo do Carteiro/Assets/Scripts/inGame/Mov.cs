@@ -110,7 +110,7 @@ public class Mov : MonoBehaviour
         }
     }
 
-    // ?? Métodos públicos para pausar e voltar
+    // Métodos públicos para pausar e voltar
     public void PausarInput() => podeMover = false;
     public void VoltarInput() => podeMover = true;
 }

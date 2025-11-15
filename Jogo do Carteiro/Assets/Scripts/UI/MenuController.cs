@@ -55,8 +55,8 @@ public class MenuController : MonoBehaviour
    
     public void Jogar()
     {
-        SceneManager.LoadScene(CenaCutscene);
-        //SceneManager.LoadScene(CenaJogar);
+        //SceneManager.LoadScene(CenaCutscene);
+        SceneManager.LoadScene(CenaJogar);
     }
 
     public void Creditos()
