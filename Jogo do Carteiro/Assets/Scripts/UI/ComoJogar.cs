@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ComoJogar : MonoBehaviour
 {
@@ -7,5 +8,11 @@ public class ComoJogar : MonoBehaviour
     {
         HudCanvas.SetActive(false);
         Time.timeScale = 0f;
+    }
+    public void Comecar()
+    {
+        HudCanvas.SetActive(true);
+        this.gameObject.SetActive(false);
+        Time.timeScale = 1f;
     }
 }
