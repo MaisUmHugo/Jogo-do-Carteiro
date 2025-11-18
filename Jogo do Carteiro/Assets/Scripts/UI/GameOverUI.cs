@@ -18,7 +18,8 @@ public class GameOverController : MonoBehaviour
 
     [Header("Inputs")]
     public TMP_InputField inputNome;
-    public TextMeshProUGUI textoPontuacao;
+    public TextMeshProUGUI textoPontuacaoGameOver;
+    public TextMeshProUGUI textoPontuacaoRanking;
 
 
 
@@ -53,7 +54,7 @@ public class GameOverController : MonoBehaviour
         grupoPadrao.SetActive(false);
 
         int score = ScoreManager.instance.pontuacaoAtual;
-        textoPontuacao.text = "Pontuação Final: " + score;
+        textoPontuacaoGameOver.text = "Pontuação Final: " + score;
 
         if (LeaderboardManager.instance.Top10(score))
             grupoSalvarNome.SetActive(true);
@@ -65,12 +66,11 @@ public class GameOverController : MonoBehaviour
     public void BotaoSalvarNome()
     {
         string nome = inputNome.text;
-
-        if (string.IsNullOrWhiteSpace(nome))
-            nome = "---";
+        if (string.IsNullOrWhiteSpace(nome)) nome = "---";
 
         int score = ScoreManager.instance.pontuacaoAtual;
 
+        // Isso já salva no disco e atualiza a RAM
         LeaderboardManager.instance.AdicionarEntrada(nome, score);
 
         AbrirRanking();
@@ -80,7 +80,20 @@ public class GameOverController : MonoBehaviour
     {
         painelGameOver.SetActive(false);
         painelRanking.SetActive(true);
-        painelRanking.GetComponentInChildren<ExibirRanking>(true).AtualizarRanking();
+
+        int score = ScoreManager.instance.pontuacaoAtual;
+        textoPontuacaoRanking.text = "Pontuação Final: " + score;
+
+        Debug.Log("Chamando AtualizarRanking...");
+        var exibir = painelRanking.GetComponentInChildren<ExibirRanking>(true);
+
+        if (exibir == null)
+            Debug.LogError("Não encontrou ExibirRanking no painel!");
+        else
+        {
+            Debug.Log("ExibirRanking encontrado! Atualizando...");
+            exibir.AtualizarRanking();
+        }
     }
 
     public void VoltarParaGameOver()

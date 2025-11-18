@@ -9,6 +9,7 @@ public class MenuController : MonoBehaviour
     [SerializeField] private GameObject painelMenuInicial;
     [SerializeField] private GameObject painelOpcoes;
     [SerializeField] private GameObject painelConfirmacao;
+    [SerializeField] private GameObject painelRanking;
     [SerializeField] private GameObject fundoCinza;
 
     [Header("Cenas")]
@@ -80,6 +81,20 @@ public class MenuController : MonoBehaviour
     public void FecharOpcoes()
     {
         painelOpcoes.SetActive(false);
+        fundoCinza.SetActive(false);
+        painelMenuInicial.SetActive(true);
+    }
+
+    public void AbrirRanking()
+    {
+        painelMenuInicial.SetActive(false);
+        fundoCinza.SetActive(true);
+        painelRanking.SetActive(true);
+    }
+
+    public void FecharRanking()
+    {
+        painelRanking.SetActive(false);
         fundoCinza.SetActive(false);
         painelMenuInicial.SetActive(true);
     }

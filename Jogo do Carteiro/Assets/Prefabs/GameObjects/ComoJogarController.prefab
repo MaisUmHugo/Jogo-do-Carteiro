@@ -1370,7 +1370,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4791255248356956689
 Transform:
   m_ObjectHideFlags: 0
@@ -1402,7 +1402,7 @@ MonoBehaviour:
   fundoCinza: {fileID: 7385348464715572212}
   painelComoJogar: {fileID: 4425537825084177516}
   toggleNaoMostrar: {fileID: 3558013945593021358}
-  videoTutorial: {fileID: 0}
+  videoTutorial: {fileID: 2405748275615412754}
   hudCanvas: {fileID: 0}
 --- !u!1 &6804078791608781911
 GameObject:

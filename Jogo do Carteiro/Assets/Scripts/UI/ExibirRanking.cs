@@ -1,11 +1,11 @@
 using UnityEngine;
 using TMPro;
+using System.Collections.Generic; // Necessário para List<>
 
 public class ExibirRanking : MonoBehaviour
 {
-    // Cada um com 5
-    public TextMeshProUGUI[] grupoEsquerda; 
-    public TextMeshProUGUI[] grupoDireita;  
+    public TextMeshProUGUI[] grupoEsquerda;
+    public TextMeshProUGUI[] grupoDireita;
 
     private void OnEnable()
     {
@@ -14,22 +14,29 @@ public class ExibirRanking : MonoBehaviour
 
     public void AtualizarRanking()
     {
-        var lista = LeaderboardManager.instance.ObterRanking();
+        // Pega a lista original 
+        var listaOriginal = LeaderboardManager.instance.ObterRanking();
 
-        // garante no mínimo 10 entradas (preenche com vazios)
-        while (lista.Count < 10)
-            lista.Add(new EntradaRanking("---", 0));
+        // Cria uma Cópia
+        List<EntradaRanking> listaParaExibir = new List<EntradaRanking>(listaOriginal);
 
-        // posições 1 a 5
-        for (int i = 0; i < 5; i++)
+        // Adicionando tracinho APENAS NA CÓPIA
+        while (listaParaExibir.Count < 10)
         {
-            grupoEsquerda[i].text = $"{i + 1}. {lista[i].nome} - {lista[i].pontuacao}";
+            listaParaExibir.Add(new EntradaRanking("---", 0));
         }
 
-        // posições 6 a 10
+        // Exibe a cópia na tela
+        for (int i = 0; i < 5; i++)
+        {
+            if (grupoEsquerda[i] != null)
+                grupoEsquerda[i].text = $"{i + 1}. {listaParaExibir[i].nome} - {listaParaExibir[i].pontuacao}";
+        }
+
         for (int i = 5; i < 10; i++)
         {
-            grupoDireita[i - 5].text = $"{i + 1}. {lista[i].nome} - {lista[i].pontuacao}";
+            if (grupoDireita[i - 5] != null)
+                grupoDireita[i - 5].text = $"{i + 1}. {listaParaExibir[i].nome} - {listaParaExibir[i].pontuacao}";
         }
     }
 }

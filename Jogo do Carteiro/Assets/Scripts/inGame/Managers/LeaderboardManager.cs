@@ -65,16 +65,17 @@ public class LeaderboardManager : MonoBehaviour
             PlayerPrefs.SetString($"rank_nome_{i}", ranking[i].nome);
             PlayerPrefs.SetInt($"rank_pontuacao_{i}", ranking[i].pontuacao);
         }
-
+        Debug.Log("Salvando ranking com " + ranking.Count + " entradas");
         PlayerPrefs.Save();
     }
    
     // CARREGAR
-    private void CarregarRanking()
+    public void CarregarRanking()
     {
         ranking.Clear();
 
         int tamanho = PlayerPrefs.GetInt("rank_tamanho", 0);
+        Debug.Log("Carregando Ranking. Tamanho = " + tamanho);
 
         for (int i = 0; i < tamanho; i++)
         {
