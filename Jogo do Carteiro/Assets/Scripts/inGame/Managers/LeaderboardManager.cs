@@ -2,18 +2,6 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [System.Serializable]
-public class EntradaRanking
-{
-    public string nome;
-    public int pontuacao;
-
-    public EntradaRanking(string nome, int pontuacao)
-    {
-        this.nome = nome;
-        this.pontuacao = pontuacao;
-    }
-}
-
 public class LeaderboardManager : MonoBehaviour
 {
     public static LeaderboardManager instance;
@@ -53,6 +41,14 @@ public class LeaderboardManager : MonoBehaviour
         SalvarRanking();
     }
 
+    public bool Top10(int pontuacao)
+    {
+        if (ranking.Count < limiteRanking)
+            return true;
+
+        return pontuacao > ranking[ranking.Count - 1].pontuacao;
+    }
+
     // ACESSAR LISTA
     public List<EntradaRanking> ObterRanking()
     {
@@ -88,4 +84,5 @@ public class LeaderboardManager : MonoBehaviour
             ranking.Add(new EntradaRanking(nome, pontos));
         }
     }
+
 }

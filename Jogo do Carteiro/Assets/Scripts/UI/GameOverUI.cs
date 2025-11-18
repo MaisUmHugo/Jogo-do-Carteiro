@@ -1,31 +1,36 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
+using static UnityEngine.EventSystems.StandaloneInputModule;
 
 public class GameOverController : MonoBehaviour
 {
     [Header("Painéis")]
-    [SerializeField] private GameObject fundoCinza;
-    [SerializeField] private GameObject painelGameOver;
-    [SerializeField] private GameObject painelConfirmacao;
-    [SerializeField] private GameObject painelRanking;
+    public GameObject fundoCinza;
+    public GameObject painelGameOver;
+    public GameObject painelRanking;
+    public GameObject painelConfirmacao;
+    public GameObject hudCanvas;
 
-    [Header("UI Nome")]
-    [SerializeField] private TMP_InputField nomeInput;
-    [SerializeField] private TextMeshProUGUI feedbackTexto;
+    [Header("Grupos do Game Over")]
+    public GameObject grupoSalvarNome;
+    public GameObject grupoPadrao;
+
+    [Header("Inputs")]
+    public TMP_InputField inputNome;
+    public TextMeshProUGUI textoPontuacao;
+
+
 
     private System.Action acaoConfirmada;
-    private bool pontuacaoSalva = false;
+    private GameObject painelQueChamouConfirmacao;
 
     private void Start()
     {
         fundoCinza.SetActive(false);
         painelGameOver.SetActive(false);
-        painelConfirmacao.SetActive(false);
         painelRanking.SetActive(false);
-
-        if (feedbackTexto != null)
-            feedbackTexto.text = "";
+        painelConfirmacao.SetActive(false);
 
         VidaManager.instance.OnGameOver += MostrarGameOver;
     }
@@ -39,80 +44,79 @@ public class GameOverController : MonoBehaviour
     private void MostrarGameOver()
     {
         Time.timeScale = 0f;
-        AudioManager.instance.TocarMusicaGameOver();
 
+        hudCanvas.SetActive(false);
         fundoCinza.SetActive(true);
         painelGameOver.SetActive(true);
-        painelConfirmacao.SetActive(false);
-        painelRanking.SetActive(false);
 
-        pontuacaoSalva = false;
+        grupoSalvarNome.SetActive(false);
+        grupoPadrao.SetActive(false);
+
+        int score = ScoreManager.instance.pontuacaoAtual;
+        textoPontuacao.text = "Pontuação Final: " + score;
+
+        if (LeaderboardManager.instance.Top10(score))
+            grupoSalvarNome.SetActive(true);
+        else
+            grupoPadrao.SetActive(true);
     }
+    // NAVEGAÇÃO ENTRE PAINÉIS
 
-    // ------------------------
-    // SALVAR PONTUAÇÃO
-    // ------------------------
-    public void BotaoSalvarPontuacao()
+    public void BotaoSalvarNome()
     {
-        if (pontuacaoSalva) return;
-
-        string nome = nomeInput.text;
+        string nome = inputNome.text;
 
         if (string.IsNullOrWhiteSpace(nome))
-            nome = "Jogador";
+            nome = "---";
 
-        int pontos = ScoreManager.instance.pontuacaoAtual;
+        int score = ScoreManager.instance.pontuacaoAtual;
 
-        LeaderboardManager.instance.AdicionarEntrada(nome, pontos);
+        LeaderboardManager.instance.AdicionarEntrada(nome, score);
 
-        pontuacaoSalva = true;
+        AbrirRanking();
+    }
 
-        // Troca de painel: vai para o ranking
+    public void AbrirRanking()
+    {
         painelGameOver.SetActive(false);
         painelRanking.SetActive(true);
+        painelRanking.GetComponentInChildren<ExibirRanking>(true).AtualizarRanking();
     }
 
-    // ------------------------
-    // BOTÕES DO RANKING
-    // ------------------------
-    public void RankingReiniciar()
+    public void VoltarParaGameOver()
     {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        painelRanking.SetActive(false);
+        painelGameOver.SetActive(true);
+        grupoPadrao.SetActive(true);
     }
 
-    public void RankingMenuPrincipal()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("MenuPrincipal");
-    }
+    // BOTÕES GERAIS (USADOS EM AMBOS PAINÉIS)
 
-    // ------------------------
-    // CONFIRMAÇÃO ORIGINAL (reiniciar/sair do Game Over)
-    // ------------------------
-    public void BotaoReiniciar()
+    public void BotaoReiniciar(GameObject painelOrigem)
     {
         MostrarConfirmacao(() =>
         {
             Time.timeScale = 1f;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        });
+        }, painelOrigem);
     }
 
-    public void BotaoMenuPrincipal()
+    public void BotaoMenu(GameObject painelOrigem)
     {
         MostrarConfirmacao(() =>
         {
             Time.timeScale = 1f;
             SceneManager.LoadScene("MenuPrincipal");
-        });
+        }, painelOrigem);
     }
 
-    private void MostrarConfirmacao(System.Action acao)
+    private void MostrarConfirmacao(System.Action acao, GameObject painelOrigem)
     {
-        painelGameOver.SetActive(false);
-        painelConfirmacao.SetActive(true);
         acaoConfirmada = acao;
+        painelQueChamouConfirmacao = painelOrigem;
+
+        painelOrigem.SetActive(false);
+        painelConfirmacao.SetActive(true);
     }
 
     public void BotaoConfirmarSim()
@@ -124,7 +128,7 @@ public class GameOverController : MonoBehaviour
     public void BotaoConfirmarNao()
     {
         painelConfirmacao.SetActive(false);
-        painelGameOver.SetActive(true);
+        painelQueChamouConfirmacao.SetActive(true);
         acaoConfirmada = null;
     }
 }

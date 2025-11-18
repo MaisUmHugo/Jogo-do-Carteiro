@@ -586,7 +586,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69e7e63e231e9840ae1059d7a8c4eec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  todasAsTagsEntregaveis: []
   spawnerManager: {fileID: 6640490239518991581}
+  Malabarista: {fileID: 0}
   barraProgresso: {fileID: 7843383984504006800}
   E_Necessarias: 3
   TextoHorda: {fileID: 0}
@@ -595,6 +597,8 @@ MonoBehaviour:
   ReduzirIntervalo: 0.2
   delayInicial: 3.5
   delayEntreHordas: 2
+  multiplicadorParallax: 0
+  aumentoParallaxPorHorda: 0
   tagsPorHorda:
   - horda: 1
     tagsPermitidas:
@@ -688,6 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a32a3ea75b2346543a807a57495b7995, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  todasAsTagsEntregaveis: []
   configuracoes:
   - nome: PessoaJanela
     prefab: {fileID: 6937591069211705461, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}

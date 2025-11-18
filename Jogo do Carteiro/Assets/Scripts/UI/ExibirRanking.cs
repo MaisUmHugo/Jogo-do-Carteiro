@@ -3,7 +3,9 @@ using TMPro;
 
 public class ExibirRanking : MonoBehaviour
 {
-    public TextMeshProUGUI rankingTexto;
+    // Cada um com 5
+    public TextMeshProUGUI[] grupoEsquerda; 
+    public TextMeshProUGUI[] grupoDireita;  
 
     private void OnEnable()
     {
@@ -14,13 +16,20 @@ public class ExibirRanking : MonoBehaviour
     {
         var lista = LeaderboardManager.instance.ObterRanking();
 
-        rankingTexto.text = "";
+        // garante no mínimo 10 entradas (preenche com vazios)
+        while (lista.Count < 10)
+            lista.Add(new EntradaRanking("---", 0));
 
-        int pos = 1;
-        foreach (var entrada in lista)
+        // posições 1 a 5
+        for (int i = 0; i < 5; i++)
         {
-            rankingTexto.text += $"{pos}. {entrada.nome} - {entrada.pontuacao}\n";
-            pos++;
+            grupoEsquerda[i].text = $"{i + 1}. {lista[i].nome} - {lista[i].pontuacao}";
+        }
+
+        // posições 6 a 10
+        for (int i = 5; i < 10; i++)
+        {
+            grupoDireita[i - 5].text = $"{i + 1}. {lista[i].nome} - {lista[i].pontuacao}";
         }
     }
 }
