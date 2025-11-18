@@ -20,7 +20,7 @@ public class CutsceneManager : MonoBehaviour
             videoPlayer.prepareCompleted += (vp) =>
             {
                 // Agora o áudio e o vídeo estão prontos
-                AudioManager.instance.TocarAudioCutscene(cutsceneAudio.clip);
+                //AudioManager.instance.TocarAudioCutscene(cutsceneAudio.clip);
                 vp.Play();
             };
             videoPlayer.loopPointReached += OnVideoEnd;

@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     [Header("Referências")]
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private AudioSource bgmSource;
-    [SerializeField] private AudioSource cutsceneSource;
+    //[SerializeField] private AudioSource cutsceneSource;
     [SerializeField] private AudioSource sfxSource;
 
     [Header("Músicas")]
@@ -26,7 +26,7 @@ public class AudioManager : MonoBehaviour
         }
 
         instance = this;
-        //DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(gameObject);
 
         if (bgmSource == null)
         {
@@ -42,13 +42,13 @@ public class AudioManager : MonoBehaviour
             sfxSource.playOnAwake = false;
         }
 
-        if (cutsceneSource == null)
+        /*if (cutsceneSource == null)
         {
             cutsceneSource = gameObject.AddComponent<AudioSource>();
             cutsceneSource.loop = false;
             cutsceneSource.playOnAwake = false;
         }
-
+        */
         AudioSettings.AplicarVolumesIniciais(mixer);
     }
 
@@ -64,7 +64,7 @@ public class AudioManager : MonoBehaviour
         bgmSource.Play();
     }
 
-    public void TocarAudioCutscene(AudioClip audio) => TocarCutscene(audio);
+    //public void TocarAudioCutscene(AudioClip audio) => TocarCutscene(audio);
     public void TocarMusicaMenu() => TocarMusica(musicaMenu);
     public void TocarMusicaJogo() => TocarMusica(musicaJogo);
     public void TocarMusicaGameOver() => TocarMusica(musicaGameOver, false);
@@ -81,7 +81,7 @@ public class AudioManager : MonoBehaviour
             sfxSource.PlayOneShot(clip);
     }
     // CUTSCENE
-    public void TocarCutscene(AudioClip clip)
+   /* public void TocarCutscene(AudioClip clip)
     {
         if (clip != null)
         {
@@ -89,6 +89,7 @@ public class AudioManager : MonoBehaviour
             cutsceneSource.PlayOneShot(cutsceneAudio);
         }
     }
+   */
     // VOLUME 
     public void AjustarVolume(string parametro, float valor)
     {

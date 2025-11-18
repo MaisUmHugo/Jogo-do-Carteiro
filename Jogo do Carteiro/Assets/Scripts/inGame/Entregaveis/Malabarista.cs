@@ -194,8 +194,8 @@ public class Malabarista : Entregavel
 
             Bola b = novaBola.GetComponent<Bola>();
             // altura aleatória (em lanes)
-            b.alturaExtra = Random.Range(2f, 3.5f);
-            b.IniciarArco(destino);
+            //b.alturaExtra = Random.Range(2f, 3.5f);
+            b.CaminhoBola(destino);
 
 
 
