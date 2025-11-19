@@ -32,6 +32,7 @@ public class SpawnerManager : MonoBehaviour
     [Header("Controle Dinâmico")]
     public float intervaloSpawn;
     public float multiplicadorVelocidade;
+    public float multiplicadorDistancia;
     public bool spawnAtivo = true;
     public float intervaloaleatorio;
 
@@ -76,7 +77,7 @@ public class SpawnerManager : MonoBehaviour
 
             if (candidatos.Count > 0)
             {
-                int idx = Random.Range(0, candidatos.Count); // ✅ Corrigido aqui
+                int idx = Random.Range(0, candidatos.Count); 
                 SpawnPorTag(candidatos[idx].tagAssociada);
             }
             else
@@ -94,6 +95,7 @@ public class SpawnerManager : MonoBehaviour
 
     public void DefinirIntervalo(float intervalo) => intervaloSpawn = intervalo;
     public void DefinirVelocidade(float mult) => multiplicadorVelocidade = mult;
+    public void DefinirDistancia(float dist) => multiplicadorDistancia = dist;
 
     public void ResetarConfig()
     {
@@ -190,6 +192,13 @@ public class SpawnerManager : MonoBehaviour
                 {
                     float vOriginal = (float)campo.GetValue(c);
                     campo.SetValue(c, vOriginal * multiplicadorVelocidade);
+                    // Debug opcional:
+                    // Debug.Log($"[{c.GetType().Name}] {campo.Name} alterado para {vOriginal * multiplicadorVelocidade}");
+                }
+                if (campo.Name.ToLower().Contains("distancia") && campo.FieldType == typeof(float))
+                {
+                    float vOriginal = (float)campo.GetValue(c);
+                    campo.SetValue(c, vOriginal * multiplicadorDistancia);
                     // Debug opcional:
                     // Debug.Log($"[{c.GetType().Name}] {campo.Name} alterado para {vOriginal * multiplicadorVelocidade}");
                 }

@@ -11,7 +11,7 @@ public class HordaManager : MonoBehaviour
     public List<string> todasAsTagsEntregaveis;
     [Header("Referência ao Spawner")]
     public SpawnerManager spawnerManager;
-    public Malabarista Malabarista;
+    public Bola bola;
 
     [Header("Barra de Progresso")]
     public Image barraProgresso; 
@@ -22,6 +22,7 @@ public class HordaManager : MonoBehaviour
     public TextMeshProUGUI TextoHorda;
     public TextMeshProUGUI TextoEntrega;
     public float aumentovelocidade;
+    public float aumentodistancia;
     public float ReduzirIntervalo;
 
     //private bool aguardandoInicio = false;
@@ -99,8 +100,11 @@ public class HordaManager : MonoBehaviour
         {
             // velocidade dos inimigos da horda
             float novoMultiplicador = spawnerManager.multiplicadorVelocidade + aumentovelocidade;
-            Malabarista.multiplicadorVelocidade = novoMultiplicador;
+            bola.multiplicadorVelocidade = novoMultiplicador;
             spawnerManager.DefinirVelocidade(novoMultiplicador);
+            //velocidade da distância
+            float multiplicadordedistancia = spawnerManager.multiplicadorDistancia + aumentodistancia;
+            spawnerManager.DefinirDistancia(multiplicadordedistancia);
             // intervalo de spawn deles
             float novoIntervalo = spawnerManager.intervaloSpawn - ReduzirIntervalo;
             if (novoIntervalo <= 1.5f)

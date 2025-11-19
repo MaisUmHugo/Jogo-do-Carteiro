@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Músicas")]
     [SerializeField] private AudioClip musicaMenu;
-    [SerializeField] private AudioClip cutsceneAudio;
+    //[SerializeField] private AudioClip cutsceneAudio;
     [SerializeField] private AudioClip musicaJogo;
     [SerializeField] private AudioClip musicaGameOver;
 

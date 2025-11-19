@@ -4,7 +4,6 @@ using UnityEngine;
 public class Malabarista : Entregavel
 {
     [Header("Configuração Principal")]
-    public float multiplicadorVelocidade = 1f;
     public float velocidade;
     public float tempoAtivoEntrega;
     public float intervaloPiscar;

@@ -6,7 +6,7 @@ public class Bola : MonoBehaviour
 
     [Header("Velocidade")]
     public float velocidade = 10f;
-
+    public float multiplicadorVelocidade = 1f;
     private bool chegouNaLane = false;
 
     public void CaminhoBola(Vector3 destino)
@@ -35,7 +35,7 @@ public class Bola : MonoBehaviour
         else
         {
             // movimento contínuo para a esquerda
-            transform.position += Vector3.left * velocidade * Time.deltaTime;
+            transform.position += Vector3.left * (velocidade * multiplicadorVelocidade) * Time.deltaTime;
         }
 
         // destruir quando sair da tela
