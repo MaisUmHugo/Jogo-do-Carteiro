@@ -14,7 +14,7 @@ public class HordaManager : MonoBehaviour
     public Bola bola;
 
     [Header("Barra de Progresso")]
-    public Image barraProgresso; 
+    public Slider barraProgresso; 
 
     private int NumeroHorda, N_Entregas;
     [Header("Controle Hordas")]
@@ -93,7 +93,7 @@ public class HordaManager : MonoBehaviour
         {
             // Calcula o valor do progresso como uma porcentagem
             float progresso = (float)N_Entregas / (float)E_Necessarias;
-            barraProgresso.fillAmount = progresso;  // Atualiza a barra de progresso
+            barraProgresso.value = progresso;  // Atualiza a barra de progresso
         }
     }
     private void Mudarcondicao()
