@@ -96,7 +96,7 @@ public class SpawnerManager : MonoBehaviour
     public void DefinirIntervalo(float intervalo) => intervaloSpawn = intervalo;
     public void DefinirVelocidade(float mult) => multiplicadorVelocidade = mult;
     
-    //public void DefinirDistancia(float dist) => multiplicadorDistancia = dist;
+    public void DefinirDistancia(float dist) => multiplicadorDistancia = dist;
 
     public void ResetarConfig()
     {
@@ -195,12 +195,12 @@ public class SpawnerManager : MonoBehaviour
                     campo.SetValue(c, vOriginal * multiplicadorVelocidade);
                     // Debug.Log($"[{c.GetType().Name}] {campo.Name} alterado para {vOriginal * multiplicadorVelocidade}");
                 }
-               /* if (campo.Name.ToLower().Contains("distancia") && campo.FieldType == typeof(float))
+                if (campo.Name.ToLower().Contains("distancia") && campo.FieldType == typeof(float))
                 {
                     float vOriginal = (float)campo.GetValue(c);
-                    campo.SetValue(c, vOriginal * multiplicadorDistancia);
+                    campo.SetValue(c, vOriginal + multiplicadorDistancia);
                     // Debug.Log($"[{c.GetType().Name}] {campo.Name} alterado para {vOriginal * multiplicadorVelocidade}");
-                } */
+                }
             }
         }
     }

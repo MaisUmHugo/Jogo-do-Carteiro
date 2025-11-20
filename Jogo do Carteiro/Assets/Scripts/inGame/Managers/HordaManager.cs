@@ -105,8 +105,8 @@ public class HordaManager : MonoBehaviour
             bola.multiplicadorVelocidade = novoMultiplicador;
             spawnerManager.DefinirVelocidade(novoMultiplicador);
             //velocidade da distância
-            //float multiplicadordedistancia = spawnerManager.multiplicadorDistancia + aumentodistancia;
-            //spawnerManager.DefinirDistancia(multiplicadordedistancia);
+            float multiplicadordedistancia = spawnerManager.multiplicadorDistancia + aumentodistancia;
+            spawnerManager.DefinirDistancia(multiplicadordedistancia);
             // intervalo de spawn deles
             float novoIntervalo = spawnerManager.intervaloSpawn - ReduzirIntervalo;
             if (novoIntervalo <= 1.5f)
