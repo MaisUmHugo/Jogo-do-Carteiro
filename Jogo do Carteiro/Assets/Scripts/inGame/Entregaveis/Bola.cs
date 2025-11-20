@@ -23,7 +23,7 @@ public class Bola : MonoBehaviour
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 pontoFinal,
-                velocidade * Time.deltaTime
+                (velocidade * multiplicadorVelocidade) * Time.deltaTime
             );
 
             // quando chegar na lane, começa mover para esquerda

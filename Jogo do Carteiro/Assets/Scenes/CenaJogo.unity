@@ -228,6 +228,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+--- !u!114 &148052389 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+  m_PrefabInstance: {fileID: 148052388}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f69e7e63e231e9840ae1059d7a8c4eec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &305894504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1304,6 +1315,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2819383581410302927, guid: 8f339f7fceb0c464eafd3f0d20dcca50, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 148052389}
+    - target: {fileID: 2819383581410302927, guid: 8f339f7fceb0c464eafd3f0d20dcca50, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DefinirAumentoParallax
+      objectReference: {fileID: 0}
     - target: {fileID: 3008447756135111025, guid: 8f339f7fceb0c464eafd3f0d20dcca50, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1573,6 +1592,14 @@ PrefabInstance:
     - target: {fileID: 6489033873625866491, guid: cf593ae064a367d43915846c1c9292cb, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8480937009356227024, guid: cf593ae064a367d43915846c1c9292cb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 148052389}
+    - target: {fileID: 8480937009356227024, guid: cf593ae064a367d43915846c1c9292cb, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: DefinirAumentoParallax
       objectReference: {fileID: 0}
     - target: {fileID: 9110970983255178719, guid: cf593ae064a367d43915846c1c9292cb, type: 3}
       propertyPath: m_LocalScale.x
