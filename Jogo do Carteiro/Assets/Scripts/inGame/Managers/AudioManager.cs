@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     [Header("Referências")]
     [SerializeField] private AudioMixer mixer;
     [SerializeField] private AudioSource bgmSource;
-    //[SerializeField] private AudioSource cutsceneSource;
+    public AudioSource cutsceneSource;
     [SerializeField] private AudioSource sfxSource;
 
     [Header("Músicas")]
@@ -19,8 +19,10 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
+
         if (instance != null && instance != this)
         {
+            Debug.LogWarning("Outro AudioManager encontrado e destruído!");
             Destroy(gameObject);
             return;
         }
@@ -42,13 +44,21 @@ public class AudioManager : MonoBehaviour
             sfxSource.playOnAwake = false;
         }
 
-        /*if (cutsceneSource == null)
+        if (cutsceneSource == null)
         {
             cutsceneSource = gameObject.AddComponent<AudioSource>();
             cutsceneSource.loop = false;
             cutsceneSource.playOnAwake = false;
         }
-        */
+
+        var groups = mixer.FindMatchingGroups("Master");
+        if (groups.Length > 0)
+        {
+            bgmSource.outputAudioMixerGroup = groups[0];
+            sfxSource.outputAudioMixerGroup = groups[0];
+            cutsceneSource.outputAudioMixerGroup = groups[0];
+        }
+
         AudioSettings.AplicarVolumesIniciais(mixer);
     }
 
@@ -64,7 +74,6 @@ public class AudioManager : MonoBehaviour
         bgmSource.Play();
     }
 
-    //public void TocarAudioCutscene(AudioClip audio) => TocarCutscene(audio);
     public void TocarMusicaMenu() => TocarMusica(musicaMenu);
     public void TocarMusicaJogo() => TocarMusica(musicaJogo);
     public void TocarMusicaGameOver() => TocarMusica(musicaGameOver, false);
@@ -80,16 +89,7 @@ public class AudioManager : MonoBehaviour
         if (clip != null)
             sfxSource.PlayOneShot(clip);
     }
-    // CUTSCENE
-   /* public void TocarCutscene(AudioClip clip)
-    {
-        if (clip != null)
-        {
-            cutsceneAudio = clip;
-            cutsceneSource.PlayOneShot(cutsceneAudio);
-        }
-    }
-   */
+
     // VOLUME 
     public void AjustarVolume(string parametro, float valor)
     {

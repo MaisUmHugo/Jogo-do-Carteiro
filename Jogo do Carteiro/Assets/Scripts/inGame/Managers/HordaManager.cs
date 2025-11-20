@@ -35,7 +35,8 @@ public class HordaManager : MonoBehaviour
 
     [Header("Parallax")]
     public float multiplicadorParallax;
-    public float aumentoParallaxPorHorda; 
+    public float aumentoParallaxPorHorda;
+    public bool aumentarParallax = true;
 
 
     private bool HordaMudou, Objetivo;
@@ -52,6 +53,7 @@ public class HordaManager : MonoBehaviour
 
     private void Start()
     {
+        aumentarParallax = PlayerPrefs.GetInt("parallaxAumentar", 1) == 1;
         NumeroHorda = 1;
         spawnerManager.DesativarSpawn();
         StartCoroutine(IniciarHordaComDelay(delayInicial));
@@ -115,7 +117,10 @@ public class HordaManager : MonoBehaviour
             HordaMudou = false;
 
             // aumenta levemente a velocidade do fundo (efeito de intensidade)
-            multiplicadorParallax += aumentoParallaxPorHorda;
+            if (aumentarParallax)
+                multiplicadorParallax += aumentoParallaxPorHorda;
+            else
+                multiplicadorParallax = 1f; // reset para a velocidade normal
 
             // notifica todos os parallax ativos
             foreach (Parallax p in FindObjectsByType<Parallax>(FindObjectsSortMode.None))
@@ -208,8 +213,23 @@ public class HordaManager : MonoBehaviour
         spawnerManager.tagsPermitidas = tags;
         Debug.Log($"[SpawnerManager] Tags permitidas atualizadas: {string.Join(", ", tags)}");
     }
-    private void Final()
+    /* private void Final()
     {
         SceneManager.LoadScene("CenaFimDemo");
+    }*/
+
+    public void DefinirAumentoParallax(bool ativado)
+    {
+        aumentarParallax = ativado;
+        PlayerPrefs.SetInt("parallaxAumentar", ativado ? 1 : 0);
+
+        if (!ativado)
+        {
+            multiplicadorParallax = 1f;
+
+            foreach (Parallax p in FindObjectsByType<Parallax>(FindObjectsSortMode.None))
+                p.AtualizarVelocidadeParallax(1f);
+        }
     }
+
 }
