@@ -172,8 +172,9 @@ public class Malabarista : Entregavel
     // TIRO 
     public IEnumerator atirar()
     {
-        while (podeatirar && !podereceber)
-        {
+        if (!podeatirar || podereceber)
+            yield break;
+        
             Vector3 posSpawn =
                 transform.position +
                 transform.right * offsetBolaX +
@@ -192,16 +193,15 @@ public class Malabarista : Entregavel
 
 
             Bola b = novaBola.GetComponent<Bola>();
-            // altura aleatória (em lanes)
-            //b.alturaExtra = Random.Range(2f, 3.5f);
             b.CaminhoBola(destino);
 
 
 
 
             yield return new WaitForSeconds(IntervaloTiro);
+            
+            StartCoroutine(atirar());
         }
-    }
 
     private IEnumerator PararPiscar()
     {

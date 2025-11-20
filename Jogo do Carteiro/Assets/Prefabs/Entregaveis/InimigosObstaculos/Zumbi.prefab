@@ -597,9 +597,9 @@ MonoBehaviour:
   Exclamacao: {fileID: 0}
   velocidadeCaminhada: 6
   velocidadeCorrida: 8
-  velocidadeTrocaLane: 8
+  velocidadeTrocaLane: 12
   distanciaCorrida: 60
-  distanciaColisao: 6
+  distanciaColisao: 25
   tempoexclamacao: 1.5
   entregavelPisca: {fileID: 4807060384459946138}
   popupPontuacao: {fileID: 5706932820895983494}

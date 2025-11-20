@@ -15,7 +15,7 @@ public class VidaManager : MonoBehaviour
     private Animator anim;
 
     private bool invulneravel = false;
-    [SerializeField] private float tempoInvulneravel = 1.5f;
+    [SerializeField] private float tempoInvulneravel = 0.75f;
 
     private void Awake()
     {

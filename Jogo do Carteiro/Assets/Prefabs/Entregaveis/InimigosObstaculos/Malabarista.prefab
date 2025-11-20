@@ -466,15 +466,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Malabarista
   ativoParaEntrega: 1
-  multiplicadorVelocidade: 1
   velocidade: 7
   tempoAtivoEntrega: 4
   intervaloPiscar: 0.2
   distanciaEntrega: 100
   bola: {fileID: 5321252365096296630, guid: e1fa043f34f9f904aba9222e970e0d4c, type: 3}
-  IntervaloTiro: 3
+  IntervaloTiro: 4
   DistanciaTiro: 200
-  maxBolas: 3
   Exclamacao: {fileID: 2902982904923244336}
   tempoexclamacao: 1
   corNormal: {r: 1, g: 1, b: 1, a: 1}

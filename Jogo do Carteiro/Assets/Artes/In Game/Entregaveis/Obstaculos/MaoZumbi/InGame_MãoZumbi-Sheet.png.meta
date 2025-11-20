@@ -114,6 +114,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -124,9 +137,9 @@ TextureImporter:
         x: 0
         y: 0
         width: 23
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -145,10 +158,10 @@ TextureImporter:
         serializedVersion: 2
         x: 26
         y: 0
-        width: 24
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 23
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -167,10 +180,10 @@ TextureImporter:
         serializedVersion: 2
         x: 53
         y: 0
-        width: 24
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 23
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -189,10 +202,10 @@ TextureImporter:
         serializedVersion: 2
         x: 80
         y: 0
-        width: 24
-        height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 23
+        height: 23
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -211,10 +224,10 @@ TextureImporter:
         serializedVersion: 2
         x: 107
         y: 0
-        width: 24
+        width: 23
         height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -233,10 +246,10 @@ TextureImporter:
         serializedVersion: 2
         x: 134
         y: 0
-        width: 24
+        width: 23
         height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -257,8 +270,8 @@ TextureImporter:
         y: 0
         width: 23
         height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -275,7 +288,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: cfb1f18b085b85e4297b6a834a9f78c6
     internalID: 0
     vertices: []
     indices: 

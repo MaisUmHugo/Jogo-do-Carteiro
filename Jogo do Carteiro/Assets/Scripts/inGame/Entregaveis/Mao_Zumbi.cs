@@ -21,6 +21,9 @@ public class Mao_Zumbi : Entregavel
     public EntregavelPisca entregavelPisca;
     public PontuacaoPopup popupPontuacao;
 
+    [Header("Ajuste de posição")]
+    public float offsetY = 0f;
+
     private Animator anim;
     private void Awake()
     {
@@ -32,17 +35,23 @@ public class Mao_Zumbi : Entregavel
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
-        {
             jogador = playerObj.GetComponent<Mov>();
-        }
         else
-        {
-            Debug.LogWarning("Player não encontrado! Verifique se o objeto do jogador tem a tag 'Player'.");
-        }
+            Debug.LogWarning("Player não encontrado! Verifique a tag 'Player'.");
+
+        LanesController.Linhas laneEscolhida =
+            (LanesController.Linhas)Random.Range(0, 4);
+
+        Debug.Log($"Mão Zumbi spawnou na LANE: {laneEscolhida}");
+
         Vector3 pos = transform.position;
-        pos.y = LanesController.instance.PosicaoY((LanesController.Linhas)Random.Range(0, 4));
+        pos.y = LanesController.instance.PosicaoY(laneEscolhida) + offsetY;
         transform.position = pos;
+
+        Debug.Log($" Y da lane = {LanesController.instance.PosicaoY(laneEscolhida)} | " +
+                  $"OffsetY = {offsetY} | Y final = {transform.position.y}");
     }
+
     private void Update()
     {
         if (recebeu)

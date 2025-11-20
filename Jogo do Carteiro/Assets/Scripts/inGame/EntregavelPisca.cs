@@ -19,6 +19,7 @@ public class EntregavelPisca : MonoBehaviour
     private void Awake()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
+        Debug.Log("SpriteRenderer encontrado para piscar: " + sr);
     }
 
     public void PiscarAtivo()

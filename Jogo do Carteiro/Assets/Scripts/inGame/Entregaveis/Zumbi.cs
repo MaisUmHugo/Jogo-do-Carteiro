@@ -24,6 +24,8 @@ public class Zumbi : Entregavel
     public EntregavelPisca entregavelPisca;
     public PontuacaoPopup popupPontuacao;
 
+    private bool jaDeuDano = false;
+
     private void Awake()
     {
         sr = GetComponentInChildren<SpriteRenderer>();
@@ -108,16 +110,28 @@ public class Zumbi : Entregavel
 
         yTravado = transform.position.y;
 
-        Collider2D col = GetComponent<Collider2D>();
+        /*Collider2D col = GetComponent<Collider2D>();
         if (col != null) col.enabled = false;
+        */
 
-        StartCoroutine(DelayCair());
+        //StartCoroutine(DelayCair());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (correndo && ativoParaEntrega && collision.CompareTag("Caixa"))
+        {
             ReceberEntrega();
+            return;
+        }
+
+        // Se ele está caindo, e encosta no player → dá dano imediato
+        if (caiu && !jaDeuDano && collision.CompareTag("Player"))
+        {
+            jaDeuDano = true;
+            Debug.Log("DANO DURANTE A ANIMAÇÃO DE CAIR!");
+            FalharEntrega();
+        }
     }
 
     public override void ReceberEntrega()
@@ -152,11 +166,12 @@ public class Zumbi : Entregavel
         anim.SetBool("Transparente", true);
     }
 
-    private IEnumerator DelayCair()
+   /* private IEnumerator DelayCair()
     {
         yield return new WaitForSeconds(1.5f);
         FalharEntrega();
     }
+   */
     private IEnumerator exclamacao()
     {
         yield return new WaitForSeconds(0.1f);
