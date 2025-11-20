@@ -273,8 +273,8 @@ MonoBehaviour:
   velocidadeCaminhada: 6
   velocidadeCorrida: 8
   velocidadeTrocaLane: 12
-  distanciaCorrida: 80
-  distanciaColisao: 10
+  distanciaCorrida: 60
+  DistanciaColisao: 5
   tempoexclamacao: 2
   entregavelPisca: {fileID: -5909581724401143014}
   popupPontuacao: {fileID: 9028810224810389186}

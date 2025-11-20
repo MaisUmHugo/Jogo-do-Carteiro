@@ -145,19 +145,31 @@ PrefabInstance:
       objectReference: {fileID: 1492970466}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: aumentodistancia
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: tagsPorHorda.Array.data[2].tagsPermitidas.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: tagsPorHorda.Array.data[3].tagsPermitidas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[0].tagsPermitidas.Array.data[0]'
-      value: MAssustado
+      value: Malabarista
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: 'tagsPorHorda.Array.data[1].tagsPermitidas.Array.data[0]'
+      value: Malabarista
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[2].tagsPermitidas.Array.data[0]'
-      value: MAssustado
+      value: Malabarista
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: 'tagsPorHorda.Array.data[3].tagsPermitidas.Array.data[0]'
+      value: Malabarista
       objectReference: {fileID: 0}
     - target: {fileID: 8841676333861181829, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: m_LocalPosition.x

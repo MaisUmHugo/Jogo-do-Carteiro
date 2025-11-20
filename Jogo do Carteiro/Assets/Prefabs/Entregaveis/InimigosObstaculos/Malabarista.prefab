@@ -469,7 +469,7 @@ MonoBehaviour:
   velocidade: 7
   tempoAtivoEntrega: 4
   intervaloPiscar: 0.2
-  distanciaEntrega: 100
+  distanciaEntrega: 60
   bola: {fileID: 5321252365096296630, guid: e1fa043f34f9f904aba9222e970e0d4c, type: 3}
   IntervaloTiro: 4
   DistanciaTiro: 200

@@ -6,7 +6,7 @@ public class Bola : MonoBehaviour
 
     [Header("Velocidade")]
     public float velocidade = 10f;
-    public float multiplicadorVelocidade = 1f;
+    public float multiplicadorVelocidade;
     private bool chegouNaLane = false;
 
     public void CaminhoBola(Vector3 destino)

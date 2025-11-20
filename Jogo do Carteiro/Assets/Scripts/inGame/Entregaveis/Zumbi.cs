@@ -9,7 +9,7 @@ public class Zumbi : Entregavel
     public float velocidadeCorrida;
     public float velocidadeTrocaLane;
     public float distanciaCorrida;
-    public float distanciaColisao;
+    public float DistanciaColisao;
     public float tempoexclamacao;
 
     private bool correndo = false;
@@ -70,7 +70,7 @@ public class Zumbi : Entregavel
                 transform.position.z
             );
 
-            if (Vector3.Distance(transform.position, jogador.transform.position) <= distanciaColisao)
+            if (Vector3.Distance(transform.position, jogador.transform.position) <= DistanciaColisao)
                 CairECausarDano();
         }
 

@@ -440,7 +440,7 @@ MonoBehaviour:
   velocidadeTrocaLane: 5
   tempoAtivoEntrega: 3.5
   intervaloPiscar: 0.15
-  distanciaEntrega: 200
+  distanciaEntrega: 160
   tempoexclamacao: 2
   entregavelPisca: {fileID: -1538667524945953015}
   popupPontuacao: {fileID: 2840320702199764024}
