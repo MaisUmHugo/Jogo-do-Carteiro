@@ -1,28 +1,25 @@
 fileFormatVersion: 2
-guid: a467d6b66a63c6e4cb31b59e57651d23
+guid: 9621646e1bd6a984793fcbaf27e5ac71
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4973000878041202185
-    second: "InGame_M\xE3oZumbi-Sheet_0"
+      213: 1818490103754232417
+    second: InGame_Drunk_Normal_0
   - first:
-      213: -1540001168606770194
-    second: "InGame_M\xE3oZumbi-Sheet_1"
+      213: 1834443055095514497
+    second: InGame_Drunk_Normal_1
   - first:
-      213: 5091095231477057980
-    second: "InGame_M\xE3oZumbi-Sheet_2"
+      213: -3972654190016645352
+    second: InGame_Drunk_Normal_2
   - first:
-      213: -7361769193039483762
-    second: "InGame_M\xE3oZumbi-Sheet_3"
+      213: 8043198126966757215
+    second: InGame_Drunk_Normal_3
   - first:
-      213: -6198813978972343927
-    second: "InGame_M\xE3oZumbi-Sheet_4"
+      213: -4530753120172255014
+    second: InGame_Drunk_Normal_4
   - first:
-      213: -517225882184194772
-    second: "InGame_M\xE3oZumbi-Sheet_5"
-  - first:
-      213: -5923980923595844560
-    second: "InGame_M\xE3oZumbi-Sheet_6"
+      213: 4739430285791525237
+    second: InGame_Drunk_Normal_5
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -93,7 +90,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: 4
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -118,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "InGame_M\xE3oZumbi-Sheet_0"
+      name: InGame_Drunk_Normal_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 23
-        height: 13
+        y: 15
+        width: 65
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 90ef95353f5a30540800000000000000
-      internalID: 4973000878041202185
+      spriteID: 16295d55d139c3910800000000000000
+      internalID: 1818490103754232417
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "InGame_M\xE3oZumbi-Sheet_1"
+      name: InGame_Drunk_Normal_1
       rect:
         serializedVersion: 2
-        x: 26
-        y: 0
-        width: 24
-        height: 14
+        x: 68
+        y: 15
+        width: 66
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,20 +152,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eebc18fa811d0aae0800000000000000
-      internalID: -1540001168606770194
+      spriteID: 18586a34d30457910800000000000000
+      internalID: 1834443055095514497
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "InGame_M\xE3oZumbi-Sheet_2"
+      name: InGame_Drunk_Normal_2
       rect:
         serializedVersion: 2
-        x: 53
-        y: 0
-        width: 24
-        height: 17
+        x: 137
+        y: 15
+        width: 66
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: cb900e5a32437a640800000000000000
-      internalID: 5091095231477057980
+      spriteID: 817379cef0c4ed8c0800000000000000
+      internalID: -3972654190016645352
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "InGame_M\xE3oZumbi-Sheet_3"
+      name: InGame_Drunk_Normal_3
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0
-        width: 24
-        height: 19
+        x: 206
+        y: 15
+        width: 66
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,20 +196,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e8ca77a5cedb5d990800000000000000
-      internalID: -7361769193039483762
+      spriteID: f57d0ffe41e2f9f60800000000000000
+      internalID: 8043198126966757215
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "InGame_M\xE3oZumbi-Sheet_4"
+      name: InGame_Drunk_Normal_4
       rect:
         serializedVersion: 2
-        x: 107
-        y: 0
-        width: 24
-        height: 23
+        x: 275
+        y: 15
+        width: 66
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +218,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 981b0a2678369f9a0800000000000000
-      internalID: -6198813978972343927
+      spriteID: ad8d32bca088f11c0800000000000000
+      internalID: -4530753120172255014
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: "InGame_M\xE3oZumbi-Sheet_5"
+      name: InGame_Drunk_Normal_5
       rect:
         serializedVersion: 2
-        x: 134
-        y: 0
-        width: 24
-        height: 23
+        x: 344
+        y: 15
+        width: 65
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,30 +240,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c25e5cfecc172d8f0800000000000000
-      internalID: -517225882184194772
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "InGame_M\xE3oZumbi-Sheet_6"
-      rect:
-        serializedVersion: 2
-        x: 161
-        y: 0
-        width: 23
-        height: 23
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 03411e09cbac9cda0800000000000000
-      internalID: -5923980923595844560
+      spriteID: 579f45efbb6d5c140800000000000000
+      internalID: 4739430285791525237
       vertices: []
       indices: 
       edges: []
@@ -275,7 +250,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -285,13 +260,12 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "InGame_M\xE3oZumbi-Sheet_0": 4973000878041202185
-      "InGame_M\xE3oZumbi-Sheet_1": -1540001168606770194
-      "InGame_M\xE3oZumbi-Sheet_2": 5091095231477057980
-      "InGame_M\xE3oZumbi-Sheet_3": -7361769193039483762
-      "InGame_M\xE3oZumbi-Sheet_4": -6198813978972343927
-      "InGame_M\xE3oZumbi-Sheet_5": -517225882184194772
-      "InGame_M\xE3oZumbi-Sheet_6": -5923980923595844560
+      InGame_Drunk_Normal_0: 1818490103754232417
+      InGame_Drunk_Normal_1: 1834443055095514497
+      InGame_Drunk_Normal_2: -3972654190016645352
+      InGame_Drunk_Normal_3: 8043198126966757215
+      InGame_Drunk_Normal_4: -4530753120172255014
+      InGame_Drunk_Normal_5: 4739430285791525237
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
