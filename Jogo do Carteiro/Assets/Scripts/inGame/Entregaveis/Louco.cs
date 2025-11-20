@@ -101,6 +101,11 @@ public class Louco : Entregavel
                 {
                     if (anim != null)
                         anim.SetTrigger("FalhouEntrega");
+
+                    ativoParaEntrega = false;
+                    if (colisor != null)
+                        colisor.enabled = false;
+
                     PerderCombo();
                     Debug.Log("Louco caiu sem receber entrega, fazueli");
                 }
