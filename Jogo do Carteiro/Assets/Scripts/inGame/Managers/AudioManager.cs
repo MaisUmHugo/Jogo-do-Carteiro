@@ -19,10 +19,8 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-
         if (instance != null && instance != this)
         {
-            Debug.LogWarning("Outro AudioManager encontrado e destruído!");
             Destroy(gameObject);
             return;
         }
@@ -30,37 +28,42 @@ public class AudioManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
+        // Cria AudioSources se necessário
         if (bgmSource == null)
         {
             bgmSource = gameObject.AddComponent<AudioSource>();
-            bgmSource.loop = true;
             bgmSource.playOnAwake = false;
+            bgmSource.loop = true;
         }
 
         if (sfxSource == null)
         {
             sfxSource = gameObject.AddComponent<AudioSource>();
-            sfxSource.loop = false;
             sfxSource.playOnAwake = false;
+            sfxSource.loop = false;
         }
 
         if (cutsceneSource == null)
         {
             cutsceneSource = gameObject.AddComponent<AudioSource>();
-            cutsceneSource.loop = false;
             cutsceneSource.playOnAwake = false;
+            cutsceneSource.loop = false;
         }
+    }
 
-        var groups = mixer.FindMatchingGroups("Master");
-        if (groups.Length > 0)
-        {
-            bgmSource.outputAudioMixerGroup = groups[0];
-            sfxSource.outputAudioMixerGroup = groups[0];
-            cutsceneSource.outputAudioMixerGroup = groups[0];
-        }
-
+    private void Start()
+    {
+        ConectarNosGrupos();
         AudioSettings.AplicarVolumesIniciais(mixer);
     }
+
+    private void ConectarNosGrupos()
+    {
+        bgmSource.outputAudioMixerGroup = mixer.FindMatchingGroups("BGM")[0];
+        sfxSource.outputAudioMixerGroup = mixer.FindMatchingGroups("SFX")[0];
+        cutsceneSource.outputAudioMixerGroup = mixer.FindMatchingGroups("Cutscene")[0];
+    }
+
 
     // MÚSICAS 
     public void TocarMusica(AudioClip clip, bool loop = true)

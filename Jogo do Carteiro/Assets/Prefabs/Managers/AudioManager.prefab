@@ -307,11 +307,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
   mixer: {fileID: 24100000, guid: 50cd59c5af51bba47ab7794830073598, type: 2}
   bgmSource: {fileID: 2085263827848737807}
-  sfxSource: {fileID: 5904214144437536320}
   cutsceneSource: {fileID: 2091123714151702601}
-  musicaMenu: {fileID: 0}
-  musicaJogo: {fileID: 0}
-  musicaGameOver: {fileID: 0}
+  sfxSource: {fileID: 5904214144437536320}
+  musicaMenu: {fileID: 8300000, guid: eaef98f4d14764f4a9a4df8507bda992, type: 3}
+  musicaJogo: {fileID: 8300000, guid: eaef98f4d14764f4a9a4df8507bda992, type: 3}
+  musicaGameOver: {fileID: 8300000, guid: eaef98f4d14764f4a9a4df8507bda992, type: 3}
 --- !u!1 &8936288476790851385
 GameObject:
   m_ObjectHideFlags: 0

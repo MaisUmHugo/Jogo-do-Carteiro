@@ -309,22 +309,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2091123714151702601, guid: 7bdf2af9ddfe64342b07036ff0c106b9, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: -9210164814274591791, guid: 50cd59c5af51bba47ab7794830073598, type: 2}
-    - target: {fileID: 5101110415034590950, guid: 7bdf2af9ddfe64342b07036ff0c106b9, type: 3}
-      propertyPath: musicaJogo
-      value: 
-      objectReference: {fileID: 8300000, guid: eaef98f4d14764f4a9a4df8507bda992, type: 3}
-    - target: {fileID: 5101110415034590950, guid: 7bdf2af9ddfe64342b07036ff0c106b9, type: 3}
-      propertyPath: musicaMenu
-      value: 
-      objectReference: {fileID: 8300000, guid: eaef98f4d14764f4a9a4df8507bda992, type: 3}
-    - target: {fileID: 5101110415034590950, guid: 7bdf2af9ddfe64342b07036ff0c106b9, type: 3}
-      propertyPath: musicaGameOver
-      value: 
-      objectReference: {fileID: 8300000, guid: eaef98f4d14764f4a9a4df8507bda992, type: 3}
     - target: {fileID: 8396964547141160747, guid: 7bdf2af9ddfe64342b07036ff0c106b9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 485.25818
