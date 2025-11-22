@@ -471,7 +471,7 @@ MonoBehaviour:
   intervaloPiscar: 0.2
   distanciaEntrega: 60
   bola: {fileID: 5321252365096296630, guid: e1fa043f34f9f904aba9222e970e0d4c, type: 3}
-  IntervaloTiro: 4
+  IntervaloTiro: 5
   DistanciaTiro: 200
   Exclamacao: {fileID: 2902982904923244336}
   tempoexclamacao: 1
