@@ -9,7 +9,6 @@ public class Louco : Entregavel
     public float velocidadeFrente = 2f;     // velocidade no eixo X (frente = esquerda)
     public float velocidadeSaida = 6f;      // velocidade depois que atravessou
     public float tempoAtivoEntrega = 1.2f;
-    public float intervaloPiscar = 0.15f;
     public float tempoexclamacao;
 
     private bool atravessando = true;
@@ -24,18 +23,23 @@ public class Louco : Entregavel
     private float yL1;
     private float yL4;
 
+    private SpriteRenderer sr;
+
     [Header("Efeito Visual")]
-    public EntregavelPisca entregavelPisca;
     public PontuacaoPopup popupPontuacao;
 
     private Animator anim;
 
     private Collider2D colisor;
-    
+    private void Awake()
+    {
+        sr = GetComponentInChildren<SpriteRenderer>();
+    }
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
         colisor = GetComponent<Collider2D>();
+        colisor.enabled = false;
         // Decide direção: sobe ou desce
         // bool vindoDeBaixo = Random.value > 0.5f;
         bool vindoDeBaixo = true;
@@ -65,29 +69,26 @@ public class Louco : Entregavel
             transform.position = new Vector3(transform.position.x, novoY, transform.position.z);
 
             if (!pulou &&
-                (Mathf.Abs(transform.position.y - yL1) < 0.3f ||
-                 Mathf.Abs(transform.position.y - yL4) < 0.3f))
+       (Mathf.Abs(transform.position.y - yL1) < 0.3f ||
+        Mathf.Abs(transform.position.y - yL4) < 0.3f))
             {
                 pulou = true;
+
                 if (anim != null)
                     anim.SetTrigger("Pulando");
-            }
 
-            // Ativação da entrega (ignora L1 e L4)
-            if (!entregaJaAtivada)
-            {
-                float yL2 = LanesController.instance.PosicaoY(LanesController.Linhas.L2);
-                float yL3 = LanesController.instance.PosicaoY(LanesController.Linhas.L3);
-
-                if (Mathf.Abs(transform.position.y - yL2) < 0.1f || Mathf.Abs(transform.position.y - yL3) < 0.1f)
+                if (!entregaJaAtivada)
                 {
                     entregaJaAtivada = true;
-                    ativoParaEntrega = true;  // Agora definimos `ativoParaEntrega` como `true` quando atingimos L2 ou L3
+                    ativoParaEntrega = true;
+                    colisor.enabled = true;
+
                     StartCoroutine(exclamacao());
-                    entregavelPisca?.PiscarAtivo();
-                    Debug.Log("Entrega ativada em L2 ou L3!");
+                    PiscarAtivo();
+
+                    Debug.Log("Entrega ativada durante o PULO!");
                 }
-            }
+            }       
 
             // Chegou no outro lado (passou todas as lanes)
             if ((yDestino > 0 && transform.position.y >= yDestino - 0.05f) ||
@@ -95,7 +96,7 @@ public class Louco : Entregavel
             {
                 atravessando = false;
                 terminouTravessia = true;
-                entregavelPisca?.PararPiscar();
+                StartCoroutine(PararPiscar());
 
                 if (!entregaRecebida)
                 {
@@ -139,7 +140,7 @@ public class Louco : Entregavel
             Debug.Log("Entrega não ativa no momento!");  // Log para depuração
             return;  // Não faz nada se não estiver ativo para a entrega
         }
-
+        StartCoroutine(PararPiscar());
         ativoParaEntrega = false;  // Desativa entrega após processar
         entregaRecebida = true;
         //entregavelPisca?.PararPiscar();
@@ -148,7 +149,7 @@ public class Louco : Entregavel
         int total = 100 * multiplicador;
 
         popupPontuacao?.MostrarPontuacao(total);
-        entregavelPisca?.PiscarRecebendo();
+        PiscarRecebendo();
         if (colisor != null)
             colisor.enabled = false;
 
@@ -182,11 +183,41 @@ public class Louco : Entregavel
             Destroy(collision.gameObject);
         }
     }
+    public void PiscarAtivo()
+    {
+        if (rotinaPiscar != null) StopCoroutine(rotinaPiscar);
+        rotinaPiscar = StartCoroutine(Piscar(new Color(1f, 0.4f, 0.5f, 0.6f), 0.3f, 3));
+    }
+    public void PiscarRecebendo()
+    {
+        if (rotinaPiscar != null) StopCoroutine(rotinaPiscar);
+        rotinaPiscar = StartCoroutine(Piscar(new Color(0.7f, 0.7f, 0.7f, 0.4f), 0.3f, 3));
+    }
+
     private IEnumerator PararPiscar()
     {
-        yield return new WaitForSeconds(1.5f);
-        entregavelPisca?.PararPiscar();
+        yield return new WaitForSeconds(0.05f);
+        sr.color = Color.white;
     }
+    private Coroutine rotinaPiscar;
+
+    private IEnumerator Piscar(Color corPiscar, float intervalo, int quantidade)
+    {
+        Color corOriginal = sr.color;
+
+        for (int i = 0; i < quantidade; i++)
+        {
+            sr.color = corPiscar;
+            yield return new WaitForSeconds(intervalo);
+
+            sr.color = corOriginal;
+            yield return new WaitForSeconds(intervalo);
+        }
+
+        sr.color = corOriginal;
+        rotinaPiscar = null;
+    }
+
     private IEnumerator exclamacao()
     {
         yield return new WaitForSeconds(0.1f);
