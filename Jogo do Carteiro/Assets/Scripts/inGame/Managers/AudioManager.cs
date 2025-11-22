@@ -84,6 +84,7 @@ public class AudioManager : MonoBehaviour
     public void PararMusica()
     {
         bgmSource.Stop();
+        bgmSource.clip = null;
     }
 
     // EFEITOS 

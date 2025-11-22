@@ -56,8 +56,16 @@ public class MenuController : MonoBehaviour
    
     public void Jogar()
     {
+        AudioManager.instance.PararMusica();
         //SceneManager.LoadScene(CenaCutscene);
         SceneManager.LoadScene(CenaJogar);
+    }
+
+    public void Cutscene()
+    {
+        AudioManager.instance.PararMusica();
+        AudioManager.instance.cutsceneSource.Stop();
+        SceneManager.LoadScene(CenaCutscene);
     }
 
     public void Creditos()

@@ -220,16 +220,27 @@ public class HordaManager : MonoBehaviour
 
     public void DefinirAumentoParallax(bool ativado)
     {
+        //Debug.Log("Toggle mandou: " + ativado);
+
         aumentarParallax = ativado;
         PlayerPrefs.SetInt("parallaxAumentar", ativado ? 1 : 0);
 
         if (!ativado)
         {
             multiplicadorParallax = 1f;
-
             foreach (Parallax p in FindObjectsByType<Parallax>(FindObjectsSortMode.None))
                 p.AtualizarVelocidadeParallax(1f);
+
+           // Debug.Log("Parallax DESATIVADO");
+        }
+        else
+        {
+            multiplicadorParallax = 1f + (NumeroHorda - 1) * aumentoParallaxPorHorda;
+
+            foreach (Parallax p in FindObjectsByType<Parallax>(FindObjectsSortMode.None))
+                p.AtualizarVelocidadeParallax(multiplicadorParallax);
+
+            //Debug.Log("Parallax ATIVADO — vel=" + multiplicadorParallax);
         }
     }
-
 }

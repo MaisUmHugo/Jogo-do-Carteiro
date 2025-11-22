@@ -25,13 +25,9 @@ public class CutsceneManager : MonoBehaviour
             return;
         }
 
-        // --- IMPORTANTE ---
         // Diz ao video player para usar o AudioSource do AudioManager
         videoPlayer.audioOutputMode = VideoAudioOutputMode.AudioSource;
         videoPlayer.SetTargetAudioSource(0, AudioManager.instance.cutsceneSource);
-
-        // Seta volume via AudioManager
-        AudioManager.instance.cutsceneSource.volume = 1f;
 
         // Preparação do vídeo
         videoPlayer.Prepare();
@@ -42,15 +38,6 @@ public class CutsceneManager : MonoBehaviour
 
         videoPlayer.loopPointReached += OnVideoEnd;
     }
-
-    /*private void Update()
-    {
-        // Permite pular cutscene
-        if (podePular && (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("Submit")))
-        {
-            CarregarProximaCena();
-        }
-    } */
 
     private void OnVideoEnd(VideoPlayer vp)
     {
