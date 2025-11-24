@@ -174,25 +174,27 @@ public class Bebado : Entregavel
 
     private IEnumerator EfeitoDeAviso()
     {
+        // piscar
         entregavelPisca?.PiscarAtivo();
-        StartCoroutine(ExclamacaoAviso());
 
-        yield return new WaitForSeconds(3.5f);
-        entregavelPisca?.PararPiscar();
-    }
-
-    private IEnumerator ExclamacaoAviso()
-    {
+        // exclamação
         GameObject prefab = Resources.Load<GameObject>("PontoExclamacao");
+        GameObject instancia = null;
 
         if (prefab != null)
         {
-            GameObject instancia = Instantiate(prefab, Exclamacao.position, Quaternion.identity);
-            instancia.transform.SetParent(transform, worldPositionStays: true);
-
-            yield return new WaitForSeconds(tempoexclamacao);
-
-            Destroy(instancia);
+            instancia = Instantiate(prefab, Exclamacao.position, Quaternion.identity);
+            instancia.transform.SetParent(transform, true);
         }
+
+        // tempo que a exclamação dura
+        yield return new WaitForSeconds(tempoexclamacao);
+
+        // para exclamação
+        if (instancia != null)
+            Destroy(instancia);
+
+        // para o piscar
+        entregavelPisca?.PararPiscar();
     }
 }
