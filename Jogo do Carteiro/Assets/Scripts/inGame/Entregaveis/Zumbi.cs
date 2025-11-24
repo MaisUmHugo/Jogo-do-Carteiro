@@ -77,6 +77,12 @@ public class Zumbi : Entregavel
         Vector3 viewPos = Camera.main.WorldToViewportPoint(transform.position);
         if (viewPos.x < -0.1f)
             Destroy(gameObject);
+
+        if (transform.position.x < jogador.transform.position.x - 50f)
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     private void MoverParaEsquerda(float velocidade)

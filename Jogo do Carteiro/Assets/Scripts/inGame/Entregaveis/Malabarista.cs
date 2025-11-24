@@ -110,6 +110,12 @@ public class Malabarista : Entregavel
 
             Destroy(gameObject);
         }
+
+        if (transform.position.x < jogador.transform.position.x - 50f)
+        {
+            Destroy(gameObject);
+            return;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

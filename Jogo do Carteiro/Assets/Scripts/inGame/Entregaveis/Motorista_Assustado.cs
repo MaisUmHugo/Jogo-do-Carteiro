@@ -59,7 +59,7 @@ public class Motorista_Assustado : Entregavel
     {
         if (recebeu)
         {
-            // Já entregou → apenas vai embora para a esquerda
+            // Já entregou - apenas vai embora para a esquerda
             transform.position += Vector3.left * velocidade * Time.deltaTime;
             return;
         }
@@ -144,7 +144,6 @@ public class Motorista_Assustado : Entregavel
     {
         podereceber = true;
         ativoParaEntrega = true;
-        anim.SetTrigger("PodeEntregar");
         sr.color = corAtivo; // piscar (feedback visual)
         Debug.Log("MAssustado proximo, entregue agora!");
         GameObject prefab = Resources.Load<GameObject>("PontoExclamacao");
