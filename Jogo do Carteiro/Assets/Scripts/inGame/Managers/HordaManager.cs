@@ -40,6 +40,7 @@ public class HordaManager : MonoBehaviour
 
 
     private bool HordaMudou, Objetivo;
+    private bool Normal = true;
     public static HordaManager instance;
     [System.Serializable]
     public class TagsPorHorda
@@ -71,6 +72,18 @@ public class HordaManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.N))
         {
             AlterarHorda();
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            int i = 0;
+            Normal = false;
+            while (i <= 4)
+            {
+                AlterarHorda();
+                trocandoHorda = false;
+                Normal = true;
+                i++;
+            }
         }
 
     }
@@ -162,8 +175,11 @@ public class HordaManager : MonoBehaviour
         */
 
         Mudarcondicao();
+        if (Normal)
+        {
             StartCoroutine(DelayProximaHorda());
             Debug.Log($"[HordaManager] Esperando {delayEntreHordas}s antes da próxima horda ({NumeroHorda})");
+        }
     }
 
     private IEnumerator DelayProximaHorda()
