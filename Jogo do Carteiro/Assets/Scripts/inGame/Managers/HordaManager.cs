@@ -130,10 +130,13 @@ public class HordaManager : MonoBehaviour
             HordaMudou = false;
 
             // aumenta levemente a velocidade do fundo (efeito de intensidade)
-            if (aumentarParallax)
-                multiplicadorParallax += aumentoParallaxPorHorda;
-            else
-                multiplicadorParallax = 1f; // reset para a velocidade normal
+            if (NumeroHorda <= 16)
+            {
+                if (aumentarParallax)
+                    multiplicadorParallax += aumentoParallaxPorHorda;
+                else
+                    multiplicadorParallax = 1f; // reset para a velocidade normal
+            }
 
             // notifica todos os parallax ativos
             foreach (Parallax p in FindObjectsByType<Parallax>(FindObjectsSortMode.None))

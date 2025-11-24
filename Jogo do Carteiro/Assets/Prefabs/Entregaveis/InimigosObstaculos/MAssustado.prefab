@@ -408,7 +408,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ativoParaEntrega: 1
   Exclamacao: {fileID: 1112210427296886493}
-  velocidade: 15
+  velocidade: 12
   tempoAtivoEntrega: 2
   intervaloPiscar: 0.15
   distanciaEntrega: 70

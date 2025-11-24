@@ -367,8 +367,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ativoParaEntrega: 1
   Exclamacao: {fileID: 8916029965392623579}
-  velocidadeVertical: 4
-  velocidadeFrente: 2
+  velocidadeVertical: 2.5
+  velocidadeFrente: 1
   velocidadeSaida: 3
   tempoAtivoEntrega: 3.5
   tempoexclamacao: 1.5

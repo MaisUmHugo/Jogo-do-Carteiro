@@ -41,6 +41,7 @@ public class SpawnerManager : MonoBehaviour
 
     private float intervaloPadrao;
     private float velocidadePadrao;
+    private bool velocidadeflutuante;
 
     public List<string> tagsPermitidas = new List<string>();
 
@@ -66,6 +67,14 @@ public class SpawnerManager : MonoBehaviour
         if (intervaloSpawn <= 2f)
         {
             intervaloSpawn = 2f;
+        }
+        if (multiplicadorVelocidade >= 13f)
+        {
+            velocidadeflutuante = true;
+        }
+        if (velocidadeflutuante)
+        {
+            multiplicadorVelocidade = Random.Range(11f, 13f);
         }
         if (!spawnAtivo) return;
 

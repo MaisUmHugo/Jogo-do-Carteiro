@@ -98,7 +98,7 @@ public class Mao_Zumbi : Entregavel
             Destroy(gameObject);
         }
 
-        if (transform.position.x < jogador.transform.position.x - 50f)
+        if (transform.position.x < jogador.transform.position.x - 20f)
         {
             Destroy(gameObject);
             return;
@@ -164,12 +164,13 @@ public class Mao_Zumbi : Entregavel
         // espera a janela de tempo para aceitar a entrega
         yield return new WaitForSeconds(tempoAtivoEntrega);
 
-        if (ativoParaEntrega && !recebeu)
+       /* if (ativoParaEntrega && !recebeu)
         {
             // não recebeu a entrega → falha
             PerderCombo();
             sr.color = corNormal;
         }
+       */
     }
     private IEnumerator DelayTransparente()
     {
