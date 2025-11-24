@@ -177,16 +177,16 @@ public class Malabarista : Entregavel
         
             Vector3 posSpawn =
                 transform.position +
-                transform.right * offsetBolaX +
-                transform.up * offsetBolaY;
+                Vector3.left * offsetBolaX +
+                Vector3.up * offsetBolaY;
 
             GameObject novaBola = Instantiate(bola, posSpawn, Quaternion.identity);
             
             // deslocamento aleatório
-            float randomOffsetX = Random.Range(-25f, 25f);
+            float randomOffsetX = Random.Range(10f, 25f);
             // destino da bola - Lane onde vai cair
             Vector3 destino = new Vector3(
-                posSpawn.x + randomOffsetX, // joga aleatoriamente pra frente ou pra trás
+                posSpawn.x - randomOffsetX, 
                 LanesController.instance.PosicaoY(jogador.linhaAtual),
                 0f
             );
