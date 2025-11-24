@@ -438,8 +438,10 @@ MonoBehaviour:
   velocidade: 5
   trocaLaneIntervalo: 3.5
   velocidadeTrocaLane: 5
+  tempoAtivoEntrega: 0
+  intervaloPiscar: 0
   distanciaEntrega: 80
-  tempoexclamacao: 5
+  tempoexclamacao: 3
   entregavelPisca: {fileID: -1538667524945953015}
   popupPontuacao: {fileID: 2840320702199764024}
   offsetY: 4
