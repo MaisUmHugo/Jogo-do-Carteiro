@@ -162,8 +162,8 @@ public class HordaManager : MonoBehaviour
         */
 
         Mudarcondicao();
-        StartCoroutine(DelayProximaHorda());
-        Debug.Log($"[HordaManager] Esperando {delayEntreHordas}s antes da próxima horda ({NumeroHorda})");
+            StartCoroutine(DelayProximaHorda());
+            Debug.Log($"[HordaManager] Esperando {delayEntreHordas}s antes da próxima horda ({NumeroHorda})");
     }
 
     private IEnumerator DelayProximaHorda()

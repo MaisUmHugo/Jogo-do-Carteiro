@@ -183,6 +183,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: GeralManagement
       objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: tagsPorHorda.Array.data[2].tagsPermitidas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: tagsPorHorda.Array.data[3].tagsPermitidas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: tagsPorHorda.Array.data[5].tagsPermitidas.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: 'tagsPorHorda.Array.data[0].tagsPermitidas.Array.data[0]'
+      value: Bebado
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: 'tagsPorHorda.Array.data[1].tagsPermitidas.Array.data[0]'
+      value: Bebado
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: 'tagsPorHorda.Array.data[2].tagsPermitidas.Array.data[0]'
+      value: MAssustado
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: 'tagsPorHorda.Array.data[2].tagsPermitidas.Array.data[1]'
+      value: Bebado
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: 'tagsPorHorda.Array.data[3].tagsPermitidas.Array.data[1]'
+      value: Bebado
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: 'tagsPorHorda.Array.data[5].tagsPermitidas.Array.data[0]'
+      value: Louco
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: 'tagsPorHorda.Array.data[5].tagsPermitidas.Array.data[2]'
+      value: Zumbi
+      objectReference: {fileID: 0}
     - target: {fileID: 8841676333861181829, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.002373
@@ -1024,10 +1064,6 @@ PrefabInstance:
       propertyPath: hudCanvas
       value: 
       objectReference: {fileID: 2034614656}
-    - target: {fileID: 110172492937459459, guid: f37544219bba8af4cbd9459dba4b1897, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2702862090208060602, guid: f37544219bba8af4cbd9459dba4b1897, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1067,30 +1103,6 @@ PrefabInstance:
     - target: {fileID: 2702862090208060602, guid: f37544219bba8af4cbd9459dba4b1897, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2874202062376795715, guid: f37544219bba8af4cbd9459dba4b1897, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2874202062376795715, guid: f37544219bba8af4cbd9459dba4b1897, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2874202062376795715, guid: f37544219bba8af4cbd9459dba4b1897, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -211
-      objectReference: {fileID: 0}
-    - target: {fileID: 5444712990647678171, guid: f37544219bba8af4cbd9459dba4b1897, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5444712990647678171, guid: f37544219bba8af4cbd9459dba4b1897, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5444712990647678171, guid: f37544219bba8af4cbd9459dba4b1897, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 208
       objectReference: {fileID: 0}
     - target: {fileID: 9024803893265074521, guid: f37544219bba8af4cbd9459dba4b1897, type: 3}
       propertyPath: m_Name

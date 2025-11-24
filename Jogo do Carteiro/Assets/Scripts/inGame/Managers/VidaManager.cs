@@ -28,6 +28,19 @@ public class VidaManager : MonoBehaviour
     {
         ResetarVidas();
     }
+    private void Update()
+    {
+        // Atalho de debug: perder 1 de vida com Shift + P
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.P))
+        {
+            PerderVida();
+        }
+        // Atalho de debug: ganha 1 de vida com Shift + V
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.V))
+        {
+            GanharVida();
+        }
+    }
 
     public void ResetarVidas()
     {
@@ -63,7 +76,7 @@ public class VidaManager : MonoBehaviour
     }
     private IEnumerator DelayVida()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.5f);
         anim.SetBool("Damage", false);
     }
 

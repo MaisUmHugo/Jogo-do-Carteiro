@@ -63,6 +63,10 @@ public class SpawnerManager : MonoBehaviour
 
     void Update()
     {
+        if (intervaloSpawn <= 2f)
+        {
+            intervaloSpawn = 2f;
+        }
         if (!spawnAtivo) return;
 
         if (Time.time >= proximoSpawn)

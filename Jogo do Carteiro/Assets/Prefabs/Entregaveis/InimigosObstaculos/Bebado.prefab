@@ -141,14 +141,14 @@ RectTransform:
   m_GameObject: {fileID: 1061928293050211627}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7665410091036526775}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.69, y: 1.02}
+  m_AnchoredPosition: {x: 1.51, y: 0.92}
   m_SizeDelta: {x: 3.7896, y: 0.6723}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &4990147746383713769
@@ -339,7 +339,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.3466225, y: -3.8, z: 0}
-  m_LocalScale: {x: 6.4, y: 6.4, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7088979844666674651}
@@ -438,10 +438,8 @@ MonoBehaviour:
   velocidade: 5
   trocaLaneIntervalo: 3.5
   velocidadeTrocaLane: 5
-  tempoAtivoEntrega: 3.5
-  intervaloPiscar: 0.15
-  distanciaEntrega: 160
-  tempoexclamacao: 2
+  distanciaEntrega: 80
+  tempoexclamacao: 5
   entregavelPisca: {fileID: -1538667524945953015}
   popupPontuacao: {fileID: 2840320702199764024}
   offsetY: 4
@@ -482,7 +480,7 @@ Transform:
   m_GameObject: {fileID: 3136623225874624623}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.16, y: 0.77, z: 0}
+  m_LocalPosition: {x: -1.24, y: 0.77, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
