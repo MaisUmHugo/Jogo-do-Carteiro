@@ -184,6 +184,14 @@ PrefabInstance:
       value: GeralManagement
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: tagsPorHorda.Array.data[0].tagsPermitidas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: tagsPorHorda.Array.data[1].tagsPermitidas.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: tagsPorHorda.Array.data[2].tagsPermitidas.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -197,19 +205,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[0].tagsPermitidas.Array.data[0]'
-      value: Zumbi
+      value: PCasa
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: 'tagsPorHorda.Array.data[0].tagsPermitidas.Array.data[1]'
+      value: Bebado
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[1].tagsPermitidas.Array.data[0]'
-      value: Zumbi
+      value: PCasa
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
+      propertyPath: 'tagsPorHorda.Array.data[1].tagsPermitidas.Array.data[1]'
+      value: Bebado
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[2].tagsPermitidas.Array.data[0]'
-      value: MAssustado
+      value: PCasa
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[2].tagsPermitidas.Array.data[1]'
-      value: Malabarista
+      value: Bebado
       objectReference: {fileID: 0}
     - target: {fileID: 7747549092625879713, guid: 51db5e9236d182a4189b7931cfa750c7, type: 3}
       propertyPath: 'tagsPorHorda.Array.data[3].tagsPermitidas.Array.data[1]'
@@ -837,6 +853,66 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Parallax
   speed: 0.07
+--- !u!1001 &934156629
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2951059114790262384, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -15.45137
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951059114790262384, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.88577
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951059114790262384, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951059114790262384, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951059114790262384, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951059114790262384, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951059114790262384, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951059114790262384, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951059114790262384, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2951059114790262384, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6937591069211705461, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
+      propertyPath: m_Name
+      value: Casa
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9188929590291052935, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
 --- !u!1001 &998861243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1411,3 +1487,4 @@ SceneRoots:
   - {fileID: 998861243}
   - {fileID: 309441166}
   - {fileID: 705134850}
+  - {fileID: 934156629}
