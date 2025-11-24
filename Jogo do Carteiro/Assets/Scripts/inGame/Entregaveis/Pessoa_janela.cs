@@ -104,59 +104,53 @@ public class Pessoa_janela : Entregavel
     }
     public override void ReceberEntrega()
     {
-        sr.color = corNormal;
         base.ReceberEntrega();
 
         entregavelPisca?.PiscarRecebendo();
-        Color cor = sr.color;
-        cor.a = 0.5f; // meio transparente
-        sr.color = cor;
-        // Calcula pontuação com bônus
-        int multiplicador = ComboManager.instance.GetMultiplicador();
-        int total = 100 * multiplicador;
-
-        popupPontuacao?.MostrarPontuacao(total);
+        popupPontuacao?.MostrarPontuacao(100 * ComboManager.instance.GetMultiplicador());
 
         if (anim != null)
             anim.SetTrigger("RecebeuEntrega");
 
         Collider2D col = GetComponent<Collider2D>();
         if (col != null)
-        {
-            col.enabled = false; // desliga colisão
-        }
+            col.enabled = false;
+
         recebeu = true;
-        StartCoroutine(PararPiscar());
+
+        StartCoroutine(EsperarAnimacaoDepoisTransparente());
     }
-    private System.Collections.IEnumerator ProntoparaEntrega()
+    private IEnumerator ProntoparaEntrega()
     {
         if (anim != null)
             anim.SetTrigger("AbrirJanela");
-       
+
         yield return new WaitForSeconds(0.1f);
-        
+
         podereceber = true;
         ativoParaEntrega = true;
-        StartCoroutine(ExibirExclamacao());
-        sr.color = corAtivo; // piscar (feedback visual)
-        
-        Debug.Log("Janela proxima, entregue agora!");
 
-        // espera a janela de tempo para aceitar a entrega
+        StartCoroutine(ExibirExclamacaoTemporaria());
+        entregavelPisca?.PiscarAtivo();  
+
+        Debug.Log("Janela próxima — pode entregar!");
+
+        // Mantém sua janela de entrega normal
         yield return new WaitForSeconds(tempoAtivoEntrega);
 
         if (ativoParaEntrega && !recebeu)
         {
-            // não recebeu a entrega → falha
             PerderCombo();
             sr.color = corNormal;
             podereceber = false;
+
             if (anim != null)
                 anim.SetTrigger("FalhouEntrega");
         }
     }
 
-    private IEnumerator ExibirExclamacao()
+
+    private IEnumerator ExibirExclamacaoTemporaria()
     {
         GameObject prefab = Resources.Load<GameObject>("PontoExclamacao");
         if (prefab == null) yield break;
@@ -164,13 +158,32 @@ public class Pessoa_janela : Entregavel
         GameObject instancia = Instantiate(prefab, Exclamacao.position, Quaternion.identity);
         instancia.transform.SetParent(transform, true);
 
-        yield return new WaitForSeconds(tempoExclamacao);
-        Destroy(instancia);
-    }
+        yield return new WaitForSeconds(1.2f);
 
-    private IEnumerator PararPiscar()
-    {
-        yield return new WaitForSeconds(1.5f);
+        Destroy(instancia);
+
         entregavelPisca?.PararPiscar();
     }
+
+    private IEnumerator EsperarAnimacaoDepoisTransparente()
+    {
+        // Garantir que entrou no estado certo
+        yield return null;
+        entregavelPisca?.PararPiscar();
+        // Duração real da animação atual
+        AnimatorStateInfo info = anim.GetCurrentAnimatorStateInfo(0);
+        float duracao = info.length;
+
+        float delayFinal = 0.5f; 
+
+        // Esperar animação e delay
+        yield return new WaitForSeconds(duracao + delayFinal);
+
+        // transparente
+        Color cor = sr.color;
+        cor.a = 0.5f;
+        sr.color = cor;
+
+    }
+
 }
