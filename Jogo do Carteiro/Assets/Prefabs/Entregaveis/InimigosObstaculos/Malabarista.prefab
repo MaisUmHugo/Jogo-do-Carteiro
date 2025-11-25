@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.86, y: 0.69}
+  m_AnchoredPosition: {x: 1.11, y: 0.998}
   m_SizeDelta: {x: 3.7896, y: 0.6723}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &5087155124339981794
@@ -311,7 +311,7 @@ Transform:
   m_GameObject: {fileID: 4595650575896310090}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.47, y: 0.59, z: 0}
+  m_LocalPosition: {x: -0.47, y: 0.962, z: 0}
   m_LocalScale: {x: 0.15625, y: 0.15625, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -569,7 +569,7 @@ MonoBehaviour:
   tempoexclamacao: 1
   corNormal: {r: 1, g: 1, b: 1, a: 1}
   corAtivo: {r: 1, g: 0, b: 0, a: 1}
-  offsetY: 3
+  offsetY: 0
   offsetBolaX: -0.5
   offsetBolaY: -2
   entregavelPisca: {fileID: 3858005263237758121}
@@ -608,17 +608,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.033501588, y: 0.0029325485}
+  m_Offset: {x: -0.0013191104, y: 0.5536103}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 0.45833334, y: 1.125}
     newSize: {x: 19.2, y: 10.8}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.22658609, y: 1.0075583}
+  m_Size: {x: 0.5484108, y: 1.1505916}
   m_EdgeRadius: 0
 --- !u!50 &-8753955209446439088
 Rigidbody2D:
