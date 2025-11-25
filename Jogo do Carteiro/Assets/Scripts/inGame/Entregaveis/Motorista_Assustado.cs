@@ -61,6 +61,11 @@ public class Motorista_Assustado : Entregavel
         {
             // Já entregou - apenas vai embora para a esquerda
             transform.position += Vector3.left * velocidade * Time.deltaTime;
+            if (transform.position.x < jogador.transform.position.x - 30f)
+            {
+                Destroy(gameObject);
+                return;
+            }
             return;
         }
 
