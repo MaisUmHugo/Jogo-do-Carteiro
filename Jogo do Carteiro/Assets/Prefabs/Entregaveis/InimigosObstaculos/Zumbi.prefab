@@ -271,9 +271,9 @@ MonoBehaviour:
   ativoParaEntrega: 1
   Exclamacao: {fileID: 8603230579163943760}
   velocidadeCaminhada: 6
-  velocidadeCorrida: 8
+  velocidadeCorrida: 8.5
   velocidadeTrocaLane: 12
-  distanciaCorrida: 60
+  dCorrida: 80
   dColisao: 12
   tempoexclamacao: 2
   entregavelPisca: {fileID: -5909581724401143014}
