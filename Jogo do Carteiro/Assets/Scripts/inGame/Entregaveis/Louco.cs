@@ -140,6 +140,7 @@ public class Louco : Entregavel
             Debug.Log("Entrega não ativa no momento!");  // Log para depuração
             return;  // Não faz nada se não estiver ativo para a entrega
         }
+        sr.color = Color.white;
         StartCoroutine(PararPiscar());
         ativoParaEntrega = false;  // Desativa entrega após processar
         entregaRecebida = true;
