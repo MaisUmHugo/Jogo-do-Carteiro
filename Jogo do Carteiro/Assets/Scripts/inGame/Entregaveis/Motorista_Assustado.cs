@@ -12,8 +12,8 @@ public class Motorista_Assustado : Entregavel
     public float tempoexclamacao;
 
     private SpriteRenderer sr;
-    public Color corNormal = Color.white; // cor padrão
-    public Color corAtivo = Color.red;    // cor quando está ativo para receber entrega
+    //public Color corNormal = Color.white; // cor padrão
+    //public Color corAtivo = Color.red;    // cor quando está ativo para receber entrega
     private bool coroutineIniciada = false;
     private Mov jogador;
     private bool recebeu, podereceber;
@@ -115,7 +115,7 @@ public class Motorista_Assustado : Entregavel
     }
     public override void ReceberEntrega()
     {
-        sr.color = corNormal;
+        //sr.color = corNormal;
         base.ReceberEntrega();
 
         entregavelPisca?.PiscarRecebendo();
@@ -144,7 +144,8 @@ public class Motorista_Assustado : Entregavel
     {
         podereceber = true;
         ativoParaEntrega = true;
-        sr.color = corAtivo; // piscar (feedback visual)
+        //sr.color = corAtivo; // piscar (feedback visual)
+        entregavelPisca?.PiscarAtivo();
         Debug.Log("MAssustado proximo, entregue agora!");
         GameObject prefab = Resources.Load<GameObject>("PontoExclamacao");
         if (prefab != null)
@@ -169,12 +170,12 @@ public class Motorista_Assustado : Entregavel
             // não recebeu a entrega → falha
             anim.SetTrigger("FalhouEntrega");
             PerderCombo();
-            sr.color = corNormal;
+            PararPiscar();
         }
     }
     private IEnumerator PararPiscar()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.75f);
         entregavelPisca?.PararPiscar();
     }
 }
