@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using UnityEngine.Rendering;
 
 public class VidaManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class VidaManager : MonoBehaviour
     private Animator anim;
 
     private bool invulneravel = false;
+    private bool cheat = false;
     [SerializeField] private float tempoInvulneravel = 0.75f;
 
     private void Awake()
@@ -33,6 +35,7 @@ public class VidaManager : MonoBehaviour
         // Atalho de debug: perder 1 de vida com Shift + P
         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.P))
         {
+            cheat = true;
             PerderVida();
         }
         // Atalho de debug: ganha 1 de vida com Shift + V
@@ -53,7 +56,6 @@ public class VidaManager : MonoBehaviour
         // evita perder vida se já estiver invulnerável ou morto
         if (invulneravel || vidasAtuais <= 0)
             return;
-
         vidasAtuais--;
         anim.SetBool("Damage", true);
         OnVidaMudou?.Invoke(vidasAtuais);
@@ -65,6 +67,11 @@ public class VidaManager : MonoBehaviour
         }
         else
         {
+            if (cheat)
+            {
+                cheat = false;
+                return;
+            }
             StartCoroutine(InvulnerabilidadeTemporaria());
         }
     }
