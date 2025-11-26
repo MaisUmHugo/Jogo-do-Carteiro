@@ -42,10 +42,11 @@ public class Malabarista : Entregavel
     public EntregavelPisca entregavelPisca;
     public PontuacaoPopup popupPontuacao;
 
-
+    private Animator anim;
     private void Awake()
     {
         sr = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
         if (Exclamacao == null) Exclamacao = transform;
     }
 
@@ -131,7 +132,7 @@ public class Malabarista : Entregavel
     {
         base.ReceberEntrega();
         recebeu = true;
-
+        anim.SetTrigger("RecebeuEntrega");
         int multiplicador = ComboManager.instance.GetMultiplicador();
         int total = 100 * multiplicador;
 

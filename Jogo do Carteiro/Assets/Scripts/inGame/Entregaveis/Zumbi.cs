@@ -8,7 +8,7 @@ public class Zumbi : Entregavel
     public float velocidadeCaminhada;
     public float velocidadeCorrida;
     public float velocidadeTrocaLane;
-    public float distanciaCorrida;
+    public float dCorrida; // distancia de corrida
     public float dColisao; // Distancia De colisão
     public float tempoexclamacao;
 
@@ -56,7 +56,7 @@ public class Zumbi : Entregavel
             anim.SetBool("Andar", true);
             transform.position += Vector3.left * velocidadeCaminhada * Time.deltaTime;
 
-            if (Mathf.Abs(transform.position.x - jogador.transform.position.x) <= distanciaCorrida)
+            if (Mathf.Abs(transform.position.x - jogador.transform.position.x) <= dCorrida)
                 IniciarCorrida();
         }
         else
@@ -96,6 +96,7 @@ public class Zumbi : Entregavel
 
     private void IniciarCorrida()
     {
+        Debug.Log("Zumbi Correndo");
         correndo = true;
         anim.SetBool("Correr", true);
         anim.SetBool("Andar", false);
