@@ -31,7 +31,25 @@ public class ParallaxRandomSpawner : MonoBehaviour
 
         StartCoroutine(ControlarAnimacoes());
     }
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.T))
+        {
+            // Se ainda há animações e não está animando, inicia uma agora
+            if (!animando && animacoesRestantes.Count > 0)
+            {
+                int indice = Random.Range(0, animacoesRestantes.Count);
+                Sprite[] escolhida = animacoesRestantes[indice];
+                animacoesRestantes.RemoveAt(indice);
 
+                StartCoroutine(TocarAnimacao(escolhida));
+            }
+            else if (animacoesRestantes.Count == 0)
+            {
+                Debug.Log("Foi todas as animações ai.");
+            }
+        }
+    }
     IEnumerator ControlarAnimacoes()
     {
         while (animacoesRestantes.Count > 0)
@@ -49,34 +67,29 @@ public class ParallaxRandomSpawner : MonoBehaviour
                 yield return StartCoroutine(TocarAnimacao(escolhida));
             }
         }
-
-        // reiniciar se quiser
-        // StartCoroutine(ReiniciarAnimacoes());  
-
-        IEnumerator TocarAnimacao(Sprite[] frames)
-        {
-            animando = true;
-            spriteRenderer.enabled = true;
-
-            for (int i = 0; i < frames.Length; i++)
-            {
-                spriteRenderer.sprite = frames[i];
-                yield return new WaitForSeconds(duracaoFrame);
-            }
-
-            spriteRenderer.enabled = false;
-            animando = false;
-        }
-
-        // reiniciar quando acabar todas
-        IEnumerator ReiniciarAnimacoes()
-        {
-            animacoesRestantes.Add(animacaoA);
-            animacoesRestantes.Add(animacaoB);
-            animacoesRestantes.Add(animacaoC);
-
-            StartCoroutine(ControlarAnimacoes());
-            yield break;
-        }
     }
+    IEnumerator TocarAnimacao(Sprite[] frames)
+    {
+        animando = true;
+        spriteRenderer.enabled = true;
+
+        for (int i = 0; i < frames.Length; i++)
+        {
+            spriteRenderer.sprite = frames[i];
+            yield return new WaitForSeconds(duracaoFrame);
+        }
+
+        spriteRenderer.enabled = false;
+        animando = false;
+    }
+    // reiniciar quando acabar todas
+    /*  IEnumerator ReiniciarAnimacoes()
+      {
+          animacoesRestantes.Add(animacaoA);
+          animacoesRestantes.Add(animacaoB);
+          animacoesRestantes.Add(animacaoC);
+
+          StartCoroutine(ControlarAnimacoes());
+          yield break;
+      }*/
 }
