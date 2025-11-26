@@ -13,7 +13,7 @@ public class ParallaxRandomSpawner : MonoBehaviour
     public Sprite[] animacaoC;
 
     [Header("Configurações")]
-    public float duracaoFrame = 0.07f;
+    public float duracaoFrame;
     public float intervaloMin = 8f;
     public float intervaloMax = 14f;
 
@@ -47,6 +47,7 @@ public class ParallaxRandomSpawner : MonoBehaviour
             else if (animacoesRestantes.Count == 0)
             {
                 Debug.Log("Foi todas as animações ai.");
+                StartCoroutine(ReiniciarAnimacoes());
             }
         }
     }
@@ -67,6 +68,7 @@ public class ParallaxRandomSpawner : MonoBehaviour
                 yield return StartCoroutine(TocarAnimacao(escolhida));
             }
         }
+        StartCoroutine(ReiniciarAnimacoes());
     }
     IEnumerator TocarAnimacao(Sprite[] frames)
     {
@@ -82,8 +84,7 @@ public class ParallaxRandomSpawner : MonoBehaviour
         spriteRenderer.enabled = false;
         animando = false;
     }
-    // reiniciar quando acabar todas
-    /*  IEnumerator ReiniciarAnimacoes()
+      IEnumerator ReiniciarAnimacoes()
       {
           animacoesRestantes.Add(animacaoA);
           animacoesRestantes.Add(animacaoB);
@@ -91,5 +92,5 @@ public class ParallaxRandomSpawner : MonoBehaviour
 
           StartCoroutine(ControlarAnimacoes());
           yield break;
-      }*/
+      }
 }
