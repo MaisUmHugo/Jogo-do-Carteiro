@@ -273,7 +273,7 @@ MonoBehaviour:
   velocidadeCaminhada: 6
   velocidadeCorrida: 8.5
   velocidadeTrocaLane: 12
-  dCorrida: 80
+  dCorrida: 70
   dColisao: 12
   tempoexclamacao: 2
   entregavelPisca: {fileID: -5909581724401143014}
