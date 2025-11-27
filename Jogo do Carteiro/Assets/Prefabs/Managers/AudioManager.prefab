@@ -310,8 +310,8 @@ MonoBehaviour:
   cutsceneSource: {fileID: 2091123714151702601}
   sfxSource: {fileID: 5904214144437536320}
   musicaMenu: {fileID: 8300000, guid: eaef98f4d14764f4a9a4df8507bda992, type: 3}
-  musicaJogo: {fileID: 8300000, guid: eaef98f4d14764f4a9a4df8507bda992, type: 3}
-  musicaGameOver: {fileID: 8300000, guid: eaef98f4d14764f4a9a4df8507bda992, type: 3}
+  musicaJogo: {fileID: 8300000, guid: c7bfd0ee47619f4489341a870ce801f5, type: 3}
+  musicaGameOver: {fileID: 8300000, guid: c7bfd0ee47619f4489341a870ce801f5, type: 3}
 --- !u!1 &8936288476790851385
 GameObject:
   m_ObjectHideFlags: 0
