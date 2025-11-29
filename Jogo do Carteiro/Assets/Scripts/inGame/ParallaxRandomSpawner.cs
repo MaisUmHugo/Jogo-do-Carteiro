@@ -19,6 +19,12 @@ public class ParallaxRandomSpawner : MonoBehaviour
 
     private bool animando = false;
 
+    [Header("Movimento")]
+    public float velocidadeMovimento = 2f; 
+    public Transform pontoInicial;         
+    public Transform pontoFinal;           
+
+
     private List<Sprite[]> animacoesRestantes = new List<Sprite[]>();
 
     void Start()
@@ -75,16 +81,32 @@ public class ParallaxRandomSpawner : MonoBehaviour
         animando = true;
         spriteRenderer.enabled = true;
 
+        // COMEÇA FORA DA CÂMERA
+        transform.position = pontoInicial.position;
+
         for (int i = 0; i < frames.Length; i++)
         {
             spriteRenderer.sprite = frames[i];
-            yield return new WaitForSeconds(duracaoFrame);
+
+            // MOVE EM X enquanto anima
+            float tempo = 0f;
+            while (tempo < duracaoFrame)
+            {
+                tempo += Time.deltaTime;
+                transform.position += Vector3.right * velocidadeMovimento * Time.deltaTime;
+
+                if (transform.position.x >= pontoFinal.position.x)
+                    break;
+
+                yield return null;
+            }
         }
 
         spriteRenderer.enabled = false;
         animando = false;
     }
-      IEnumerator ReiniciarAnimacoes()
+
+    IEnumerator ReiniciarAnimacoes()
       {
           animacoesRestantes.Add(animacaoA);
           animacoesRestantes.Add(animacaoB);

@@ -718,6 +718,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &687156368 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8010118038042356737, guid: 8984bd0ebdc39be4fad08e9c00409014, type: 3}
+  m_PrefabInstance: {fileID: 998861243}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &705134850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -808,6 +813,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 879013844392464262, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 879013844392464262, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1065233613
+      objectReference: {fileID: 0}
     - target: {fileID: 2951059114790262384, guid: 8d0ca17bda01dc549b37996b2af233ca, type: 3}
       propertyPath: m_LocalPosition.x
       value: -15.45137
@@ -892,6 +905,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5278995130769014653, guid: 8984bd0ebdc39be4fad08e9c00409014, type: 3}
+      propertyPath: duracaoFrame
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5278995130769014653, guid: 8984bd0ebdc39be4fad08e9c00409014, type: 3}
+      propertyPath: pontoInicial
+      value: 
+      objectReference: {fileID: 687156368}
     - target: {fileID: 6114940221119720850, guid: 8984bd0ebdc39be4fad08e9c00409014, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1
@@ -952,12 +973,12 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2043534133966052689, guid: 8984bd0ebdc39be4fad08e9c00409014, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 579985904}
     - targetCorrespondingSourceObject: {fileID: 2184583083458364571, guid: 8984bd0ebdc39be4fad08e9c00409014, type: 3}
       insertIndex: -1
       addedObject: {fileID: 714830201}
+    - targetCorrespondingSourceObject: {fileID: 2043534133966052689, guid: 8984bd0ebdc39be4fad08e9c00409014, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 579985904}
     - targetCorrespondingSourceObject: {fileID: 4571045553712541340, guid: 8984bd0ebdc39be4fad08e9c00409014, type: 3}
       insertIndex: -1
       addedObject: {fileID: 468953176}
