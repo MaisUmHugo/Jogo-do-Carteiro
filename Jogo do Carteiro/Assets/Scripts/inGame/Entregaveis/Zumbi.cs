@@ -78,7 +78,7 @@ public class Zumbi : Entregavel
         if (viewPos.x < -0.1f)
             Destroy(gameObject);
 
-        if (transform.position.x < jogador.transform.position.x - 50f)
+        if (transform.position.x < jogador.transform.position.x - 30f)
         {
             Destroy(gameObject);
             return;
